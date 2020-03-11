@@ -1,0 +1,2009 @@
+{
+	"name": "Italian Ruby",
+	"scopeName": "source.italianruby",
+	"patterns": [
+		{
+			"captures": {
+				"1": {
+					"name": "keyword.control.class.ruby"
+				},
+				"2": {
+					"name": "entity.name.type.class.ruby"
+				},
+				"3": {
+					"name": "keyword.operator.other.ruby"
+				},
+				"4": {
+					"name": "entity.other.inherited-class.ruby"
+				},
+				"5": {
+					"name": "keyword.operator.other.ruby"
+				},
+				"6": {
+					"name": "variable.other.object.ruby"
+				}
+			},
+			"match": "^\\s*(classe)\\s+(?:([.a-zA-Z0-9_:]+)(?:\\s*(<)\\s*([.a-zA-Z0-9_:]+))?|(<<)\\s*([.a-zA-Z0-9_:]+))",
+			"name": "meta.class.ruby"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "keyword.control.module.ruby"
+				},
+				"2": {
+					"name": "entity.name.type.module.ruby"
+				},
+				"3": {
+					"name": "entity.other.inherited-class.module.first.ruby"
+				},
+				"4": {
+					"name": "punctuation.separator.inheritance.ruby"
+				},
+				"5": {
+					"name": "entity.other.inherited-class.module.second.ruby"
+				},
+				"6": {
+					"name": "punctuation.separator.inheritance.ruby"
+				},
+				"7": {
+					"name": "entity.other.inherited-class.module.third.ruby"
+				},
+				"8": {
+					"name": "punctuation.separator.inheritance.ruby"
+				}
+			},
+			"match": "^\\s*(module)\\s+(([A-Z]\\w*(::))?([A-Z]\\w*(::))?([A-Z]\\w*(::))*[A-Z]\\w*)",
+			"name": "meta.module.ruby"
+		},
+		{
+			"comment": "everything being a reserved word, not a value and needing a 'end' is a..",
+			"match": "(?<!\\.)\\b(INIZIA|inizia|considera|classe|altrimenti|altrimenti_se|FINE|fine|assicura|per|se|in|modulo|recupera|allora|a_meno_che|finché|quando|mentre)\\b(?![?!])",
+			"name": "keyword.control.ruby"
+		},
+		{
+			"match": "\\b[A-Z]\\w*(?=((\\.|::)[A-Za-z]|\\[))",
+			"name": "support.class.ruby"
+		},
+		{
+			"match": "\\b[A-Z]\\w*\\b",
+			"name": "support.class.ruby"
+		},
+		{
+			"begin": "(?x)\n\t\t\t         (?=def\\b)                                                      # an optimization to help Oniguruma fail fast\n\t\t\t         (?<=^|\\s)(def)\\s+                                              # the def keyword\n\t\t\t         ( (?>[a-zA-Z_]\\w*(?>\\.|::))?                                   # a method name prefix\n\t\t\t           (?>[a-zA-Z_]\\w*(?>[?!]|=(?!>))?                              # the method name\n\t\t\t           |===?|!=|!~|>[>=]?|<=>|<[<=]?|[%&`/\\|^]|\\*\\*?|=?~|[-+]@?|\\[\\]=?) )  # …or an operator method\n\t\t\t         \\s*(\\()                                                        # the openning parenthesis for arguments\n\t\t\t        ",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.def.ruby"
+				},
+				"2": {
+					"name": "entity.name.function.ruby"
+				},
+				"3": {
+					"name": "punctuation.definition.parameters.ruby"
+				}
+			},
+			"comment": "the method pattern comes from the symbol pattern, see there for a explaination",
+			"end": "\\)",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.parameters.ruby"
+				}
+			},
+			"name": "meta.function.method.with-arguments.ruby",
+			"patterns": [
+				{
+					"begin": "(?=[&*_a-zA-Z])",
+					"end": "(?=[,)])",
+					"patterns": [
+						{
+							"captures": {
+								"1": {
+									"name": "storage.type.variable.ruby"
+								},
+								"2": {
+									"name": "constant.other.symbol.hashkey.parameter.function.ruby"
+								},
+								"3": {
+									"name": "punctuation.definition.constant.ruby"
+								},
+								"4": {
+									"name": "variable.parameter.function.ruby"
+								}
+							},
+							"match": "\\G([&*]?)(?:([_a-zA-Z]\\w*(:))|([_a-zA-Z]\\w*))"
+						},
+						{
+							"include": "#parens"
+						},
+						{
+							"include": "#braces"
+						},
+						{
+							"include": "$self"
+						}
+					]
+				}
+			],
+			"repository": {
+				"braces": {
+					"begin": "\\{",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.function.begin.ruby"
+						}
+					},
+					"end": "\\}",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.function.end.ruby"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#parens"
+						},
+						{
+							"include": "#braces"
+						},
+						{
+							"include": "$self"
+						}
+					]
+				},
+				"parens": {
+					"begin": "\\(",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.function.begin.ruby"
+						}
+					},
+					"end": "\\)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.function.end.ruby"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#parens"
+						},
+						{
+							"include": "#braces"
+						},
+						{
+							"include": "$self"
+						}
+					]
+				}
+			}
+		},
+		{
+			"begin": "(?x)\n\t\t\t         (?=def\\b)                                                      # an optimization to help Oniguruma fail fast\n\t\t\t         (?<=^|\\s)(def)\\s+                                              # the def keyword\n\t\t\t         ( (?>[a-zA-Z_]\\w*(?>\\.|::))?                                   # a method name prefix\n\t\t\t           (?>[a-zA-Z_]\\w*(?>[?!]|=(?!>))?                              # the method name\n\t\t\t           |===?|!=|!~|>[>=]?|<=>|<[<=]?|[%&`/\\|^]|\\*\\*?|=?~|[-+]@?|\\[\\]=?) )  # …or an operator method\n\t\t\t         [ \\t]                                                          # the space separating the arguments\n\t\t\t         (?=[ \\t]*[^\\s#;])                                              # make sure arguments and not a comment follow\n\t\t\t        ",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.def.ruby"
+				},
+				"2": {
+					"name": "entity.name.function.ruby"
+				}
+			},
+			"comment": "same as the previous rule, but without parentheses around the arguments",
+			"end": "$",
+			"name": "meta.function.method.with-arguments.ruby",
+			"patterns": [
+				{
+					"begin": "(?![\\s,])",
+					"end": "(?=,|$)",
+					"patterns": [
+						{
+							"captures": {
+								"1": {
+									"name": "storage.type.variable.ruby"
+								},
+								"2": {
+									"name": "constant.other.symbol.hashkey.parameter.function.ruby"
+								},
+								"3": {
+									"name": "punctuation.definition.constant.ruby"
+								},
+								"4": {
+									"name": "variable.parameter.function.ruby"
+								}
+							},
+							"match": "\\G([&*]?)(?:([_a-zA-Z]\\w*(:))|([_a-zA-Z]\\w*))",
+							"name": "variable.parameter.function.ruby"
+						},
+						{
+							"include": "$self"
+						}
+					]
+				}
+			]
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "keyword.control.def.ruby"
+				},
+				"3": {
+					"name": "entity.name.function.ruby"
+				}
+			},
+			"comment": " the optional name is just to catch the def also without a method-name",
+			"match": "(?x)\n\t\t\t         (?=def\\b)                                                           # an optimization to help Oniguruma fail fast\n\t\t\t         (?<=^|\\s)(def)\\b                                                    # the def keyword\n\t\t\t         ( \\s+                                                               # an optional group of whitespace followed by…\n\t\t\t           ( (?>[a-zA-Z_]\\w*(?>\\.|::))?                                      # a method name prefix\n\t\t\t             (?>[a-zA-Z_]\\w*(?>[?!]|=(?!>))?                                 # the method name\n\t\t\t             |===?|!=|!~|>[>=]?|<=>|<[<=]?|[%&`/\\|^]|\\*\\*?|=?~|[-+]@?|\\[\\]=?) ) )?  # …or an operator method\n\t\t\t        ",
+			"name": "meta.function.method.without-arguments.ruby"
+		},
+		{
+			"begin": "(?<=\\{|esegui|\\{\\s|esegui\\s)(\\|)",
+			"captures": {
+				"1": {
+					"name": "punctuation.separator.arguments.ruby"
+				}
+			},
+			"end": "(?<!\\|)(\\|)(?!\\|)",
+			"patterns": [
+				{
+					"include": "$self"
+				},
+				{
+					"match": "[_a-zA-Z][\\w]*",
+					"name": "variable.other.block.ruby"
+				},
+				{
+					"match": ",",
+					"name": "punctuation.separator.variable.ruby"
+				}
+			]
+		},
+		{
+			"begin": "(?<=\\{|fai|\\{\\s|fai\\s)(\\|)",
+			"captures": {
+				"1": {
+					"name": "punctuation.separator.arguments.ruby"
+				}
+			},
+			"end": "(?<!\\|)(\\|)(?!\\|)",
+			"patterns": [
+				{
+					"include": "$self"
+				},
+				{
+					"match": "[_a-zA-Z][\\w]*",
+					"name": "variable.other.block.ruby"
+				},
+				{
+					"match": ",",
+					"name": "punctuation.separator.variable.ruby"
+				}
+			]
+		},
+		{
+			"comment": "contextual smart pair support for block parameters",
+			"match": "(?<!\\.)\\b(fai|esegui)\\b",
+			"name": "keyword.control.start-block.ruby"
+		},
+		{
+			"comment": "contextual smart pair support",
+			"match": "(?<=\\{)(\\s+)",
+			"name": "meta.syntax.ruby.start-block"
+		},
+		{
+			"match": "\\b(abort|at_exit|autoload[?]?|binding|callcc|caller|caller_locations|chomp|chop|eval|exec|exit|exit!|fork|format|gets|global_variables|gsub|lambda|load|local_variables|open|p|print|printf|proc|putc|puts|rand|readline|readlines|select|set_trace_func|sleep|spawn|sprintf|srand|sub|syscall|system|test|trace_var|trap|untrace_var|warn)(\\b|(?<=[?!]))(?![?!])",
+			"name": "support.function.kernel.ruby"
+		},
+		{
+			"comment": " everything being a method but having a special function is a..",
+			"match": "\\b(inizializzatore|nuovo|loop|include|extend|prepend|fail|raise|attr_reader|attr_writer|attr_accessor|attr|catch|throw|private|private_class_method|module_function|public|public_class_method|protected|refine|using)\\b(?![?!])",
+			"name": "keyword.other.special-method.ruby"
+		},
+		{
+			"match": "(?<!\\.)\\b(alias|alias_method|blocco_dato[?]|esci|definito[?]|definita[?]|iterator[?]|prossima|prossimo|rifai|riesegui|riprova|ritorna|super|undef|rilascia)(\\b|(?<=[?]))(?![?!])",
+			"name": "keyword.control.pseudo-method.ruby"
+		},
+		{
+			"match": "\\b(nullo|nulla|si|no|vero|falso)\\b(?![?!])",
+			"name": "constant.language.ruby"
+		},
+		{
+			"match": "\\b(__(dir|FILE|LINE)__)\\b(?![?!])",
+			"name": "variable.language.ruby"
+		},
+		{
+			"match": "\\b(istanza|se_stesso|se_stessa)\\b(?![?!])",
+			"name": "variable.language.self.ruby"
+		},
+		{
+			"begin": "\\b(?<!\\.|::)(require|require_relative)\\b",
+			"captures": {
+				"1": {
+					"name": "keyword.other.special-method.ruby"
+				}
+			},
+			"end": "$|(?=#|\\})",
+			"name": "meta.require.ruby",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.variable.ruby"
+				}
+			},
+			"match": "(@)[a-zA-Z_]\\w*",
+			"name": "variable.other.readwrite.instance.ruby"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.variable.ruby"
+				}
+			},
+			"match": "(@@)[a-zA-Z_]\\w*",
+			"name": "variable.other.readwrite.class.ruby"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.variable.ruby"
+				}
+			},
+			"match": "(\\$)[a-zA-Z_]\\w*",
+			"name": "variable.other.readwrite.global.ruby"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "variable.other.readwrite.ruby"
+				},
+				"2": {
+					"name": "other"
+				}
+			},
+			"match": "\\b([a-zA-Z_][\\w]*)([\\s]*=)",
+			"name": "other"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "variable.other.readwrite.ruby"
+				},
+				"2": {
+					"name": "entity.name.function.ruby"
+				}
+			},
+			"match": "\\b([a-zA-Z_][\\w]*)\\.([a-zA-Z_][\\w\\?\\!]*)",
+			"name": "other"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.constant.ruby"
+				}
+			},
+			"comment": "symbols as hash key (1.9 syntax)",
+			"match": "(?>[a-zA-Z_]\\w*(?>[?!])?)(:)(?!:)",
+			"name": "constant.language.symbol.hashkey.ruby"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.constant.ruby"
+				}
+			},
+			"comment": "symbols as hash key (1.8 syntax)",
+			"match": "(?<!:)(:)(?>[a-zA-Z_]\\w*(?>[?!])?)(?=\\s*=>)",
+			"name": "constant.language.symbol.hashkey.ruby"
+		},
+		{
+			"match": "\\b\\d(?>_?\\d)*(?=\\.\\d|[eE])(\\.\\d(?>_?\\d)*)?([eE][-+]?\\d(?>_?\\d)*)?r?i?\\b",
+			"name": "constant.numeric.float.ruby"
+		},
+		{
+			"match": "\\b(0|(0[dD]\\d|[1-9])(?>_?\\d)*)r?i?\\b",
+			"name": "constant.numeric.integer.ruby"
+		},
+		{
+			"match": "\\b0[xX]\\h(?>_?\\h)*r?i?\\b",
+			"name": "constant.numeric.hex.ruby"
+		},
+		{
+			"match": "\\b0[bB][01](?>_?[01])*r?i?\\b",
+			"name": "constant.numeric.binary.ruby"
+		},
+		{
+			"match": "\\b0([oO]?[0-7](?>_?[0-7])*)?r?i?\\b",
+			"name": "constant.numeric.octal.ruby"
+		},
+		{
+			"begin": "'",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.ruby"
+				}
+			},
+			"comment": "single quoted string (does not allow interpolation)",
+			"end": "'",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.ruby"
+				}
+			},
+			"name": "string.quoted.single.ruby",
+			"patterns": [
+				{
+					"match": "\\\\'|\\\\\\\\",
+					"name": "constant.character.escape.ruby"
+				}
+			]
+		},
+		{
+			"begin": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.ruby"
+				}
+			},
+			"comment": "double quoted string (allows for interpolation)",
+			"end": "\"",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.ruby"
+				}
+			},
+			"name": "string.quoted.double.ruby",
+			"patterns": [
+				{
+					"include": "#interpolated_ruby"
+				},
+				{
+					"include": "#escaped_char"
+				}
+			]
+		},
+		{
+			"begin": "`",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.ruby"
+				}
+			},
+			"comment": "execute string (allows for interpolation)",
+			"end": "`",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.ruby"
+				}
+			},
+			"name": "string.interpolated.ruby",
+			"patterns": [
+				{
+					"include": "#interpolated_ruby"
+				},
+				{
+					"include": "#escaped_char"
+				}
+			]
+		},
+		{
+			"include": "#percent_literals"
+		},
+		{
+			"begin": "(^[ \\t]+)?(?=#)",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.whitespace.comment.leading.ruby"
+				}
+			},
+			"end": "(?!\\G)",
+			"patterns": [
+				{
+					"begin": "#",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.ruby"
+						}
+					},
+					"end": "\\n",
+					"name": "comment.line.number-sign.ruby"
+				}
+			]
+		}
+	],
+	"repository": {
+		"interpolated_ruby": {
+			"patterns": [
+				{
+					"begin": "#\\{",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.embedded.begin.ruby"
+						}
+					},
+					"contentName": "source.ruby",
+					"end": "(\\})",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.embedded.end.ruby"
+						},
+						"1": {
+							"name": "source.ruby"
+						}
+					},
+					"name": "meta.embedded.line.ruby",
+					"patterns": [
+						{
+							"include": "#nest_curly_and_self"
+						},
+						{
+							"include": "$self"
+						}
+					],
+					"repository": {
+						"nest_curly_and_self": {
+							"patterns": [
+								{
+									"begin": "\\{",
+									"captures": {
+										"0": {
+											"name": "punctuation.section.scope.ruby"
+										}
+									},
+									"end": "\\}",
+									"patterns": [
+										{
+											"include": "#nest_curly_and_self"
+										}
+									]
+								},
+								{
+									"include": "$self"
+								}
+							]
+						}
+					}
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.variable.ruby"
+						}
+					},
+					"match": "(#@)[a-zA-Z_]\\w*",
+					"name": "variable.other.readwrite.instance.ruby"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.variable.ruby"
+						}
+					},
+					"match": "(#@@)[a-zA-Z_]\\w*",
+					"name": "variable.other.readwrite.class.ruby"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.variable.ruby"
+						}
+					},
+					"match": "(#\\$)[a-zA-Z_]\\w*",
+					"name": "variable.other.readwrite.global.ruby"
+				}
+			]
+		},
+		"percent_literals": {
+			"patterns": [
+				{
+					"begin": "%i(?:([(\\[{<])|([^\\w\\s]|_))",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.array.begin.ruby"
+						}
+					},
+					"end": "[)\\]}>]\\2|\\1\\2",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.array.end.ruby"
+						}
+					},
+					"name": "meta.array.symbol.ruby",
+					"patterns": [
+						{
+							"begin": "\\G(?<=\\()(?!\\))",
+							"end": "(?=\\))",
+							"patterns": [
+								{
+									"include": "#parens"
+								},
+								{
+									"include": "#symbol"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\[)(?!\\])",
+							"end": "(?=\\])",
+							"patterns": [
+								{
+									"include": "#brackets"
+								},
+								{
+									"include": "#symbol"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\{)(?!\\})",
+							"end": "(?=\\})",
+							"patterns": [
+								{
+									"include": "#braces"
+								},
+								{
+									"include": "#symbol"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=<)(?!>)",
+							"end": "(?=>)",
+							"patterns": [
+								{
+									"include": "#angles"
+								},
+								{
+									"include": "#symbol"
+								}
+							]
+						},
+						{
+							"include": "#symbol"
+						}
+					],
+					"repository": {
+						"angles": {
+							"patterns": [
+								{
+									"captures": {
+										"0": {
+											"name": "constant.character.escape.ruby"
+										}
+									},
+									"match": "\\\\<|\\\\>",
+									"name": "constant.other.symbol.ruby"
+								},
+								{
+									"begin": "<",
+									"captures": {
+										"0": {
+											"name": "constant.other.symbol.ruby"
+										}
+									},
+									"end": ">",
+									"patterns": [
+										{
+											"include": "#angles"
+										},
+										{
+											"include": "#symbol"
+										}
+									]
+								}
+							]
+						},
+						"braces": {
+							"patterns": [
+								{
+									"captures": {
+										"0": {
+											"name": "constant.character.escape.ruby"
+										}
+									},
+									"match": "\\\\\\{|\\\\\\}",
+									"name": "constant.other.symbol.ruby"
+								},
+								{
+									"begin": "\\{",
+									"captures": {
+										"0": {
+											"name": "constant.other.symbol.ruby"
+										}
+									},
+									"end": "\\}",
+									"patterns": [
+										{
+											"include": "#braces"
+										},
+										{
+											"include": "#symbol"
+										}
+									]
+								}
+							]
+						},
+						"brackets": {
+							"patterns": [
+								{
+									"captures": {
+										"0": {
+											"name": "constant.character.escape.ruby"
+										}
+									},
+									"match": "\\\\\\[|\\\\\\]",
+									"name": "constant.other.symbol.ruby"
+								},
+								{
+									"begin": "\\[",
+									"captures": {
+										"0": {
+											"name": "constant.other.symbol.ruby"
+										}
+									},
+									"end": "\\]",
+									"patterns": [
+										{
+											"include": "#brackets"
+										},
+										{
+											"include": "#symbol"
+										}
+									]
+								}
+							]
+						},
+						"parens": {
+							"patterns": [
+								{
+									"captures": {
+										"0": {
+											"name": "constant.character.escape.ruby"
+										}
+									},
+									"match": "\\\\\\(|\\\\\\)",
+									"name": "constant.other.symbol.ruby"
+								},
+								{
+									"begin": "\\(",
+									"captures": {
+										"0": {
+											"name": "constant.other.symbol.ruby"
+										}
+									},
+									"end": "\\)",
+									"patterns": [
+										{
+											"include": "#parens"
+										},
+										{
+											"include": "#symbol"
+										}
+									]
+								}
+							]
+						},
+						"symbol": {
+							"patterns": [
+								{
+									"captures": {
+										"0": {
+											"name": "constant.character.escape.ruby"
+										}
+									},
+									"match": "\\\\\\\\|\\\\[ ]",
+									"name": "constant.other.symbol.ruby"
+								},
+								{
+									"match": "\\S\\w*",
+									"name": "constant.other.symbol.ruby"
+								}
+							]
+						}
+					}
+				},
+				{
+					"begin": "%I(?:([(\\[{<])|([^\\w\\s]|_))",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.array.begin.ruby"
+						}
+					},
+					"end": "[)\\]}>]\\2|\\1\\2",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.array.end.ruby"
+						}
+					},
+					"name": "meta.array.symbol.interpolated.ruby",
+					"patterns": [
+						{
+							"begin": "\\G(?<=\\()(?!\\))",
+							"end": "(?=\\))",
+							"patterns": [
+								{
+									"include": "#parens"
+								},
+								{
+									"include": "#symbol"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\[)(?!\\])",
+							"end": "(?=\\])",
+							"patterns": [
+								{
+									"include": "#brackets"
+								},
+								{
+									"include": "#symbol"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\{)(?!\\})",
+							"end": "(?=\\})",
+							"patterns": [
+								{
+									"include": "#braces"
+								},
+								{
+									"include": "#symbol"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=<)(?!>)",
+							"end": "(?=>)",
+							"patterns": [
+								{
+									"include": "#angles"
+								},
+								{
+									"include": "#symbol"
+								}
+							]
+						},
+						{
+							"include": "#symbol"
+						}
+					],
+					"repository": {
+						"angles": {
+							"patterns": [
+								{
+									"begin": "<",
+									"captures": {
+										"0": {
+											"name": "constant.other.symbol.ruby"
+										}
+									},
+									"end": ">",
+									"patterns": [
+										{
+											"include": "#angles"
+										},
+										{
+											"include": "#symbol"
+										}
+									]
+								}
+							]
+						},
+						"braces": {
+							"patterns": [
+								{
+									"begin": "\\{",
+									"captures": {
+										"0": {
+											"name": "constant.other.symbol.ruby"
+										}
+									},
+									"end": "\\}",
+									"patterns": [
+										{
+											"include": "#braces"
+										},
+										{
+											"include": "#symbol"
+										}
+									]
+								}
+							]
+						},
+						"brackets": {
+							"patterns": [
+								{
+									"begin": "\\[",
+									"captures": {
+										"0": {
+											"name": "constant.other.symbol.ruby"
+										}
+									},
+									"end": "\\]",
+									"patterns": [
+										{
+											"include": "#brackets"
+										},
+										{
+											"include": "#symbol"
+										}
+									]
+								}
+							]
+						},
+						"parens": {
+							"patterns": [
+								{
+									"begin": "\\(",
+									"captures": {
+										"0": {
+											"name": "constant.other.symbol.ruby"
+										}
+									},
+									"end": "\\)",
+									"patterns": [
+										{
+											"include": "#parens"
+										},
+										{
+											"include": "#symbol"
+										}
+									]
+								}
+							]
+						},
+						"symbol": {
+							"patterns": [
+								{
+									"begin": "(?=\\\\|#\\{)",
+									"end": "(?!\\G)",
+									"name": "constant.other.symbol.ruby",
+									"patterns": [
+										{
+											"include": "#escaped_char"
+										},
+										{
+											"include": "#interpolated_ruby"
+										}
+									]
+								},
+								{
+									"match": "\\S\\w*",
+									"name": "constant.other.symbol.ruby"
+								}
+							]
+						}
+					}
+				},
+				{
+					"begin": "%q(?:([(\\[{<])|([^\\w\\s]|_))",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.ruby"
+						}
+					},
+					"end": "[)\\]}>]\\2|\\1\\2",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.ruby"
+						}
+					},
+					"name": "string.quoted.other.ruby",
+					"patterns": [
+						{
+							"begin": "\\G(?<=\\()(?!\\))",
+							"end": "(?=\\))",
+							"patterns": [
+								{
+									"include": "#parens"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\[)(?!\\])",
+							"end": "(?=\\])",
+							"patterns": [
+								{
+									"include": "#brackets"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\{)(?!\\})",
+							"end": "(?=\\})",
+							"patterns": [
+								{
+									"include": "#braces"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=<)(?!>)",
+							"end": "(?=>)",
+							"patterns": [
+								{
+									"include": "#angles"
+								}
+							]
+						}
+					],
+					"repository": {
+						"angles": {
+							"patterns": [
+								{
+									"match": "\\\\<|\\\\>|\\\\\\\\",
+									"name": "constant.character.escape.ruby"
+								},
+								{
+									"begin": "<",
+									"end": ">",
+									"patterns": [
+										{
+											"include": "#angles"
+										}
+									]
+								}
+							]
+						},
+						"braces": {
+							"patterns": [
+								{
+									"match": "\\\\\\{|\\\\\\}|\\\\\\\\",
+									"name": "constant.character.escape.ruby"
+								},
+								{
+									"begin": "\\{",
+									"end": "\\}",
+									"patterns": [
+										{
+											"include": "#braces"
+										}
+									]
+								}
+							]
+						},
+						"brackets": {
+							"patterns": [
+								{
+									"match": "\\\\\\[|\\\\\\]|\\\\\\\\",
+									"name": "constant.character.escape.ruby"
+								},
+								{
+									"begin": "\\[",
+									"end": "\\]",
+									"patterns": [
+										{
+											"include": "#brackets"
+										}
+									]
+								}
+							]
+						},
+						"parens": {
+							"patterns": [
+								{
+									"match": "\\\\\\(|\\\\\\)|\\\\\\\\",
+									"name": "constant.character.escape.ruby"
+								},
+								{
+									"begin": "\\(",
+									"end": "\\)",
+									"patterns": [
+										{
+											"include": "#parens"
+										}
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"begin": "%Q?(?:([(\\[{<])|([^\\w\\s=]|_))",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.ruby"
+						}
+					},
+					"end": "[)\\]}>]\\2|\\1\\2",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.ruby"
+						}
+					},
+					"name": "string.quoted.other.interpolated.ruby",
+					"patterns": [
+						{
+							"begin": "\\G(?<=\\()(?!\\))",
+							"end": "(?=\\))",
+							"patterns": [
+								{
+									"include": "#parens"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\[)(?!\\])",
+							"end": "(?=\\])",
+							"patterns": [
+								{
+									"include": "#brackets"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\{)(?!\\})",
+							"end": "(?=\\})",
+							"patterns": [
+								{
+									"include": "#braces"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=<)(?!>)",
+							"end": "(?=>)",
+							"patterns": [
+								{
+									"include": "#angles"
+								}
+							]
+						},
+						{
+							"include": "#escaped_char"
+						},
+						{
+							"include": "#interpolated_ruby"
+						}
+					],
+					"repository": {
+						"angles": {
+							"patterns": [
+								{
+									"include": "#escaped_char"
+								},
+								{
+									"include": "#interpolated_ruby"
+								},
+								{
+									"begin": "<",
+									"end": ">",
+									"patterns": [
+										{
+											"include": "#angles"
+										}
+									]
+								}
+							]
+						},
+						"braces": {
+							"patterns": [
+								{
+									"include": "#escaped_char"
+								},
+								{
+									"include": "#interpolated_ruby"
+								},
+								{
+									"begin": "\\{",
+									"end": "\\}",
+									"patterns": [
+										{
+											"include": "#braces"
+										}
+									]
+								}
+							]
+						},
+						"brackets": {
+							"patterns": [
+								{
+									"include": "#escaped_char"
+								},
+								{
+									"include": "#interpolated_ruby"
+								},
+								{
+									"begin": "\\[",
+									"end": "\\]",
+									"patterns": [
+										{
+											"include": "#brackets"
+										}
+									]
+								}
+							]
+						},
+						"parens": {
+							"patterns": [
+								{
+									"include": "#escaped_char"
+								},
+								{
+									"include": "#interpolated_ruby"
+								},
+								{
+									"begin": "\\(",
+									"end": "\\)",
+									"patterns": [
+										{
+											"include": "#parens"
+										}
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"begin": "%r(?:([(\\[{<])|([^\\w\\s]|_))",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.ruby"
+						}
+					},
+					"end": "([)\\]}>]\\2|\\1\\2)[eimnosux]*",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.ruby"
+						}
+					},
+					"name": "string.regexp.percent.ruby",
+					"patterns": [
+						{
+							"begin": "\\G(?<=\\()(?!\\))",
+							"end": "(?=\\))",
+							"patterns": [
+								{
+									"include": "#parens"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\[)(?!\\])",
+							"end": "(?=\\])",
+							"patterns": [
+								{
+									"include": "#brackets"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\{)(?!\\})",
+							"end": "(?=\\})",
+							"patterns": [
+								{
+									"include": "#braces"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=<)(?!>)",
+							"end": "(?=>)",
+							"patterns": [
+								{
+									"include": "#angles"
+								}
+							]
+						},
+						{
+							"include": "#regex_sub"
+						}
+					],
+					"repository": {
+						"angles": {
+							"patterns": [
+								{
+									"include": "#regex_sub"
+								},
+								{
+									"begin": "<",
+									"end": ">",
+									"patterns": [
+										{
+											"include": "#angles"
+										}
+									]
+								}
+							]
+						},
+						"braces": {
+							"patterns": [
+								{
+									"include": "#regex_sub"
+								},
+								{
+									"begin": "\\{",
+									"end": "\\}",
+									"patterns": [
+										{
+											"include": "#braces"
+										}
+									]
+								}
+							]
+						},
+						"brackets": {
+							"patterns": [
+								{
+									"include": "#regex_sub"
+								},
+								{
+									"begin": "\\[",
+									"end": "\\]",
+									"patterns": [
+										{
+											"include": "#brackets"
+										}
+									]
+								}
+							]
+						},
+						"parens": {
+							"patterns": [
+								{
+									"include": "#regex_sub"
+								},
+								{
+									"begin": "\\(",
+									"end": "\\)",
+									"patterns": [
+										{
+											"include": "#parens"
+										}
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"begin": "%s(?:([(\\[{<])|([^\\w\\s]|_))",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.constant.begin.ruby"
+						}
+					},
+					"end": "[)\\]}>]\\2|\\1\\2",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.constant.end.ruby"
+						}
+					},
+					"name": "constant.other.symbol.percent.ruby",
+					"patterns": [
+						{
+							"begin": "\\G(?<=\\()(?!\\))",
+							"end": "(?=\\))",
+							"patterns": [
+								{
+									"include": "#parens"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\[)(?!\\])",
+							"end": "(?=\\])",
+							"patterns": [
+								{
+									"include": "#brackets"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\{)(?!\\})",
+							"end": "(?=\\})",
+							"patterns": [
+								{
+									"include": "#braces"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=<)(?!>)",
+							"end": "(?=>)",
+							"patterns": [
+								{
+									"include": "#angles"
+								}
+							]
+						}
+					],
+					"repository": {
+						"angles": {
+							"patterns": [
+								{
+									"match": "\\\\<|\\\\>|\\\\\\\\",
+									"name": "constant.character.escape.ruby"
+								},
+								{
+									"begin": "<",
+									"end": ">",
+									"patterns": [
+										{
+											"include": "#angles"
+										}
+									]
+								}
+							]
+						},
+						"braces": {
+							"patterns": [
+								{
+									"match": "\\\\\\{|\\\\\\}|\\\\\\\\",
+									"name": "constant.character.escape.ruby"
+								},
+								{
+									"begin": "\\{",
+									"end": "\\}",
+									"patterns": [
+										{
+											"include": "#braces"
+										}
+									]
+								}
+							]
+						},
+						"brackets": {
+							"patterns": [
+								{
+									"match": "\\\\\\[|\\\\\\]|\\\\\\\\",
+									"name": "constant.character.escape.ruby"
+								},
+								{
+									"begin": "\\[",
+									"end": "\\]",
+									"patterns": [
+										{
+											"include": "#brackets"
+										}
+									]
+								}
+							]
+						},
+						"parens": {
+							"patterns": [
+								{
+									"match": "\\\\\\(|\\\\\\)|\\\\\\\\",
+									"name": "constant.character.escape.ruby"
+								},
+								{
+									"begin": "\\(",
+									"end": "\\)",
+									"patterns": [
+										{
+											"include": "#parens"
+										}
+									]
+								}
+							]
+						}
+					}
+				},
+				{
+					"begin": "%w(?:([(\\[{<])|([^\\w\\s]|_))",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.array.begin.ruby"
+						}
+					},
+					"end": "[)\\]}>]\\2|\\1\\2",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.array.end.ruby"
+						}
+					},
+					"name": "meta.array.string.ruby",
+					"patterns": [
+						{
+							"begin": "\\G(?<=\\()(?!\\))",
+							"end": "(?=\\))",
+							"patterns": [
+								{
+									"include": "#parens"
+								},
+								{
+									"include": "#string"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\[)(?!\\])",
+							"end": "(?=\\])",
+							"patterns": [
+								{
+									"include": "#brackets"
+								},
+								{
+									"include": "#string"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\{)(?!\\})",
+							"end": "(?=\\})",
+							"patterns": [
+								{
+									"include": "#braces"
+								},
+								{
+									"include": "#string"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=<)(?!>)",
+							"end": "(?=>)",
+							"patterns": [
+								{
+									"include": "#angles"
+								},
+								{
+									"include": "#string"
+								}
+							]
+						},
+						{
+							"include": "#string"
+						}
+					],
+					"repository": {
+						"angles": {
+							"patterns": [
+								{
+									"captures": {
+										"0": {
+											"name": "constant.character.escape.ruby"
+										}
+									},
+									"match": "\\\\<|\\\\>",
+									"name": "string.other.ruby"
+								},
+								{
+									"begin": "<",
+									"captures": {
+										"0": {
+											"name": "string.other.ruby"
+										}
+									},
+									"end": ">",
+									"patterns": [
+										{
+											"include": "#angles"
+										},
+										{
+											"include": "#string"
+										}
+									]
+								}
+							]
+						},
+						"braces": {
+							"patterns": [
+								{
+									"captures": {
+										"0": {
+											"name": "constant.character.escape.ruby"
+										}
+									},
+									"match": "\\\\\\{|\\\\\\}",
+									"name": "string.other.ruby"
+								},
+								{
+									"begin": "\\{",
+									"captures": {
+										"0": {
+											"name": "string.other.ruby"
+										}
+									},
+									"end": "\\}",
+									"patterns": [
+										{
+											"include": "#braces"
+										},
+										{
+											"include": "#string"
+										}
+									]
+								}
+							]
+						},
+						"brackets": {
+							"patterns": [
+								{
+									"captures": {
+										"0": {
+											"name": "constant.character.escape.ruby"
+										}
+									},
+									"match": "\\\\\\[|\\\\\\]",
+									"name": "string.other.ruby"
+								},
+								{
+									"begin": "\\[",
+									"captures": {
+										"0": {
+											"name": "string.other.ruby"
+										}
+									},
+									"end": "\\]",
+									"patterns": [
+										{
+											"include": "#brackets"
+										},
+										{
+											"include": "#string"
+										}
+									]
+								}
+							]
+						},
+						"parens": {
+							"patterns": [
+								{
+									"captures": {
+										"0": {
+											"name": "constant.character.escape.ruby"
+										}
+									},
+									"match": "\\\\\\(|\\\\\\)",
+									"name": "string.other.ruby"
+								},
+								{
+									"begin": "\\(",
+									"captures": {
+										"0": {
+											"name": "string.other.ruby"
+										}
+									},
+									"end": "\\)",
+									"patterns": [
+										{
+											"include": "#parens"
+										},
+										{
+											"include": "#string"
+										}
+									]
+								}
+							]
+						},
+						"string": {
+							"patterns": [
+								{
+									"captures": {
+										"0": {
+											"name": "constant.character.escape.ruby"
+										}
+									},
+									"match": "\\\\\\\\|\\\\[ ]",
+									"name": "string.other.ruby"
+								},
+								{
+									"match": "\\S\\w*",
+									"name": "string.other.ruby"
+								}
+							]
+						}
+					}
+				},
+				{
+					"begin": "%W(?:([(\\[{<])|([^\\w\\s]|_))",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.array.begin.ruby"
+						}
+					},
+					"end": "[)\\]}>]\\2|\\1\\2",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.array.end.ruby"
+						}
+					},
+					"name": "meta.array.string.interpolated.ruby",
+					"patterns": [
+						{
+							"begin": "\\G(?<=\\()(?!\\))",
+							"end": "(?=\\))",
+							"patterns": [
+								{
+									"include": "#parens"
+								},
+								{
+									"include": "#string"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\[)(?!\\])",
+							"end": "(?=\\])",
+							"patterns": [
+								{
+									"include": "#brackets"
+								},
+								{
+									"include": "#string"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\{)(?!\\})",
+							"end": "(?=\\})",
+							"patterns": [
+								{
+									"include": "#braces"
+								},
+								{
+									"include": "#string"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=<)(?!>)",
+							"end": "(?=>)",
+							"patterns": [
+								{
+									"include": "#angles"
+								},
+								{
+									"include": "#string"
+								}
+							]
+						},
+						{
+							"include": "#string"
+						}
+					],
+					"repository": {
+						"angles": {
+							"patterns": [
+								{
+									"begin": "<",
+									"captures": {
+										"0": {
+											"name": "string.other.ruby"
+										}
+									},
+									"end": ">",
+									"patterns": [
+										{
+											"include": "#angles"
+										},
+										{
+											"include": "#string"
+										}
+									]
+								}
+							]
+						},
+						"braces": {
+							"patterns": [
+								{
+									"begin": "\\{",
+									"captures": {
+										"0": {
+											"name": "string.other.ruby"
+										}
+									},
+									"end": "\\}",
+									"patterns": [
+										{
+											"include": "#braces"
+										},
+										{
+											"include": "#string"
+										}
+									]
+								}
+							]
+						},
+						"brackets": {
+							"patterns": [
+								{
+									"begin": "\\[",
+									"captures": {
+										"0": {
+											"name": "string.other.ruby"
+										}
+									},
+									"end": "\\]",
+									"patterns": [
+										{
+											"include": "#brackets"
+										},
+										{
+											"include": "#string"
+										}
+									]
+								}
+							]
+						},
+						"parens": {
+							"patterns": [
+								{
+									"begin": "\\(",
+									"captures": {
+										"0": {
+											"name": "string.other.ruby"
+										}
+									},
+									"end": "\\)",
+									"patterns": [
+										{
+											"include": "#parens"
+										},
+										{
+											"include": "#string"
+										}
+									]
+								}
+							]
+						},
+						"string": {
+							"patterns": [
+								{
+									"begin": "(?=\\\\|#\\{)",
+									"end": "(?!\\G)",
+									"name": "string.other.ruby",
+									"patterns": [
+										{
+											"include": "#escaped_char"
+										},
+										{
+											"include": "#interpolated_ruby"
+										}
+									]
+								},
+								{
+									"match": "\\S\\w*",
+									"name": "string.other.ruby"
+								}
+							]
+						}
+					}
+				},
+				{
+					"begin": "%x(?:([(\\[{<])|([^\\w\\s]|_))",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.ruby"
+						}
+					},
+					"end": "[)\\]}>]\\2|\\1\\2",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.ruby"
+						}
+					},
+					"name": "string.interpolated.percent.ruby",
+					"patterns": [
+						{
+							"begin": "\\G(?<=\\()(?!\\))",
+							"end": "(?=\\))",
+							"patterns": [
+								{
+									"include": "#parens"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\[)(?!\\])",
+							"end": "(?=\\])",
+							"patterns": [
+								{
+									"include": "#brackets"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=\\{)(?!\\})",
+							"end": "(?=\\})",
+							"patterns": [
+								{
+									"include": "#braces"
+								}
+							]
+						},
+						{
+							"begin": "\\G(?<=<)(?!>)",
+							"end": "(?=>)",
+							"patterns": [
+								{
+									"include": "#angles"
+								}
+							]
+						},
+						{
+							"include": "#escaped_char"
+						},
+						{
+							"include": "#interpolated_ruby"
+						}
+					],
+					"repository": {
+						"angles": {
+							"patterns": [
+								{
+									"include": "#escaped_char"
+								},
+								{
+									"include": "#interpolated_ruby"
+								},
+								{
+									"begin": "<",
+									"end": ">",
+									"patterns": [
+										{
+											"include": "#angles"
+										}
+									]
+								}
+							]
+						},
+						"braces": {
+							"patterns": [
+								{
+									"include": "#escaped_char"
+								},
+								{
+									"include": "#interpolated_ruby"
+								},
+								{
+									"begin": "\\{",
+									"end": "\\}",
+									"patterns": [
+										{
+											"include": "#braces"
+										}
+									]
+								}
+							]
+						},
+						"brackets": {
+							"patterns": [
+								{
+									"include": "#escaped_char"
+								},
+								{
+									"include": "#interpolated_ruby"
+								},
+								{
+									"begin": "\\[",
+									"end": "\\]",
+									"patterns": [
+										{
+											"include": "#brackets"
+										}
+									]
+								}
+							]
+						},
+						"parens": {
+							"patterns": [
+								{
+									"include": "#escaped_char"
+								},
+								{
+									"include": "#interpolated_ruby"
+								},
+								{
+									"begin": "\\(",
+									"end": "\\)",
+									"patterns": [
+										{
+											"include": "#parens"
+										}
+									]
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	}
+}
