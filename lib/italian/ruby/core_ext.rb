@@ -1,7 +1,16 @@
+original_verbosity = $VERBOSE
+$VERBOSE = nil
+
 alias           :stampa               :puts
+alias           :cicla                :loop
 
 ## Oggetti
 class Object
+  class << self
+    alias_method :nuovo,              :new
+    alias_method :nuova,              :new
+  end
+
   alias         :nullo?               :nil?
   alias         :nulla?               :nil?
 
@@ -9,11 +18,15 @@ class Object
     !nil?
   end
 
-  class << self
-    alias_method :inizializzatore,    :initialize
-    alias_method :nuovo,              :new
-    alias_method :nuova,              :new
-  end
+  private
+
+    def inizializzatore(*args, &block)
+    end
+
+    def initialize(*args, &block)
+      inizializzatore
+    end
+
 end
 Oggetto = Object
 
@@ -45,3 +58,5 @@ class Hash
   end
 end
 Mappa = Hash
+
+$VERBOSE = original_verbosity
