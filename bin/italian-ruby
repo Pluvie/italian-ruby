@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require_relative "../lib/italian/ruby/traduttore"
-require "rubygems"
+require "italian/ruby"
 
 if ARGV[0].nil?
   puts <<~EOS
