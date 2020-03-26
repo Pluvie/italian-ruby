@@ -7,19 +7,22 @@ require_relative "ruby_parser_patches"
 module Italian
   module Ruby
     class Traduttore
-      CODICE_INTRODUTTIVO = "# encoding: utf-8\nrequire \"/Users/fballardin/progetti/francy/italian-ruby/lib/italian/ruby/core_ext\"\n"
 
-      def initialize; end
+      class << self
 
-      def traduci(codice)
-        ruby2ruby = Ruby2Ruby.new
-        parser = RubyParser.new
-        sexp = parser.process("# encoding: utf-8\n#{codice}")
+        def traduci(file)
+          @@ruby2ruby ||= Ruby2Ruby.new
+          @@parser    ||= RubyParser.new
+          
+          codice      = File.read file
+          sexp        = @@parser.process("# encoding: utf-8\n#{codice}")
+          codice_ruby = @@ruby2ruby.process(sexp)
 
-        codice_ruby = ruby2ruby.process(sexp)
+          "# encoding: utf-8\n#{codice_ruby}"
+        end
 
-        "#{CODICE_INTRODUTTIVO}#{codice_ruby}"
       end
+
     end
   end
 end

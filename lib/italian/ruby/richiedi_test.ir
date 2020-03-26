@@ -1,0 +1,5 @@
+modulo RichiediTest
+  def se_stesso.funziona
+    stampa "si, funziona!"
+  fine
+fine

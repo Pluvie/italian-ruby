@@ -13,12 +13,7 @@ else
   ARGV.each do |file|
     next unless file
 
-    italian_ruby = Italian::Ruby::Traduttore.new
-    codice = File.read file, encoding: "UTF-8"
-    codice_ruby = italian_ruby.traduci codice
-    raise "La traduzione di Italian Ruby richiede almeno versione 2.4 di Ruby." if
-      Gem::Version.new(RUBY_VERSION) < Gem::Version.new("2.3")
-
+    codice_ruby = Italian::Ruby::Traduttore.traduci file
     eval codice_ruby
   end
 end
