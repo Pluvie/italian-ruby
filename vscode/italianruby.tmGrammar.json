@@ -293,7 +293,7 @@
 		},
 		{
 			"comment": " everything being a method but having a special function is a..",
-			"match": "\\b(inizializzatore|nuovo|nuova|cicla|include|extend|prepend|fail|raise|attr_reader|attr_writer|attr_accessor|attr|catch|throw|private|private_class_method|module_function|public|public_class_method|protected|refine|using)\\b(?![?!])",
+			"match": "\\b(inizializzatore|nuovo|nuova|cicla|includi|estendi|preponi|fail|raise|attr_reader|attr_writer|attr_accessor|attr|catch|throw|private|private_class_method|module_function|public|public_class_method|protected|refine|using)\\b(?![?!])",
 			"name": "keyword.other.special-method.ruby"
 		},
 		{
@@ -313,7 +313,7 @@
 			"name": "variable.language.self.ruby"
 		},
 		{
-			"begin": "\\b(?<!\\.|::)(require|require_relative)\\b",
+			"begin": "\\b(?<!\\.|::)(require|require_relative|richiedi|richiedi_relativo)\\b",
 			"captures": {
 				"1": {
 					"name": "keyword.other.special-method.ruby"
@@ -386,6 +386,16 @@
 			},
 			"comment": "symbols as hash key (1.9 syntax)",
 			"match": "(?>[a-zA-Z_]\\w*(?>[?!])?)(:)(?!:)",
+			"name": "constant.language.symbol.hashkey.ruby"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.constant.ruby"
+				}
+			},
+			"comment": "symbols",
+			"match": "(?<!:)(:)(?>[a-zA-Z_]\\w*(?>[?!])?)(?=\\s*)",
 			"name": "constant.language.symbol.hashkey.ruby"
 		},
 		{

@@ -18,10 +18,25 @@ module Kernel
   end
 
   def richiedi_relativo(name)
-    file_to_require = File.expand_path "#{name}.ir"
+    caller_location_dir = File.dirname caller_locations.first.absolute_path
+    file_to_require = File.expand_path "#{caller_location_dir}/#{name}.ir"
     raise LoadError.new("cannot load such file -- #{name}") unless File.exist? file_to_require
 
     traduci_carica_e_distruggi file_to_require
+  end
+
+  def richiedi_assoluto(file)
+    raise LoadError.new("cannot load suc file -- #{file}") unless File.exist? file
+    traduci_carica_e_distruggi file
+  end
+
+  def richiedi_tutti(dir)
+    caller_location_dir = File.dirname caller_locations.first.absolute_path
+    raise LoadError.new("cannot load such directory -- #{dir}") unless Dir.exist? caller_location_dir
+
+    Dir["#{caller_location_dir}/**/*.ir"].each do |file|
+      richiedi_assoluto file
+    end
   end
 
   private

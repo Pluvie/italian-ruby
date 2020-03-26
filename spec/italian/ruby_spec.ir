@@ -1,0 +1,7 @@
+RSpec.descrivi Italian::Ruby esegui
+
+  essa "ha un numero di versione" esegui
+    verifica(Italian::Ruby::VERSION).che_non sia nullo
+  fine
+
+fine

@@ -5,12 +5,12 @@
 
 class Object
   class << self
-    alias_method :nuovo,              :new
-    alias_method :nuova,              :new
+    alias_method      :nuovo,               :new
+    alias_method      :nuova,               :new
   end
 
-  alias         :nullo?               :nil?
-  alias         :nulla?               :nil?
+  alias               :nullo?               :nil?
+  alias               :nulla?               :nil?
 
   def esiste?
     !nil?

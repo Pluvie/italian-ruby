@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "rspec"
+require "italian/ruby"
+
+def translate_spec(file)
+  spec_file = "#{File.dirname file}/#{File.basename(file, ".ir")}.rb"
+  File.write spec_file, Italian::Ruby::Traduttore.traduci(file)
+end
+
+def destroy_spec(file)
+  spec_file = "#{File.dirname file}/#{File.basename(file, ".ir")}.rb"
+  File.delete spec_file if File.exist? spec_file
+end
+
+if ARGV[0].nil?
+  spec_files = Dir["spec/**/*_spec.ir"]
+  if spec_files.empty?
+    "Nessun file *_spec.ir trovato."
+    return
+  end
+else
+  spec_files = ARGV
+end
+
+spec_files.each { |file| translate_spec file }
+RSpec::Core::Runner.run([ "spec" ], STDIN, STDOUT)
+spec_files.each { |file| destroy_spec file }

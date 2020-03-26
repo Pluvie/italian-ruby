@@ -1,0 +1,11 @@
+RSpec.descrivi Italian::Ruby::Traduttore esegui
+
+  prima esegui
+    stampa "sono nel prima"
+  fine
+
+  esso "termina con successo" esegui
+    verifica(si).che sia vero
+  fine
+
+fine

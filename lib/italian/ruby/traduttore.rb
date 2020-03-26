@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require "ruby2ruby"
 require "ruby_parser"
 require_relative "ruby_parser_patches"
