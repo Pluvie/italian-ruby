@@ -14,8 +14,6 @@ class Array
   alias         :prima                :first
   alias         :ultimo               :last
   alias         :ultima               :last
-  alias         :trasforma_chiavi     :transform_keys
-  alias         :trasforma_valori     :transform_values
 
   def esiste?
     !nil? && !empty?

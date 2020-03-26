@@ -22,7 +22,7 @@ class Object
     end
 
     def initialize(*args, &block)
-      inizializzatore
+      inizializzatore *args, &block
     end
 
 end

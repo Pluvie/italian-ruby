@@ -11,7 +11,7 @@
 module Kernel
 
   def richiedi(name)
-    file_to_require = $:.map { |dir|  Dir["#{dir}/**/#{name}.ir"] }.compact.first
+    file_to_require = $:.map { |dir|  Dir["#{dir}/**/#{name}.ir"] }.flatten.compact.first
     raise LoadError.new("cannot load such file -- #{name}") if file_to_require.nil?
 
     traduci_carica_e_distruggi file_to_require
@@ -21,7 +21,7 @@ module Kernel
     file_to_require = File.expand_path "#{name}.ir"
     raise LoadError.new("cannot load such file -- #{name}") unless File.exist? file_to_require
 
-    traduci_carica_e_distruggi parsed_code, tmp_parsed_file
+    traduci_carica_e_distruggi file_to_require
   end
 
   private
@@ -33,8 +33,9 @@ module Kernel
       tmp_parsed_file = "#{file_to_require_dir}/#{file_to_require_basename}.rb"
 
       File.write tmp_parsed_file, parsed_code
-      require tmp_parsed_file
+      require_output = require tmp_parsed_file
       File.delete tmp_parsed_file if File.exist? tmp_parsed_file
+      require_output
     end
 
 end
