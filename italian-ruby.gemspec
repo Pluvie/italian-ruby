@@ -5,13 +5,14 @@ Gem::Specification.new do |spec|
   spec.version       = Italian::Ruby::VERSION
   spec.authors       = ["Francesco Ballardin"]
   spec.email         = ["francesco.ballardin@gmail.com"]
+  spec.licenses      = ["MIT"]
 
   spec.summary       = %q{Program in Ruby writing in Italian.}
-  spec.description   = %q{Program in Ruby writing in Italian.}
+  spec.description   = %q{Program in Ruby writing in Italian. Yay!}
   spec.homepage      = "https://github.com/Pluvie/italian-ruby"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
-  spec.metadata["allowed_push_host"] = "http://rubygems.org"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/Pluvie/italian-ruby"
@@ -27,9 +28,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'ruby2ruby'
+  spec.add_dependency 'ruby2ruby',    '~> 2.4'
 
-  spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'bundler',    '~> 2.1'
+  spec.add_development_dependency 'rake',       '~> 13.0'
+  spec.add_development_dependency 'rspec',      '~> 3.9'
 end
