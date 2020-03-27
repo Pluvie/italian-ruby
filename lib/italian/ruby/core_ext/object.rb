@@ -19,11 +19,11 @@ class Object
 
   private
 
-    def inizializzatore(*args, &block)
+    def inizializzatore(**args, &block)
     end
 
-    def initialize(*args, &block)
-      inizializzatore *args, &block
+    def initialize(**args, &block)
+      inizializzatore **args, &block
     end
 
 end

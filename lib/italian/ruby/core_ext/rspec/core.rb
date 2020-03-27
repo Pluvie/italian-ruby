@@ -9,6 +9,7 @@ module RSpec
   module Core
     class ExampleGroup
       alias       :classe_descritta   :described_class
+      define_example_group_method     :contesto
     end
 
     module Hooks
@@ -30,6 +31,7 @@ end
 RSpec.configure do |config|
   RSpec::Matchers.alias_matcher :sia,               :be
   RSpec::Matchers.alias_matcher :equivalga_a,       :eq
+  RSpec::Matchers.alias_matcher :alzi_errore,       :raise_error
 
   config.alias_example_to :esso
   config.alias_example_to :essa

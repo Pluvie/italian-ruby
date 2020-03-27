@@ -6,6 +6,7 @@ $VERBOSE = nil
 require_relative "core_ext/main"
 require_relative "core_ext/class"
 require_relative "core_ext/kernel"
+require_relative "core_ext/nil_class"
 require_relative "core_ext/object"
 require_relative "core_ext/array"
 require_relative "core_ext/hash"

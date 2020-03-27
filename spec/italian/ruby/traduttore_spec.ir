@@ -2,13 +2,18 @@ RSpec.descrivi Italian::Ruby::Traduttore esegui
   sia(:variabile)     { "cacca" }
   sia(:traduttore)    { classe_descritta.nuova }
 
+  puts self.method(:context).source_location
+  puts self.superclass
+
   prima esegui
     stampa "sono nel prima"
     stampa traduttore
   fine
 
-  esso "termina con successo" esegui
-    verifica(si).che sia vero
+  contesto "in generale" esegui
+    esso "termina con successo" esegui
+      verifica(si).che sia vero
+    fine
   fine
 
 fine
