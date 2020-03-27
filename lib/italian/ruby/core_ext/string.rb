@@ -3,6 +3,6 @@
 #
 # Alias di metodi della classe String.
 
-def congela
-  freeze
+class String
+  alias       :congela        :freeze
 end
