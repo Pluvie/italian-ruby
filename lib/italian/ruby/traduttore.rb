@@ -10,14 +10,19 @@ module Italian
       class << self
 
         def traduci(file)
-          @@ruby2ruby ||= Ruby2Ruby.new
-          @@parser    ||= RubyParser.new
-          
-          codice      = File.read file
-          sexp        = @@parser.process("# encoding: utf-8\n#{codice}")
-          codice_ruby = @@ruby2ruby.process(sexp)
+          begin
+            @@ruby2ruby ||= Ruby2Ruby.new
+            @@parser    ||= RubyParser.new
+            
+            codice      = File.read file
+            sexp        = @@parser.process("# encoding: utf-8\n#{codice}")
+            codice_ruby = @@ruby2ruby.process(sexp)
 
-          "# encoding: utf-8\n#{codice_ruby}"
+            "# encoding: utf-8\n#{codice_ruby}"
+          rescue StandardError => error
+            raise "Errore nella traduzione del file #{file}.\n"\
+              "#{error.message}\n#{error.backtrace.join("\n")}"
+          end
         end
 
       end

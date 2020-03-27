@@ -12,6 +12,7 @@ module RubyParserStuff
       ["considera",     [:kCASE,     :kCASE       ], EXPR_BEG   ],
       ["classe",        [:kCLASS,    :kCLASS      ], EXPR_CLASS ],
       ["def",           [:kDEF,      :kDEF        ], EXPR_FNAME ],
+      ["definisci",     [:kDEF,      :kDEF        ], EXPR_FNAME ],
       ["definito?",     [:kDEFINED,  :kDEFINED    ], EXPR_ARG   ],
       ["definita?",     [:kDEFINED,  :kDEFINED    ], EXPR_ARG   ],
       ["esegui",        [:kDO,       :kDO         ], EXPR_BEG   ],

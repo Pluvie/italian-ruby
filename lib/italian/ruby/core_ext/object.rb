@@ -11,6 +11,7 @@ class Object
 
   alias               :nullo?               :nil?
   alias               :nulla?               :nil?
+  alias               :risponde_a?          :respond_to?
 
   def esiste?
     !nil?
