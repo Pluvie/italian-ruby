@@ -4,14 +4,14 @@
 require "rspec"
 require "italian/ruby"
 
-def translate_spec(file)
-  spec_file = "#{File.dirname file}/#{File.basename(file, ".ir")}.rb"
-  File.write spec_file, Italian::Ruby::Traduttore.traduci(file)
+def translate_spec(spec_file)
+  translated_spec_file = "#{File.dirname spec_file}/#{File.basename(spec_file, ".ir")}.rb"
+  File.write translated_spec_file, Italian::Ruby::Traduttore.traduci(spec_file)
+  translated_spec_file
 end
 
-def destroy_spec(file)
-  spec_file = "#{File.dirname file}/#{File.basename(file, ".ir")}.rb"
-  File.delete spec_file if File.exist? spec_file
+def destroy_spec(translated_spec_file)
+  File.delete translated_spec_file if File.exist? translated_spec_file
 end
 
 if ARGV[0].nil?
@@ -24,6 +24,6 @@ else
   spec_files = ARGV
 end
 
-spec_files.each { |file| translate_spec file }
-RSpec::Core::Runner.run([ "spec" ], STDIN, STDOUT)
-spec_files.each { |file| destroy_spec file }
+translated_spec_files = spec_files.map { |file| translate_spec file }
+RSpec::Core::Runner.run(translated_spec_files, STDIN, STDOUT)
+translated_spec_files.each { |file| destroy_spec file }

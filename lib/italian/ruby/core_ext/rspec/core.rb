@@ -7,9 +7,22 @@ module RSpec
   end
 
   module Core
+    class ExampleGroup
+      alias       :classe_descritta   :described_class
+    end
+
     module Hooks
-      alias_method    :prima,       :before
-      alias_method    :dopo,        :after
+      alias       :prima              :before
+      alias       :dopo               :after
+    end
+
+    module MemoizedHelpers
+      module ClassMethods
+        alias     :sia                :let
+        alias     :sia!               :let!
+        alias     :soggetto           :subject
+        alias     :soggetto!          :subject!
+      end
     end
   end
 end

@@ -1,7 +1,10 @@
 RSpec.descrivi Italian::Ruby::Traduttore esegui
+  sia(:cacca)     { "cacca" }
+  sia(:merda)     { classe_descritta.nuova }
 
   prima esegui
     stampa "sono nel prima"
+    stampa merda
   fine
 
   esso "termina con successo" esegui

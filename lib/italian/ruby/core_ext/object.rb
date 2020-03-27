@@ -5,8 +5,8 @@
 
 class Object
   class << self
-    alias_method      :nuovo,               :new
-    alias_method      :nuova,               :new
+    alias             :nuovo                :new
+    alias             :nuova                :new
   end
 
   alias               :nullo?               :nil?

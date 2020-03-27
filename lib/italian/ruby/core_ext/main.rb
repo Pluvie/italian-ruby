@@ -17,16 +17,6 @@ def estendi(*args)
   extend *args
 end
 
-def privati(*args)
-  private
-end
-def protetti(*args)
-  protected
-end
-def pubblici(*args)
-  public
-end
-
 def alza(*args)
   raise *args
 end
