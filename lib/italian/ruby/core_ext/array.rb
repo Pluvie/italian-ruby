@@ -17,6 +17,9 @@ class Array
   alias         :uno_a_caso           :sample
   alias         :una_a_caso           :sample
   alias         :prendine_a_caso      :sample
+  alias         :unisci               :join
+  alias         :appiattisci          :flatten
+  alias         :compatta             :compact
 
   def esiste?
     !nil? && !empty?
