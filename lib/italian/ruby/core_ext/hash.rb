@@ -13,6 +13,8 @@ class Hash
   alias         :vuoto?               :empty?
   alias         :vuota?               :empty?
   alias         :ottieni              :fetch
+  alias         :prendi               :fetch
+  alias         :deposita             :store
   alias         :scava                :dig
   alias         :trasforma_chiavi     :transform_keys
   alias         :trasforma_valori     :transform_values
