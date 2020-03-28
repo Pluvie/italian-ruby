@@ -1,7 +1,7 @@
 ##
-# Core Ext - Fabricate
+# Core Ext - Fabrication
 
-module Fabricate
+class Fabricate
   class << self
     alias       :produci          :create
     alias       :assembla         :build
