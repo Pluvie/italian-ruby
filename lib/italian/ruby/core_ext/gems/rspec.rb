@@ -68,6 +68,20 @@ module RSpec
           matcher.class.name.start_with?("RSpec::Matchers::AliasedMatcher".freeze)
         end
     end
+
+    class MessageExpectation
+      alias     :e_ritorni          :and_return
+    end
+
+    class VerifyingMessageExpectation
+      alias     :con                :with
+    end
+
+    module Matchers
+      class Receive
+        alias   :con                :with
+      end
+    end
   end
 end
 

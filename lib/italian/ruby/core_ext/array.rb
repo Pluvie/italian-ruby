@@ -16,6 +16,7 @@ class Array
   alias         :ultima               :last
   alias         :uno_a_caso           :sample
   alias         :una_a_caso           :sample
+  alias         :prendine_a_caso      :sample
 
   def esiste?
     !nil? && !empty?
