@@ -1,5 +1,5 @@
 ##
-# Core Ext - Mongoid Criteria
+# Core Ext - Mongoid
 
 module Mongoid
   class Criteria
@@ -15,5 +15,6 @@ module Mongoid
       entries
     end
     alias       :voci         :dati
+    alias       :lista        :dati
   end
 end

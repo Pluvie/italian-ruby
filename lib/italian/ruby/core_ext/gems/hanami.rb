@@ -1,7 +1,9 @@
 ##
-# Core Ext - Hanami::Interactor
+# Core Ext - Hanami
 
 module Hanami
+  ##
+  # Interactor
   module Interactor
     alias               :fallisci!          :error!
     alias               :errore!            :error!
@@ -45,6 +47,18 @@ module Hanami
       else
         prepend Hanami::Interactor::Interface
       end
+    end
+  end
+
+  ##
+  # Mongoid - Repository
+  module Mongoid
+    class Repository
+
+      def tutti(*args, &block)
+        all *args, &block
+      end
+
     end
   end
 end

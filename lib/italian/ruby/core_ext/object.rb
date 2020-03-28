@@ -17,6 +17,16 @@ class Object
     !nil?
   end
 
+  def in?(array)
+    raise ArgumentError.new("Argument passed to `in?` must respond to `include?`") unless
+      array.respond_to? :include?
+    array.include? self
+  end
+
+  def non_in?(array)
+    !in? array
+  end
+
   private
 
     def inizializzatore(**args, &block)

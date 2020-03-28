@@ -23,7 +23,3 @@ end
 def fallisci(*args)
   fail *args
 end
-
-def non_in?(*args)
-  !in? *args
-end
