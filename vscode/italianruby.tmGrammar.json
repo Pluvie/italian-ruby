@@ -293,7 +293,7 @@
 		},
 		{
 			"comment": " everything being a method but having a special function is a..",
-			"match": "\\b(inizializzatore|nuovo|nuova|cicla|includi|estendi|preponi|fallisci|alza|attr_reader|attr_writer|attr_accessor|attr|catch|throw|privati|private_class_method|module_function|pubblici|public_class_method|protetti|refine|using)\\b(?![?!])",
+			"match": "\\b(inizializzatore|nuovo|nuova|cicla|includi|estendi|preponi|fallisci|alza|accessore|accessore_di_classe|attr_reader|attr_writer|attr_accessor|attr|catch|throw|privati|private_class_method|module_function|pubblici|public_class_method|protetti|refine|using)\\b(?![?!])",
 			"name": "keyword.other.special-method.ruby"
 		},
 		{
@@ -313,7 +313,7 @@
 			"name": "variable.language.self.ruby"
 		},
 		{
-			"begin": "\\b(?<!\\.|::)(require|require_relative|richiedi|richiedi_relativo)\\b",
+			"begin": "\\b(?<!\\.|::)(require|require_relative|richiedi|richiedi_relativo|richiedi_tutti)\\b",
 			"captures": {
 				"1": {
 					"name": "keyword.other.special-method.ruby"

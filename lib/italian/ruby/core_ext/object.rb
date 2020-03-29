@@ -12,6 +12,7 @@ class Object
   alias               :nullo?               :nil?
   alias               :nulla?               :nil?
   alias               :risponde_a?          :respond_to?
+  alias               :manda                :send
 
   def esiste?
     !nil?

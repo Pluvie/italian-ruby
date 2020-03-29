@@ -9,6 +9,7 @@
 # scritti in Italian Ruby che in file sorgenti scritti in Ruby standard.
 
 module Kernel
+  alias         :classe         :class
 
   def richiedi(name)
     file_to_require = $:.map { |dir|  Dir["#{dir}/**/#{name}.ir"] }.flatten.compact.first
