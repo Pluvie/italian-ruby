@@ -13,9 +13,14 @@ class Object
   alias               :nulla?               :nil?
   alias               :risponde_a?          :respond_to?
   alias               :manda                :send
+  alias               :ispeziona            :inspect
 
   def esiste?
     !nil?
+  end
+
+  def non_risponde_a?(method)
+    !respond_to? method
   end
 
   def in?(array)
@@ -30,11 +35,11 @@ class Object
 
   private
 
-    def inizializzatore(**args, &block)
+    def inizializzatore(*args, **options, &block)
     end
 
-    def initialize(**args, &block)
-      inizializzatore **args, &block
+    def initialize(*args, **options, &block)
+      inizializzatore *args, **options, &block
     end
 
 end

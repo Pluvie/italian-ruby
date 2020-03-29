@@ -20,6 +20,13 @@ class Array
   alias         :unisci               :join
   alias         :appiattisci          :flatten
   alias         :compatta             :compact
+  alias         :conteggio            :count
+  alias         :tutti?               :all?
+  alias         :tutte?               :all?
+  alias         :alcuni?              :any?
+  alias         :alcune?              :any?
+  alias         :nessuno?             :none?
+  alias         :nessuna?             :none?
 
   def esiste?
     !nil? && !empty?

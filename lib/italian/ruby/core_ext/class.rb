@@ -7,4 +7,6 @@ class Class
   alias       :pubblici               :public
 
   alias       :accessore              :attr_accessor
+
+  alias       :definisci_metodo       :define_method
 end

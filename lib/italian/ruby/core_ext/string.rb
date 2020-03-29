@@ -6,3 +6,5 @@
 class String
   alias       :congela        :freeze
 end
+
+Stringa = String

@@ -9,7 +9,9 @@
 # scritti in Italian Ruby che in file sorgenti scritti in Ruby standard.
 
 module Kernel
-  alias         :classe         :class
+  alias         :classe                         :class
+  alias         :ottieni_variabile_istanza      :instance_variable_get
+  alias         :imposta_variabile_istanza      :instance_variable_set
 
   def richiedi(name)
     file_to_require = $:.map { |dir|  Dir["#{dir}/**/#{name}.ir"] }.flatten.compact.first
