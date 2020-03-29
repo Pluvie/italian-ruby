@@ -5,6 +5,7 @@
 
 class String
   alias       :congela        :freeze
+  alias       :in_simbolo     :to_sym
 end
 
 Stringa = String

@@ -7,6 +7,7 @@ class Object
   class << self
     alias             :nuovo                :new
     alias             :nuova                :new
+    alias             :ottieni_costante     :const_get
   end
 
   alias               :nullo?               :nil?
