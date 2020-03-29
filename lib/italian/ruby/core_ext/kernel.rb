@@ -34,7 +34,7 @@ module Kernel
   end
 
   def richiedi_tutti(dir)
-    caller_location_dir = File.dirname caller_locations.first.absolute_path
+    caller_location_dir = "#{File.dirname caller_locations.first.absolute_path}/#{dir}"
     raise LoadError.new("cannot load such directory -- #{dir}") unless Dir.exist? caller_location_dir
 
     Dir["#{caller_location_dir}/**/*.ir"].each do |file|
