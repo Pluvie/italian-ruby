@@ -1,5 +1,5 @@
 ##
-# Core Ext - Stringhe
+# Core Ext - String
 #
 # Alias di metodi della classe String.
 
