@@ -75,11 +75,17 @@ module RSpec
 
     class VerifyingMessageExpectation
       alias     :con                :with
+      alias     :esattamente        :exactly
+      alias     :volte              :times
+      alias     :volta              :times
     end
 
     module Matchers
       class Receive
         alias   :con                :with
+        alias   :esattamente        :exactly
+        alias   :volte              :times
+        alias   :volta              :times
       end
     end
   end
