@@ -4,9 +4,11 @@
 # Alias di metodi della classe Time.
 
 class Time
-  alias       :adesso       :now
-  alias       :alla         :at
-  alias       :al           :at
+  class << self
+    alias       :adesso       :now
+    alias       :alla         :at
+    alias       :al           :at
+  end
 end
 
 Tempo = Time

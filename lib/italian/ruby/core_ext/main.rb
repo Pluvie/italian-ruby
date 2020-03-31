@@ -7,6 +7,8 @@ alias     :stampa                       :puts
 alias     :cicla                        :loop
 alias     :definisci_metodo_singolo     :define_singleton_method
 alias     :blocco_dato?                 :block_given?
+alias     :cattura                      :catch
+alias     :lancia                       :throw
 
 def includi(*args)
   include *args

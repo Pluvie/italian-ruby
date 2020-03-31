@@ -4,7 +4,9 @@
 # Alias di metodi della classe Date.
 
 class Date
-  alias       :oggi         :today
+  class << self
+    alias       :oggi         :today
+  end
 end
 
 Data = Date
