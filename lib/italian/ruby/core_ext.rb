@@ -16,5 +16,7 @@ require_relative "core_ext/string"
 require_relative "core_ext/symbol"
 require_relative "core_ext/integer"
 require_relative "core_ext/enumerator"
+require_relative "core_ext/time"
+require_relative "core_ext/date"
 
 $VERBOSE = original_verbosity
