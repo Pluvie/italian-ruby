@@ -4,7 +4,7 @@
 # Alias di metodi della classe Time.
 
 class Time
-  alias       :ora          :now
+  alias       :adesso       :now
   alias       :alla         :at
   alias       :al           :at
 end
