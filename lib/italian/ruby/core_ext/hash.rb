@@ -23,6 +23,10 @@ class Hash
   def esiste?
     !nil? && !empty?
   end
+
+  def non_ha_chiave?(key)
+    !has_key? key
+  end
 end
 
 Mappa = Hash
