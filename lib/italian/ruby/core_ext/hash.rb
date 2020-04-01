@@ -17,6 +17,8 @@ class Hash
   alias         :prendi               :fetch
   alias         :deposita             :store
   alias         :scava                :dig
+  alias         :fondi                :merge
+  alias         :fondi!               :merge!
   alias         :trasforma_chiavi     :transform_keys
   alias         :trasforma_valori     :transform_values
 
