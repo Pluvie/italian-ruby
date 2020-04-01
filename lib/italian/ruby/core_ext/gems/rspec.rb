@@ -12,6 +12,10 @@ module RSpec
     class ExampleGroup
       alias       :classe_descritta   :described_class
       define_example_group_method     :contesto
+
+      def risposta(*args, &block)
+        last_response *args, &block
+      end
     end
 
     module Hooks

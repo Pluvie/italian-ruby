@@ -8,6 +8,7 @@ class Object
     alias             :nuovo                :new
     alias             :nuova                :new
     alias             :ottieni_costante     :const_get
+    alias             :in_stringa           :to_s
   end
 
   alias               :nullo?               :nil?

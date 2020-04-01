@@ -25,6 +25,7 @@ class Array
   alias         :tutte?               :all?
   alias         :alcuni?              :any?
   alias         :alcune?              :any?
+  alias         :almeno_uno?          :any?
   alias         :nessuno?             :none?
   alias         :nessuna?             :none?
 
