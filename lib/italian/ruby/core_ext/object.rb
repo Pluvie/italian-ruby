@@ -16,10 +16,17 @@ class Object
   alias               :risponde_a?          :respond_to?
   alias               :manda                :send
   alias               :ispeziona            :inspect
+  alias               :è_un?                :is_a?
+  alias               :è_una?               :is_a?
 
   def esiste?
     !nil?
   end
+
+  def non_è_un?(arg)
+    !is_a? arg
+  end
+  alias             :non_è_una?             :non_è_un?
 
   def non_risponde_a?(method)
     !respond_to? method

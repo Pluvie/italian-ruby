@@ -33,6 +33,18 @@ class Array
   def esiste?
     !nil? && !empty?
   end
+
+  def pizzica(method_name)
+    self.map do |element|
+      if element.respond_to? method_name
+        element.send method_name
+      elsif element.is_a? Hash
+        element[method_name]
+      else
+        raise ArgumentError, "Array elements do not respond to #{method_name}."
+      end
+    end
+  end
 end
 
 Lista = Array
