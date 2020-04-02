@@ -29,6 +29,7 @@ class Array
   alias         :almeno_uno?          :any?
   alias         :nessuno?             :none?
   alias         :nessuna?             :none?
+  alias         :congela              :freeze
 
   def esiste?
     !nil? && !empty?

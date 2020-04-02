@@ -9,6 +9,10 @@ class Time
     alias       :alla         :at
     alias       :al           :at
   end
+
+  def in_data
+    self.to_date
+  end
 end
 
 Tempo = Time

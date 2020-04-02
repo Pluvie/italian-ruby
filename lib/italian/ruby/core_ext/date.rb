@@ -7,8 +7,11 @@ require "date"
 
 class Date
   class << self
-    alias       :oggi         :today
+    alias       :oggi             :today
+    alias       :converti         :parse
   end
+
+  alias         :anno_prossimo    :next_year
 end
 
 Data = Date

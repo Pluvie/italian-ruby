@@ -25,6 +25,14 @@ class Hash
   def esiste?
     !nil? && !empty?
   end
+  alias         :specificato?         :esiste?
+  alias         :specificata?         :esiste?
+
+  def non_esiste?
+    !esiste?
+  end
+  alias         :non_specificato?     :non_esiste?
+  alias         :non_specificata?     :non_esiste?
 
   def non_ha_chiave?(key)
     !has_key? key

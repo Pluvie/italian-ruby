@@ -10,8 +10,11 @@ module RSpec
   # Core
   module Core
     class ExampleGroup
-      alias       :classe_descritta   :described_class
       define_example_group_method     :contesto
+
+      def classe_descritta
+        described_class
+      end
 
       def risposta(*args, &block)
         last_response *args, &block
