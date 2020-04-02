@@ -31,6 +31,10 @@ class Array
   alias         :nessuno?             :none?
   alias         :nessuna?             :none?
   alias         :congela              :freeze
+  alias         :seleziona            :select
+  alias         :seleziona!           :select!
+  alias         :scarta               :reject
+  alias         :scarta!              :reject!
 
   def esiste?
     !nil? && !empty?

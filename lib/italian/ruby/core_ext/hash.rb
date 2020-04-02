@@ -21,6 +21,10 @@ class Hash
   alias         :fondi!               :merge!
   alias         :trasforma_chiavi     :transform_keys
   alias         :trasforma_valori     :transform_values
+  alias         :seleziona            :select
+  alias         :seleziona!           :select!
+  alias         :scarta               :reject
+  alias         :scarta!              :reject!
 
   def esiste?
     !nil? && !empty?
