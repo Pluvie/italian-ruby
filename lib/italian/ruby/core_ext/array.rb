@@ -22,6 +22,7 @@ class Array
   alias         :appiattisci          :flatten
   alias         :compatta             :compact
   alias         :conteggio            :count
+  alias         :conteggia            :count
   alias         :tutti?               :all?
   alias         :tutte?               :all?
   alias         :alcuni?              :any?
