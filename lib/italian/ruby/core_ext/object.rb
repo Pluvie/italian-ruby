@@ -22,6 +22,14 @@ class Object
   def esiste?
     !nil?
   end
+  alias       :specificato?       :esiste?
+  alias       :specificata?       :esiste?
+
+  def non_esiste?
+    !esiste?
+  end
+  alias       :non_specificato?   :non_esiste?
+  alias       :non_specificata?   :non_esiste?
 
   def non_è_un?(arg)
     !is_a? arg

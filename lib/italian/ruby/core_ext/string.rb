@@ -13,14 +13,6 @@ class String
   def esiste?
     !nil? and self != ""
   end
-  alias       :specificato?       :esiste?
-  alias       :specificata?       :esiste?
-
-  def non_esiste?
-    !esiste?
-  end
-  alias       :non_specificato?   :non_esiste?
-  alias       :non_specificata?   :non_esiste?
 end
 
 Stringa = String
