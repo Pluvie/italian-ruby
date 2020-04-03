@@ -94,6 +94,13 @@ module RSpec
         alias   :volte              :times
         alias   :volta              :times
       end
+
+      class HaveReceived
+        alias   :con                :with
+        alias   :esattamente        :exactly
+        alias   :volte              :times
+        alias   :volta              :times
+      end
     end
   end
 end
