@@ -9,6 +9,10 @@ class String
   alias       :in_simbolo         :to_sym
   alias       :in_stringa         :to_s
   alias       :dividi             :split
+  alias       :maiuscola          :upcase
+  alias       :maiuscolo          :upcase
+  alias       :minuscola          :downcase
+  alias       :minuscolo          :downcase
 
   def esiste?
     !nil? and self != ""
