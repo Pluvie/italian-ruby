@@ -10,7 +10,7 @@ end
 # Vari metodi e utilità per debuggare.
 module Utilità
   module Debug
-    class << se_stessa
+    class << self
 
       def debug(*args)
         puts "-----------------------------------------------------------------------------".alzavola
