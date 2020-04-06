@@ -12,6 +12,7 @@ class Date
   end
 
   alias         :anno_prossimo    :next_year
+  alias         :in_stringa       :to_s
 end
 
 Data = Date
