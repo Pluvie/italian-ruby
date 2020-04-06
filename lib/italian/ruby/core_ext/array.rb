@@ -14,6 +14,7 @@ class Array
   alias         :prima                :first
   alias         :ultimo               :last
   alias         :ultima               :last
+  alias         :a_caso               :sample
   alias         :uno_a_caso           :sample
   alias         :una_a_caso           :sample
   alias         :prendine_a_caso      :sample

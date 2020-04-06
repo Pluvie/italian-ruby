@@ -50,6 +50,10 @@ class Object
     !in? array
   end
 
+  def in_json
+    to_json
+  end
+
   private
 
     def inizializzatore(*args, **options, &block)
