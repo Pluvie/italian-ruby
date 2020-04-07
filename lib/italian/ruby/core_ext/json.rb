@@ -1,8 +1,8 @@
 ##
 # CoreExt - JSON
 
-class JSON
-  class << self
-    alias       :processa           :parse
+module JSON
+  def self.processa(*args)
+    self.parse(*args)
   end
 end
