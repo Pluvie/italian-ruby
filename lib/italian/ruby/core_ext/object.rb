@@ -18,6 +18,7 @@ class Object
   alias               :ispeziona            :inspect
   alias               :è_un?                :is_a?
   alias               :è_una?               :is_a?
+  alias               :esegui_in_istanza    :instance_eval
 
   def esiste?
     !nil?

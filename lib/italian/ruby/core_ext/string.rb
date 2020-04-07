@@ -13,10 +13,15 @@ class String
   alias       :maiuscolo          :upcase
   alias       :minuscola          :downcase
   alias       :minuscolo          :downcase
+  alias       :combacia?          :match?
+  alias       :inizia_con?        :start_with?
+  alias       :finisce_con?       :end_with?
 
   def esiste?
     !nil? and self != ""
   end
+  alias       :specificato?       :esiste?
+  alias       :specificata?       :esiste?
 end
 
 Stringa = String

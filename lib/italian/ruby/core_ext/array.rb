@@ -36,6 +36,8 @@ class Array
   alias         :seleziona!           :select!
   alias         :scarta               :reject
   alias         :scarta!              :reject!
+  alias         :trova                :find
+  alias         :cerniera             :zip
 
   def esiste?
     !nil? && !empty?
