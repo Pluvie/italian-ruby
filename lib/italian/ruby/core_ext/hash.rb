@@ -42,6 +42,27 @@ class Hash
   def non_ha_chiave?(key)
     !has_key? key
   end
+
+  def simbolizza!
+    keys.each do |key|
+      value = delete key
+      value.simbolizza! if value.is_a? Hash
+      self[key.to_sym] = value
+    end
+    self
+  end
+
+  def simbolizza
+    copy = Hash.new
+    self.each do |key, value|
+      if value.is_a? Hash
+        copy[key.to_sym] = value.simbolizza
+      else
+        copy[key.to_sym] = value
+      end
+    end
+    copy
+  end
 end
 
 Mappa = Hash
