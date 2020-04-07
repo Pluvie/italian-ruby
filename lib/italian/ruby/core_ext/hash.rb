@@ -25,6 +25,7 @@ class Hash
   alias         :seleziona!           :select!
   alias         :scarta               :reject
   alias         :scarta!              :reject!
+  alias         :rimuovi              :delete
 
   def esiste?
     !nil? && !empty?
