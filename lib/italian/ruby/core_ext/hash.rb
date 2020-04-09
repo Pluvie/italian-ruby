@@ -26,6 +26,7 @@ class Hash
   alias         :scarta               :reject
   alias         :scarta!              :reject!
   alias         :rimuovi              :delete
+  alias         :congela              :freeze
 
   def esiste?
     !nil? && !empty?
