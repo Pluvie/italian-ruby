@@ -6,6 +6,7 @@
 class Integer
   alias       :volte          :times
   alias       :in_decimale    :to_f
+  alias       :in_stringa     :to_s
 
   def secondi
     self

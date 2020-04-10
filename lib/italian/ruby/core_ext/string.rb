@@ -18,6 +18,9 @@ class String
   alias       :finisce_con?             :end_with?
   alias       :partiziona               :partition
   alias       :partiziona_dalla_fine    :rpartition
+  alias       :lunghezza                :size
+  alias       :giustifica_a_sinistra    :ljust
+  alias       :giustifica_a_destra      :rjust
 
   def esiste?
     !nil? and self != ""
