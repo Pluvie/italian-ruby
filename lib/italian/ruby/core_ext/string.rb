@@ -21,6 +21,7 @@ class String
   alias       :lunghezza                :size
   alias       :giustifica_a_sinistra    :ljust
   alias       :giustifica_a_destra      :rjust
+  alias       :rimpiazza                :gsub
 
   def esiste?
     !nil? and self != ""
