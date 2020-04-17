@@ -28,6 +28,10 @@ class String
   end
   alias       :specificato?             :esiste?
   alias       :specificata?             :esiste?
+
+  def non_include?(*args)
+    !include? *args
+  end
 end
 
 Stringa = String
