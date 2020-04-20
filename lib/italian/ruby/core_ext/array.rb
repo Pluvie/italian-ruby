@@ -12,8 +12,12 @@ class Array
   alias         :vuota?               :empty?
   alias         :primo                :first
   alias         :prima                :first
+  alias         :primi                :first
+  alias         :prime                :first
   alias         :ultimo               :last
   alias         :ultima               :last
+  alias         :ultimi               :last
+  alias         :ultime               :last
   alias         :a_caso               :sample
   alias         :uno_a_caso           :sample
   alias         :una_a_caso           :sample
