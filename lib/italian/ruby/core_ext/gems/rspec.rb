@@ -38,11 +38,15 @@ module RSpec
 
   ##
   # Matchers
-  Matchers::BuiltIn::Change
+  Matchers::BuiltIn
   module Matchers
     module BuiltIn
       class Change
         alias     :di               :by
+        alias     :da               :from
+      end
+      class ChangeFromValue
+        alias     :a                :to
       end
     end
   end
