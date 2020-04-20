@@ -37,6 +37,17 @@ module RSpec
   end
 
   ##
+  # Matchers
+  Matchers::BuiltIn::Change
+  module Matchers
+    module BuiltIn
+      class Change
+        alias     :di               :by
+      end
+    end
+  end
+
+  ##
   # Expectations
   module Expectations
     class ExpectationTarget
@@ -111,6 +122,8 @@ RSpec.configure do |config|
   RSpec::Matchers.alias_matcher :alzi_errore,       :raise_error
   RSpec::Matchers.alias_matcher :riceva,            :receive
   RSpec::Matchers.alias_matcher :abbia_ricevuto,    :have_received
+  RSpec::Matchers.alias_matcher :cambi,             :change
+  RSpec::Matchers.alias_matcher :di,                :by
 
   config.alias_example_to :esso
   config.alias_example_to :essa
