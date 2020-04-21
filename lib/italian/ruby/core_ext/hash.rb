@@ -27,6 +27,15 @@ class Hash
   alias         :scarta!              :reject!
   alias         :rimuovi              :delete
   alias         :congela              :freeze
+  alias         :tutti?               :all?
+  alias         :tutte?               :all?
+  alias         :alcuni?              :any?
+  alias         :alcune?              :any?
+  alias         :almeno_uno?          :any?
+  alias         :almeno_una?          :any?
+  alias         :nessuno?             :none?
+  alias         :nessuna?             :none?
+  alias         :in_mappa             :to_h
 
   def esiste?
     !nil? && !empty?

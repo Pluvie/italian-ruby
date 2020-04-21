@@ -33,6 +33,7 @@ class Array
   alias         :alcuni?              :any?
   alias         :alcune?              :any?
   alias         :almeno_uno?          :any?
+  alias         :almeno_una?          :any?
   alias         :nessuno?             :none?
   alias         :nessuna?             :none?
   alias         :congela              :freeze
@@ -42,6 +43,7 @@ class Array
   alias         :scarta!              :reject!
   alias         :trova                :find
   alias         :cerniera             :zip
+  alias         :in_mappa             :to_h
 
   def esiste?
     !nil? && !empty?
