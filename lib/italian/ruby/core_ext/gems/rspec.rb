@@ -73,6 +73,7 @@ module RSpec
     module ExampleMethods
       alias     :imita              :instance_double
       alias     :imita_classe       :class_double
+      alias     :spia               :spy
     end
 
     class TargetBase
@@ -93,6 +94,7 @@ module RSpec
 
     class MessageExpectation
       alias     :e_ritorni          :and_return
+      alias     :e_chiami_originale :and_call_original
     end
 
     class VerifyingMessageExpectation
