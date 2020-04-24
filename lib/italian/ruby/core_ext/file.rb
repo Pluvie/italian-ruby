@@ -11,4 +11,7 @@ class File
     alias         :scrivi                 :write
     alias         :apri                   :open
   end
+
+  alias           :scrivi                 :write
+  alias           :stampa                 :puts
 end
