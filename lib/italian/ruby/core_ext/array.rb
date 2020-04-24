@@ -46,6 +46,8 @@ class Array
   alias         :trova                :find
   alias         :cerniera             :zip
   alias         :in_mappa             :to_h
+  alias         :ordina               :sort
+  alias         :ordina_per           :sort_by
 
   def esiste?
     !nil? && !empty?
