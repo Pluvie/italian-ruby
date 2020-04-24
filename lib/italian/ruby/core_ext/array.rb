@@ -26,6 +26,8 @@ class Array
   alias         :unisci               :join
   alias         :appiattisci          :flatten
   alias         :compatta             :compact
+  alias         :valori_univoci       :uniq
+  alias         :rimuovi_duplicati    :uniq
   alias         :conteggio            :count
   alias         :conteggia            :count
   alias         :tutti?               :all?
