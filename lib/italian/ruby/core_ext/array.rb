@@ -53,6 +53,10 @@ class Array
     !nil? && !empty?
   end
 
+  def non_include?(*args)
+    !include? *args
+  end
+
   def pizzica(method_name)
     self.map do |element|
       if element.respond_to? method_name
