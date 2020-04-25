@@ -56,7 +56,7 @@ class Hash
   def simbolizza!
     keys.each do |key|
       value = delete key
-      value.simbolizza! if value.is_a? Hash
+      value.simbolizza! if value.is_a? Hash or value.is_a? Array
       self[key.to_sym] = value
     end
     self
@@ -65,7 +65,7 @@ class Hash
   def simbolizza
     copy = Hash.new
     self.each do |key, value|
-      if value.is_a? Hash
+      if value.is_a? Hash or value.is_a? Array
         copy[key.to_sym] = value.simbolizza
       else
         copy[key.to_sym] = value

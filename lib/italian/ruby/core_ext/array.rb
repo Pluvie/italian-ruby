@@ -25,9 +25,13 @@ class Array
   alias         :mescola              :shuffle
   alias         :unisci               :join
   alias         :appiattisci          :flatten
+  alias         :appiattisci!         :flatten!
   alias         :compatta             :compact
+  alias         :compatta!            :compact!
   alias         :valori_univoci       :uniq
   alias         :rimuovi_duplicati    :uniq
+  alias         :valori_univoci!      :uniq!
+  alias         :rimuovi_duplicati!   :uniq!
   alias         :conteggio            :count
   alias         :conteggia            :count
   alias         :tutti?               :all?
@@ -65,6 +69,27 @@ class Array
         element[method_name]
       else
         raise ArgumentError, "Array elements do not respond to #{method_name}."
+      end
+    end
+  end
+
+  def simbolizza!
+    self.map! do |element|
+      if element.is_a? Hash
+        element.simbolizza!
+      else
+        element
+      end
+    end
+    self
+  end
+
+  def simbolizza
+    self.map do |element|
+      if element.is_a? Hash
+        element.simbolizza!
+      else
+        element
       end
     end
   end
