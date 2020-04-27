@@ -34,6 +34,7 @@ class Array
   alias         :rimuovi_duplicati!   :uniq!
   alias         :conteggio            :count
   alias         :conteggia            :count
+  alias         :lunghezza            :count
   alias         :tutti?               :all?
   alias         :tutte?               :all?
   alias         :alcuni?              :any?
@@ -52,6 +53,13 @@ class Array
   alias         :in_mappa             :to_h
   alias         :ordina               :sort
   alias         :ordina_per           :sort_by
+  alias         :indice               :index
+  alias         :indice_da_destra     :rindex
+  alias         :indice_dal_fondo     :rindex
+  alias         :togli_i_primi        :drop
+  alias         :togli_le_prime       :drop
+  alias         :aggiungi             :push
+  alias         :togli                :pop
 
   def esiste?
     !nil? && !empty?
