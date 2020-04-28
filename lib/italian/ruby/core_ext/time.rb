@@ -11,6 +11,7 @@ class Time
   end
 
   alias         :in_stringa   :to_s
+  alias         :in_numero    :to_i
 
   def in_data
     self.to_date
