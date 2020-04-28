@@ -10,6 +10,8 @@ class Time
     alias       :al           :at
   end
 
+  alias         :in_stringa   :to_s
+
   def in_data
     self.to_date
   end
