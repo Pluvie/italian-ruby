@@ -35,6 +35,14 @@ class String
   def non_include?(*args)
     !include? *args
   end
+
+  def non_inizia_con?(*args)
+    !inizia_con? *args
+  end
+
+  def non_finisce_con?(*args)
+    !finisce_con? *args
+  end
 end
 
 Stringa = String
