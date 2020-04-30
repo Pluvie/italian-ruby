@@ -50,9 +50,9 @@ class Array
   alias         :scarta!              :reject!
   alias         :trova                :find
   alias         :cerniera             :zip
-  alias         :in_mappa             :to_h
   alias         :ordina               :sort
   alias         :ordina_per           :sort_by
+  alias         :raggruppa_per        :group_by
   alias         :indice               :index
   alias         :indice_da_destra     :rindex
   alias         :indice_dal_fondo     :rindex
@@ -103,6 +103,23 @@ class Array
       end
     end
   end
+
+  def mappa_e_rimuovi_duplicati(&block)
+    self.map(&block).uniq
+  end
+
+  def in_mappa(&block)
+    if block_given?
+      self.map(&block).to_h
+    else
+      self.to_h
+    end
+  end
+
+  def secondo
+    self[1]
+  end
+  alias   :seconda    :secondo
 end
 
 Lista = Array

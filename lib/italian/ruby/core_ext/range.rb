@@ -8,7 +8,7 @@ class Range
   alias         :per_ognuno           :each
   alias         :per_ognuna           :each
   alias         :mappa                :map
-  alias         :in_lista             :to_h
+  alias         :in_lista             :to_a
 
   def non_include?(*args)
     !include? *args
