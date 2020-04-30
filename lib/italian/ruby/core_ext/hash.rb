@@ -36,6 +36,8 @@ class Hash
   alias         :nessuno?             :none?
   alias         :nessuna?             :none?
   alias         :in_mappa             :to_h
+  alias         :in_lista             :to_a
+  alias         :inverti              :invert
 
   def esiste?
     !nil? && !empty?

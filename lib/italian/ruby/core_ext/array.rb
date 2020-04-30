@@ -60,6 +60,8 @@ class Array
   alias         :togli_le_prime       :drop
   alias         :aggiungi             :push
   alias         :togli                :pop
+  alias         :riduci               :inject
+  alias         :inietta              :inject
 
   def esiste?
     !nil? && !empty?
