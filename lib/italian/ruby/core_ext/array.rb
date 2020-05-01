@@ -105,7 +105,15 @@ class Array
   end
 
   def mappa_e_rimuovi_duplicati(&block)
-    self.map(&block).uniq
+    self.map.with_index(&block).uniq
+  end
+
+  def mappa_e_compatta(&block)
+    self.map.with_index(&block).compact
+  end
+
+  def mappa_e_appiattisci(&block)
+    self.map.with_index(&block).flatten
   end
 
   def in_mappa(&block)
