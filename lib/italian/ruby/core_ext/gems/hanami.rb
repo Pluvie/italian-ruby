@@ -23,11 +23,13 @@ module Hanami
 
     class Result
       alias             :riuscito?          :successful?
+      alias             :riuscita?          :successful?
       alias             :errore             :error
   
       def fallito?
         !successful?
       end
+      alias             :fallita?           :fallito?
     end
 
     Risultato = Result
