@@ -62,6 +62,7 @@ class Array
   alias         :togli                :pop
   alias         :riduci               :inject
   alias         :inietta              :inject
+  alias         :alla_posizione       :at
 
   def esiste?
     !nil? && !empty?
