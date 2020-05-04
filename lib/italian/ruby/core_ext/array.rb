@@ -64,6 +64,8 @@ class Array
   alias         :inietta              :inject
   alias         :alla_posizione       :at
   alias         :somma                :sum
+  alias         :rovescia             :reverse
+  alias         :inverti              :reverse
 
   def esiste?
     !nil? && !empty?

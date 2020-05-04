@@ -124,7 +124,11 @@ end
 
 RSpec.configure do |config|
   RSpec::Matchers.alias_matcher :sia,               :be
+  RSpec::Matchers.alias_matcher :siano,             :be
+  RSpec::Matchers.alias_matcher :tutti,             :all
+  RSpec::Matchers.alias_matcher :tutte,             :all
   RSpec::Matchers.alias_matcher :equivalga_a,       :eq
+  RSpec::Matchers.alias_matcher :equivalgano_a,     :eq
   RSpec::Matchers.alias_matcher :alzi_errore,       :raise_error
   RSpec::Matchers.alias_matcher :riceva,            :receive
   RSpec::Matchers.alias_matcher :abbia_ricevuto,    :have_received

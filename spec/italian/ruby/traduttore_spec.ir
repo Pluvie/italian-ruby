@@ -9,6 +9,7 @@ RSpec.descrivi Italian::Ruby::Traduttore esegui
   contesto "in generale" esegui
     esso "termina con successo" esegui
       consenti(traduttore).che riceva(:traduci).con("stringa").esattamente(1).volta.e_ritorni(:valore_a_caso)
+      verifica([1, 1, 1]).che tutti siano 1
       verifica(si).che sia vero
     fine
   fine
