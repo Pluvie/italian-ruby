@@ -63,6 +63,7 @@ class Array
   alias         :riduci               :inject
   alias         :inietta              :inject
   alias         :alla_posizione       :at
+  alias         :somma                :sum
 
   def esiste?
     !nil? && !empty?
@@ -98,7 +99,7 @@ class Array
   def simbolizza
     self.map do |element|
       if element.is_a? Hash
-        element.simbolizza!
+        element.simbolizza
       else
         element
       end

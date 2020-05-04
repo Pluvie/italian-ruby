@@ -20,6 +20,7 @@ class Object
   alias               :è_una?               :is_a?
   alias               :valuta_in_istanza    :instance_eval
   alias               :esegui_in_istanza    :instance_exec
+  alias               :clona                :clone
 
   def esiste?
     !nil?
