@@ -45,6 +45,9 @@ module RSpec
         alias     :di               :by
         alias     :da               :from
       end
+      class Equal
+        alias     :o                :or
+      end
       class ChangeFromValue
         alias     :a                :to
       end
