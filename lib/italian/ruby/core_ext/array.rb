@@ -52,7 +52,9 @@ class Array
   alias         :cerniera             :zip
   alias         :ordina               :sort
   alias         :ordina_per           :sort_by
+  alias         :ordina_per!          :sort_by
   alias         :raggruppa_per        :group_by
+  alias         :raggruppa_per!       :group_by
   alias         :indice               :index
   alias         :indice_da_destra     :rindex
   alias         :indice_dal_fondo     :rindex
