@@ -5,6 +5,9 @@ module RSpec
   def self.descrivi(*args, &block)
     describe *args, &block
   end
+  def self.variabili_condivise(*args, &block)
+    shared_context *args, &block
+  end
 
   ##
   # Core
@@ -18,6 +21,10 @@ module RSpec
 
       def risposta(*args, &block)
         last_response *args, &block
+      end
+
+      class << self
+        alias     :includi_variabili  :include_context
       end
     end
 
