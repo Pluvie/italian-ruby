@@ -51,6 +51,7 @@ class Array
   alias         :trova                :find
   alias         :cerniera             :zip
   alias         :ordina               :sort
+  alias         :ordina!              :sort!
   alias         :ordina_per           :sort_by
   alias         :ordina_per!          :sort_by!
   alias         :raggruppa_per        :group_by
