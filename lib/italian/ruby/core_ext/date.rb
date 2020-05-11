@@ -9,6 +9,14 @@ class Date
   class << self
     alias       :oggi                       :today
     alias       :converti                   :parse
+
+    def domani
+      oggi + 1
+    end
+  
+    def ieri
+      oggi - 1
+    end
   end
 
   alias         :anno_prossimo              :next_year
@@ -20,14 +28,6 @@ class Date
 
   def due_anni_fa
     self.prev_year.prev_year
-  end
-
-  def domani
-    self + 1
-  end
-
-  def ieri
-    self - 1
   end
 end
 
