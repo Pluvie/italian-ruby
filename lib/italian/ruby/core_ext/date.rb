@@ -21,6 +21,14 @@ class Date
   def due_anni_fa
     self.prev_year.prev_year
   end
+
+  def domani
+    self + 1
+  end
+
+  def ieri
+    self - 1
+  end
 end
 
 Data = Date
