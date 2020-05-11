@@ -29,6 +29,7 @@ class Date
   def due_anni_fa
     self.prev_year.prev_year
   end
+  alias         :due_anni_precedenti        :due_anni_fa
 end
 
 Data = Date
