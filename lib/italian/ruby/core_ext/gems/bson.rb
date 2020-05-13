@@ -1,5 +1,9 @@
 module BSON
   class ObjectId
+    class << self
+      alias     :converti           :from_string
+    end
+
     alias       :in_stringa         :to_s
 
     def to_json(*args)
@@ -7,7 +11,7 @@ module BSON
     end
   end
 end
-IDOggetto = BSON::ObjectId
+IdOggetto = BSON::ObjectId
 
 class String
   def in_id
