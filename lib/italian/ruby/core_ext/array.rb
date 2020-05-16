@@ -68,6 +68,7 @@ class Array
   alias         :somma                :sum
   alias         :rovescia             :reverse
   alias         :inverti              :reverse
+  alias         :lista                :entries
 
   def esiste?
     !nil? && !empty?
