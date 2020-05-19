@@ -10,5 +10,14 @@ require "italian/ruby/core_ext"
 
 module Italian
   module Ruby
+    class << self
+
+      def translations_dir_path
+        path = File.join File.expand_path("~"), ".italian-ruby", "translations"
+        FileUtils.mkdir_p path unless Dir.exists? path
+        path
+      end
+
+    end
   end
 end

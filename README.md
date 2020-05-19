@@ -100,7 +100,7 @@ Bato però ha solo un binario che permette di eseguire codice filippino. Italian
 
 Per concludere, ci sono degli avvertimenti.
 1. il namespace verrà sporcato. Ho fatto del mio meglio per essere più chirurgico possibile, ma se fate `require "italian/ruby"` sappiate che verranno su un sacco di classi e di alias nuovi (es. `Oggetto.nuovo` ecc.).
-2. il `richiedi` e `richiedi_relativo` funzionano traducendo un file sorgente in italiano nella stessa cartella in cui si trova, caricandolo in memoria con il `require` di Ruby, e poi cancellandolo. Non so se questo possa creare problemi. Immagino di no. Ma vi ho avvertito!
+2. il `richiedi` e `richiedi_relativo` funzionano traducendo un file sorgente in italiano nella cartella `.italian-ruby`, che viene creata in automatico nella home dell'utente. Viene ricreato l'intero percorso del file, in modo tale da preservarne l'unicità e il riferimento con il sorgente iniziale. Unaa volta tradotto, il file viene caricato in memoria con il `require` di Ruby. Non so se questo possa creare problemi. Immagino di no. Ma vi ho avvertito!
 
 ## Contribuire
 
