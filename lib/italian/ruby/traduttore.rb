@@ -30,12 +30,15 @@ module Italian
             end
           rescue Italian::Ruby::Traduttore::Errore => errore
             puts "-----------------------------------------------------------------------------".alzavola
-            puts "Si è verificato un errore durante la traduzione del file #{errore.file}.".rosso
-            puts "L'errore è #{errore.classe}. Ecco quanto riscontrato: #{errore.messaggio}".rosso
+            puts "Si è verificato un errore durante la traduzione del file `#{errore.file}`."
+            print "L'errore è: "
+            puts "#{errore.classe}.".rosso
+            puts errore.messaggio
             puts
-            puts "Riga: #{errore.riga}"
+            print "Riga: "
+            puts "#{errore.riga}".ciano
             puts errore.linea
-            puts "^".rjust(posizione, " ")
+            puts "^".rjust(errore.posizione + 1, " ").verde_lime
             puts
             puts "-----------------------------------------------------------------------------".alzavola
           end
@@ -43,9 +46,9 @@ module Italian
 
         def traduci_linea(file, linea, riga)
           puts "Traduco linea  [#{riga}]: #{linea.inspect}".magenta
-          posizione_commento         = linea.index %{#}
-          posizione_stringa_singola  = linea.index %{'}
-          posizione_stringa_doppia   = linea.index %{"}
+          posizione_commento         = linea.index(%{#}) || linea.length
+          posizione_stringa_singola  = linea.index(%{'}) || linea.length
+          posizione_stringa_doppia   = linea.index(%{"}) || linea.length
           contesto = [
             file, linea, riga,
             posizione_commento,
@@ -66,13 +69,13 @@ module Italian
             raise classe.new(messaggio: messaggio, file: file, linea: linea, riga: riga, posizione: posizione)
           end
 
-          def controlla_stringa_singola(file, linea, riga, posizione posizione_commento, posizione_stringa_singola, posizione_stringa_doppia)
+          def controlla_stringa_singola(file, linea, riga, posizione_commento, posizione_stringa_singola, posizione_stringa_doppia)
             if posizione_stringa_singola != nil and posizione_stringa_singola < posizione_commento
               errore! Errore::NonSupportato, "Le stringhe con singolo apice non sono supportate.", file, linea, riga, posizione_stringa_singola
             end
           end
 
-          def controlla_stringa_doppia(file, linea, riga, posizione posizione_commento, posizione_stringa_singola, posizione_stringa_doppia)
+          def controlla_stringa_doppia(file, linea, riga, posizione_commento, posizione_stringa_singola, posizione_stringa_doppia)
             if posizione_stringa_doppia  != nil and posizione_stringa_doppia  < posizione_commento
               prossimo_posizione_stringa_doppia = linea[posizione_stringa_doppia + 1..].index %{"}
               if prossimo_indice_stringa_doppia.nil?

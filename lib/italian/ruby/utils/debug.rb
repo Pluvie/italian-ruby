@@ -30,9 +30,9 @@ end
 
 ##
 # Crea un metodo per ogni colore da poter chiamare su un'istanza di una stringa.
-class Stringa
+class String
 
-  COLORI = Mappa[
+  COLORI = Hash[
     aliceblue:        :blu_ghiaccio,
     antiquewhite:     :bianco_antico,
     aqua:             :acqua,
