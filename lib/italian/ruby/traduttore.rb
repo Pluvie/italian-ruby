@@ -6,6 +6,8 @@ module Italian
   module Ruby
     class Traduttore
 
+      STAMPA_DETTAGLI_TRADUZIONE = false
+
       class Errore < StandardError
         attr_accessor :messaggio, :file, :linea, :riga, :posizione
 
@@ -47,7 +49,7 @@ module Italian
         end
 
         def traduci_linea(file, linea, riga)
-          puts "Traduco linea  [#{riga}]: #{linea.inspect}".magenta
+          puts "Traduco linea  [#{riga}]: #{linea.inspect}".magenta if STAMPA_DETTAGLI_TRADUZIONE
           posizione_commento         = linea.index(%{#}) || linea.length
           posizione_stringa_singola  = linea.index(%{'}) || linea.length
           posizione_stringa_doppia   = linea.index(%{"}) || linea.length
@@ -66,16 +68,18 @@ module Italian
               linea[posizione_commento + 1..]
             ]
           elsif posizione_stringa_doppia < posizione_commento
-            pezzi_da_tradurre = linea.match( /([^"]*)("[^"]*")([^"]*)/ ).captures
+            pezzi_da_tradurre = linea.scan( /([^"]*)("[^"]*")([^"]*)/ ).flatten
           else
             pezzi_da_tradurre = [ linea ]
           end
 
-          debug pezzi_da_tradurre
+          debug pezzi_da_tradurre if STAMPA_DETTAGLI_TRADUZIONE
           linea_tradotta = pezzi_da_tradurre.map { |pezzo| traduci_pezzo pezzo }.join
 
-          puts "Linea tradotta [#{riga}]: #{linea_tradotta.inspect}".verde_lime
-          puts
+          if STAMPA_DETTAGLI_TRADUZIONE
+            puts "Linea tradotta [#{riga}]: #{linea_tradotta.inspect}".verde_lime
+            puts
+          end
           linea_tradotta
         end
 
@@ -105,50 +109,50 @@ module Italian
             return pezzo if pezzo.start_with? %{#}
             return pezzo if pezzo.start_with? %{"}
 
-            pezzo.gsub! /([\s]+)e([\s]+)/,              "\\1and\\2"
-            pezzo.gsub! /inizia([\s]+)/,                "begin\\1"
-            pezzo.gsub! /esci([\s]+)/,                  "break\\1"
-            pezzo.gsub! /considera([\s]+)/,             "case\\1"
-            pezzo.gsub! /classe([\s]+)([A-Z][\w]*)/,    "class\\1\\2"
-            pezzo.gsub! /definisci([\s]+)([\w]+)/,      "def\\1\\2"
-            pezzo.gsub! /definito\?([\s]+)([\w]+)/,     "defined?\\1\\2"
-            pezzo.gsub! /definita\?([\s]+)([\w]+)/,     "defined?\\1\\2"
-            pezzo.gsub! /([\s]+)esegui([\s]+)/,         "\\1do\\2"
-            pezzo.gsub! /altrimenti([\s]+)/,            "else\\1"
-            pezzo.gsub! /altrimenti_se([\s]+)/,         "elsif\\1"
-            pezzo.gsub! /fine([\s]+)/,                  "end\\1"
-            pezzo.gsub! /fine$/,                        "end"
-            pezzo.gsub! /assicura([\s]+)/,              "ensure\\1"
-            pezzo.gsub! /estendi([\s]+)([A-Z][\w]*)/,   "extend\\1\\2"
-            pezzo.gsub! /no([\s]+)/,                    "false\\1"
-            pezzo.gsub! /falso([\s]+)/,                 "false\\1"
-            pezzo.gsub! /per([\s]+)/,                   "for\\1"
-            pezzo.gsub! /([\s]+)se([\s]+)/,             "\\1if\\2"
-            pezzo.gsub! /^se([\s]+)/,                   "if\\2"
-            pezzo.gsub! /includi([\s]+)([A-Z][\w]*)/,   "include\\1\\2"
-            pezzo.gsub! /modulo([\s]+)([A-Z][\w]*)/,    "module\\1\\2"
-            pezzo.gsub! /prossimo([\s]+)/,              "next\\1"
-            pezzo.gsub! /prossima([\s]+)/,              "next\\1"
-            pezzo.gsub! /nullo([\s]+)/,                 "nil\\1"
-            pezzo.gsub! /nulla([\s]+)/,                 "nil\\1"
-            pezzo.gsub! /([\s]+)non([\s]+)/,            "\\1not\\2"
-            pezzo.gsub! /([\s]+)o([\s]+)/,              "\\1or\\2"
-            pezzo.gsub! /preponi([\s]+)([A-Z][\w]*)/,   "prepend\\1\\2"
-            pezzo.gsub! /riesegui([\s]+)/,              "redo\\1"
-            pezzo.gsub! /recupera([\s]+)/,              "rescue\\1"
-            pezzo.gsub! /riprova([\s]+)/,               "retry\\1"
-            pezzo.gsub! /ritorna([\s]+)/,               "return\\1"
-            pezzo.gsub! /istanza/,                      "self"
-            pezzo.gsub! /se_stesso/,                    "self"
-            pezzo.gsub! /se_stessa/,                    "self"
-            pezzo.gsub! /allora([\s]+)/,                "then\\1"
-            pezzo.gsub! /si([\s]+)/,                    "true\\1"
-            pezzo.gsub! /vero([\s]+)/,                  "true\\1"
-            pezzo.gsub! /a_meno_che([\s]+)/,            "unless\\1"
-            pezzo.gsub! /finché([\s]+)/,                "until\\1"
-            pezzo.gsub! /quando([\s]+)/,                "when\\1"
-            pezzo.gsub! /mentre([\s]+)/,                "while\\1"
-            pezzo.gsub! /rilascia([\s]+)/,              "yield\\1"
+            pezzo.gsub! /(\b)e(\b)/,                      "\\1and\\2"
+            pezzo.gsub! /(\b)inizia(\b)/,                 "\\1begin\\2"
+            pezzo.gsub! /(\b)blocco_dato\?(\b)/,          "\\1block_given?\\2"
+            pezzo.gsub! /(\b)esci(\b)/,                   "\\1break\\2"
+            pezzo.gsub! /(\b)considera(\b)/,              "\\1case\\2"
+            pezzo.gsub! /(\b)classe([\s]+[A-Z][\w]*)/,    "\\1class\\2"
+            pezzo.gsub! /(\b)classe([\s]+)(<<)([\s]+)/,   "\\1class\\2\\3\\4"
+            pezzo.gsub! /(\b)definisci([\s]+[^\s]+)/,     "\\1def\\2"
+            pezzo.gsub! /(\b)definito\?([\s]+[^\s]+)/,    "\\1defined?\\2"
+            pezzo.gsub! /(\b)definita\?([\s]+[^\s]+)/,    "\\1defined?\\2"
+            pezzo.gsub! /(\b)esegui(\b)/,                 "\\1do\\2"
+            pezzo.gsub! /(\b)altrimenti(\b)/,             "\\1else\\2"
+            pezzo.gsub! /(\b)altrimenti_se(\b)/,          "\\1elsif\\2"
+            pezzo.gsub! /(\b)fine(\b)/,                   "\\1end\\2"
+            pezzo.gsub! /(\b)assicura(\b)/,               "\\1ensure\\2"
+            pezzo.gsub! /(\b)estendi([\s]+[A-Z][\w]*)/,   "\\1extend\\2"
+            pezzo.gsub! /(\b)no(\b)/,                     "\\1false\\2"
+            pezzo.gsub! /(\b)falso(\b)/,                  "\\1false\\2"
+            pezzo.gsub! /(\b)per(\b)/,                    "\\1for\\2"
+            pezzo.gsub! /(\b)se(\b)/,                     "\\1if\\2"
+            pezzo.gsub! /(\b)includi([\s]+[A-Z][\w]*)/,   "\\1include\\2"
+            pezzo.gsub! /(\b)modulo([\s]+[A-Z][\w]*)/,    "\\1module\\2"
+            pezzo.gsub! /(\b)prossimo(\b)/,               "\\1next\\2"
+            pezzo.gsub! /(\b)prossima(\b)/,               "\\1next\\2"
+            pezzo.gsub! /(\b)nullo(\b)/,                  "\\1nil\\2"
+            pezzo.gsub! /(\b)nulla(\b)/,                  "\\1nil\\2"
+            pezzo.gsub! /(\b)non(\b)/,                    "\\1not\\2"
+            pezzo.gsub! /(\b)o(\b)/,                      "\\1or\\2"
+            pezzo.gsub! /(\b)preponi([\s]+[A-Z][\w]*)/,   "\\1prepend\\2"
+            pezzo.gsub! /(\b)riesegui(\b)/,               "\\1redo\\2"
+            pezzo.gsub! /(\b)recupera(\b)/,               "\\1rescue\\2"
+            pezzo.gsub! /(\b)riprova(\b)/,                "\\1retry\\2"
+            pezzo.gsub! /(\b)ritorna(\b)/,                "\\1return\\2"
+            pezzo.gsub! /(\b)istanza/,                    "\\1self"
+            pezzo.gsub! /(\b)se_stesso/,                  "\\1self"
+            pezzo.gsub! /(\b)se_stessa/,                  "\\1self"
+            pezzo.gsub! /(\b)allora(\b)/,                 "\\1then\\2"
+            pezzo.gsub! /(\b)si(\b)/,                     "\\1true\\2"
+            pezzo.gsub! /(\b)vero(\b)/,                   "\\1true\\2"
+            pezzo.gsub! /(\b)a_meno_che(\b)/,             "\\1unless\\2"
+            pezzo.gsub! /(\b)finché(\b)/,                 "\\1until\\2"
+            pezzo.gsub! /(\b)quando(\b)/,                 "\\1when\\2"
+            pezzo.gsub! /(\b)mentre(\b)/,                 "\\1while\\2"
+            pezzo.gsub! /(\b)rilascia(\b)/,               "\\1yield\\2"
             pezzo
           end
 

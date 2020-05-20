@@ -27,6 +27,8 @@ module Kernel
     caller_location_dir = File.dirname caller_locations.first.absolute_path
     if caller_location_dir.start_with?(Italian::Ruby.translations_dir_path)
       caller_location_dir = caller_location_dir[Italian::Ruby.translations_dir_path.length..-1]
+    elsif caller_location_dir.include?(".italian-ruby/")
+      caller_location_dir.gsub! ".italian-ruby/", ""
     end
     caller_location_file = File.expand_path "#{caller_location_dir}/#{name}"
     file_to_require = Dir["#{caller_location_file}.{ir,rb}"].compact.first
