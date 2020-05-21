@@ -66,6 +66,12 @@ class Object
       inizializzatore *args, **options, &block
     end
 
+    def istanza
+      self
+    end
+    alias           :se_stesso              :istanza
+    alias           :se_stessa              :istanza
+
 end
 
 Oggetto = Object
