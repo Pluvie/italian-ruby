@@ -17,8 +17,11 @@ module Kernel
     file_to_require = $:.map { |dir|  Dir["#{dir}/**/#{name}.ir"] }.flatten.compact.first
 
     if file_to_require.nil?
-      Italian::Ruby::Traduttore.traduci do
+      begin
         require name
+      rescue SyntaxError => errore
+        riga = errore.message.split("\n").first.split(":")[1].to_i rescue 0
+        Italian::Ruby::Errore::Sintassi.new("Errore di sintassi.", name, riga, 0).stampa
       end
     else
       traduci_e_carica file_to_require
@@ -74,8 +77,11 @@ module Kernel
       end
 
       File.write parsed_file, parsed_code
-      Italian::Ruby::Traduttore.traduci do
+      begin
         require parsed_file
+      rescue SyntaxError => errore
+        riga = errore.message.split("\n").first.split(":")[1].to_i rescue 0
+        Italian::Ruby::Errore::Sintassi.new("Errore di sintassi.", parsed_file, riga, 0).stampa
       end
     end
 

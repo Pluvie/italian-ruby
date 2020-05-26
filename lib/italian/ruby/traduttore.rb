@@ -20,18 +20,9 @@ module Italian
           else
             if block_given?
               begin
-                puts "STO ESEGUENDO CON ITALIAN RUBY!!!"
                 block.call
               rescue StandardError => errore
-                puts "ERRORONE RECUPERATO!!!"
-                puts caller_locations.inspect
-                Italian::Ruby::Errore.new("prova", "prova.rb", "ciao", 1, 1).stampa
-              rescue SyntaxError => errore
-                puts "RECUPERATO ERRORE SINTASSI"
-                puts caller_locations
-                puts "----"
-                puts errore.backtrace
-                Italian::Ruby::Errore.new("prova", "prova.rb", "ciao", 1, 1).stampa
+                Italian::Ruby::Errore.new([ errore.message, errore.backtrace ].join("\n"), "-", 0, 0).stampa
               end
             end
           end
@@ -78,7 +69,7 @@ module Italian
             if posizione_stringa_singola < posizione_commento and posizione_stringa_singola < posizione_stringa_doppia
               Italian::Ruby::Errore::NonSupportato.new(
                 "Le stringhe con singolo apice non sono supportate.",
-                file, linea, riga, posizione_stringa_singola).stampa
+                file, riga, posizione_stringa_singola).stampa
             end
           end
 
@@ -89,7 +80,7 @@ module Italian
             if prossima_posizione_stringa_doppia.nil?
               Italian::Ruby::Errore::IndividuazioneStringa.new(
                 "Non è stato possibile trovare la terminazione della stringa.",
-                file, linea, riga, posizione_stringa_doppia).stampa
+                file, riga, posizione_stringa_doppia).stampa
             end
           end
 
