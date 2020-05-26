@@ -17,7 +17,9 @@ module Kernel
     file_to_require = $:.map { |dir|  Dir["#{dir}/**/#{name}.ir"] }.flatten.compact.first
 
     if file_to_require.nil?
-      require name
+      Italian::Ruby::Traduttore.traduci do
+        require name
+      end
     else
       traduci_e_carica file_to_require
     end
@@ -72,10 +74,9 @@ module Kernel
       end
 
       File.write parsed_file, parsed_code
-      require parsed_file
-      # require_output = require tmp_parsed_file
-      # File.delete tmp_parsed_file if File.exist? tmp_parsed_file
-      #require_output
+      Italian::Ruby::Traduttore.traduci do
+        require parsed_file
+      end
     end
 
 end

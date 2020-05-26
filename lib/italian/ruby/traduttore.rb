@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require           "rainbow"
 require_relative  "utils/debug"
+require_relative  "errore"
 
 module Italian
   module Ruby
@@ -8,43 +9,31 @@ module Italian
 
       STAMPA_DETTAGLI_TRADUZIONE = false
 
-      class Errore < StandardError
-        attr_accessor :messaggio, :file, :linea, :riga, :posizione
-
-        def initialize(messaggio: nil, file: nil, linea: nil, riga: 0, posizione: 0)
-          @messaggio  = messaggio
-          @file       = file
-          @linea      = linea
-          @riga       = riga
-          @posizione  = posizione
-        end
-
-        class NonSupportato < Errore; end
-        class IndividuazioneStringa < Errore; end
-      end
-
       class << self
 
-        def traduci(file)
-          begin
+        def traduci(file = nil, &block)
+          if not file.nil?
             codice_tradotto = File.readlines(file).map.with_index do |linea, riga|
               traduci_linea file, linea, riga
             end
             codice_tradotto.join
-          rescue Italian::Ruby::Traduttore::Errore => errore
-            puts "-----------------------------------------------------------------------------".alzavola
-            puts "Si è verificato un errore durante la traduzione del file `#{errore.file}`."
-            print "L'errore è: "
-            puts "#{errore.classe}.".rosso
-            puts errore.messaggio
-            puts
-            print "Riga: "
-            puts "#{errore.riga}".ciano
-            puts errore.linea
-            puts "^".rjust(errore.posizione + 1, " ").verde_lime
-            puts
-            puts "-----------------------------------------------------------------------------".alzavola
-            exit 1
+          else
+            if block_given?
+              begin
+                puts "STO ESEGUENDO CON ITALIAN RUBY!!!"
+                block.call
+              rescue StandardError => errore
+                puts "ERRORONE RECUPERATO!!!"
+                puts caller_locations.inspect
+                Italian::Ruby::Errore.new("prova", "prova.rb", "ciao", 1, 1).stampa
+              rescue SyntaxError => errore
+                puts "RECUPERATO ERRORE SINTASSI"
+                puts caller_locations
+                puts "----"
+                puts errore.backtrace
+                Italian::Ruby::Errore.new("prova", "prova.rb", "ciao", 1, 1).stampa
+              end
+            end
           end
         end
 
@@ -85,13 +74,11 @@ module Italian
 
         private
 
-          def errore!(classe, messaggio, file, linea, riga, posizione)
-            raise classe.new(messaggio: messaggio, file: file, linea: linea, riga: riga, posizione: posizione)
-          end
-
           def controlla_stringa_singola(file, linea, riga, posizione_commento, posizione_stringa_singola, posizione_stringa_doppia)
             if posizione_stringa_singola < posizione_commento and posizione_stringa_singola < posizione_stringa_doppia
-              errore! Errore::NonSupportato, "Le stringhe con singolo apice non sono supportate.", file, linea, riga, posizione_stringa_singola
+              Italian::Ruby::Errore::NonSupportato.new(
+                "Le stringhe con singolo apice non sono supportate.",
+                file, linea, riga, posizione_stringa_singola).stampa
             end
           end
 
@@ -100,7 +87,9 @@ module Italian
           
             prossima_posizione_stringa_doppia = linea[posizione_stringa_doppia + 1..].index %{"}
             if prossima_posizione_stringa_doppia.nil?
-              errore! Errore::IndividuazioneStringa, "Non è stato possibile trovare la terminazione della stringa.", file, linea, riga, posizione_stringa_doppia
+              Italian::Ruby::Errore::IndividuazioneStringa.new(
+                "Non è stato possibile trovare la terminazione della stringa.",
+                file, linea, riga, posizione_stringa_doppia).stampa
             end
           end
 
