@@ -6,6 +6,10 @@ module BSON
 
     alias       :in_stringa         :to_s
 
+    def in_id
+      self
+    end
+
     def to_json(*args)
       "\"#{self.to_s}\""
     end
