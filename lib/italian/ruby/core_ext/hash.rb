@@ -13,7 +13,6 @@ class Hash
   alias         :vuoto?               :empty?
   alias         :vuota?               :empty?
   alias         :ha_chiave?           :has_key?
-  alias         :ottieni              :fetch
   alias         :prendi               :fetch
   alias         :deposita             :store
   alias         :scava                :dig
