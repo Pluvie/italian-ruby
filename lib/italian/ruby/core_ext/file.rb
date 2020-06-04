@@ -17,7 +17,7 @@ class File
   alias           :stampa                 :puts
 
   def self.percorso_non_tradotto(path)
-    return path unless path.respond_to? :gsub
-    path.gsub("/Users/fballardin/.italian-ruby/translations", "")
+    return path unless path.respond_to? :partition
+    path.partition(".italian-ruby/translations").last
   end
 end
