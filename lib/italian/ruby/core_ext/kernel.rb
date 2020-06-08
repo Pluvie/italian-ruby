@@ -13,8 +13,12 @@ module Kernel
   alias         :ottieni_variabile_istanza      :instance_variable_get
   alias         :imposta_variabile_istanza      :instance_variable_set
 
+  def carica(name)
+    traduci_e_carica File.expand_path(name)
+  end
+
   def richiedi(name)
-    file_to_require = $:.map { |dir|  Dir["#{dir}/**/#{name}.ir"] }.flatten.compact.first
+    file_to_require = $:.map { |dir| Dir["#{dir}/**/#{name}.ir"] }.flatten.compact.first
 
     if file_to_require.nil?
       begin
@@ -24,7 +28,7 @@ module Kernel
         Italian::Ruby::Errore::Sintassi.new("Errore di sintassi.", name, riga, 0).stampa
       end
     else
-      traduci_e_carica file_to_require
+      traduci_e_richiedi file_to_require
     end
   end
 
@@ -39,12 +43,12 @@ module Kernel
     file_to_require = Dir["#{caller_location_file}.{ir,rb}"].compact.first
     raise LoadError.new("cannot load such file -- #{name}") unless File.exist? file_to_require
 
-    traduci_e_carica file_to_require
+    traduci_e_richiedi file_to_require
   end
 
   def richiedi_assoluto(file)
     raise LoadError.new("cannot load such file -- #{file}") unless File.exist? file
-    traduci_e_carica file
+    traduci_e_richiedi file
   end
 
   def richiedi_tutti(dir)
@@ -61,24 +65,41 @@ module Kernel
 
   private
 
-    def traduci_e_carica(file_to_require)
-      file_to_require_dir = File.dirname file_to_require
-      file_to_require_ext = File.extname file_to_require
-      file_to_require_basename = File.basename file_to_require, file_to_require_ext
+    def traduci_file(file_to_translate)
+      file_to_translate_dir       = File.dirname file_to_translate
+      file_to_translate_ext       = File.extname file_to_translate
+      file_to_translate_basename  = File.basename file_to_translate, file_to_translate_ext
 
-      parsed_dir = File.join Italian::Ruby.translations_dir_path, file_to_require_dir
+      parsed_dir = File.join Italian::Ruby.translations_dir_path, file_to_translate_dir
       FileUtils.mkdir_p parsed_dir unless Dir.exists? parsed_dir
-      parsed_file = File.join parsed_dir, "#{file_to_require_basename}.rb"
+      parsed_file = File.join parsed_dir, "#{file_to_translate_basename}.rb"
 
-      if file_to_require_ext == ".rb"
-        parsed_code = File.read file_to_require
+      if file_to_translate_ext == ".rb"
+        parsed_code = File.read file_to_translate
       else
-        parsed_code = Italian::Ruby::Traduttore.traduci file_to_require
+        parsed_code = Italian::Ruby::Traduttore.traduci file_to_translate
       end
 
       File.write parsed_file, parsed_code
+      parsed_file
+    end
+
+    def traduci_e_richiedi(file_to_require)
+      parsed_file = traduci_file file_to_require
+
       begin
         require parsed_file
+      rescue SyntaxError => errore
+        riga = errore.message.split("\n").first.split(":")[1].to_i rescue 0
+        Italian::Ruby::Errore::Sintassi.new("Errore di sintassi.", parsed_file, riga, 0).stampa
+      end
+    end
+
+    def traduci_e_carica(file_to_load)
+      parsed_file = traduci_file file_to_load
+
+      begin
+        load parsed_file
       rescue SyntaxError => errore
         riga = errore.message.split("\n").first.split(":")[1].to_i rescue 0
         Italian::Ruby::Errore::Sintassi.new("Errore di sintassi.", parsed_file, riga, 0).stampa
