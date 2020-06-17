@@ -10,6 +10,7 @@ class File
     alias         :nome_cartella          :dirname
     alias         :esiste?                :exists?
     alias         :scrivi                 :write
+    alias         :leggi                  :read
     alias         :apri                   :open
   end
 
