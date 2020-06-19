@@ -25,6 +25,7 @@ class Date
   alias         :in_stringa                 :to_s
   alias         :in_data                    :to_date
   alias         :giorno_della_settimana     :cwday
+  alias         :formatta                   :strftime
 
   def due_anni_fa
     self.prev_year.prev_year

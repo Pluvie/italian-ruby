@@ -12,6 +12,7 @@ class Time
 
   alias         :in_stringa   :to_s
   alias         :in_numero    :to_i
+  alias         :formatta     :strftime
 
   def in_data
     self.to_date
