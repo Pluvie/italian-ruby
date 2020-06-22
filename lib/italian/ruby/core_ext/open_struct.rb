@@ -7,4 +7,4 @@ class OpenStruct
   alias         :in_mappa                   :to_h
 end
 
-Documento = OpenStruct
+Archivio = OpenStruct
