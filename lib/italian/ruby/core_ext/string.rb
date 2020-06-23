@@ -43,6 +43,11 @@ class String
   def non_finisce_con?(*args)
     !finisce_con? *args
   end
+
+  def in_data
+    return unless defined? Date
+    Date.parse self
+  end
 end
 
 Stringa = String

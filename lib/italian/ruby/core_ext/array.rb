@@ -69,6 +69,7 @@ class Array
   alias         :rovescia             :reverse
   alias         :inverti              :reverse
   alias         :lista                :entries
+  alias         :affetta              :slice
 
   def esiste?
     !nil? && !empty?
