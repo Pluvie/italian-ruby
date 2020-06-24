@@ -24,6 +24,7 @@ class Date
   alias         :anno_precedente            :prev_year
   alias         :in_stringa                 :to_s
   alias         :in_data                    :to_date
+  alias         :in_tempo                   :to_time
   alias         :giorno_della_settimana     :cwday
   alias         :formatta                   :strftime
 
