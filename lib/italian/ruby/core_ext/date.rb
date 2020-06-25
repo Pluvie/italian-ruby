@@ -32,6 +32,12 @@ class Date
     self.prev_year.prev_year
   end
   alias         :due_anni_precedenti        :due_anni_fa
+
+  alias :original_compare :==
+  def ==(other)
+    return (self == other.to_date) if other.is_a? Time
+    original_compare other
+  end
 end
 
 Data = Date

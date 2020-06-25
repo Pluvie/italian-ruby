@@ -21,6 +21,12 @@ class Time
   def in_tempo
     self
   end
+
+  alias :original_compare :==
+  def ==(other)
+    return (self.to_date == other) if other.is_a? Date
+    original_compare other
+  end
 end
 
 Tempo = Time
