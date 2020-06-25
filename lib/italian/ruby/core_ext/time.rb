@@ -22,9 +22,15 @@ class Time
     self
   end
 
-  alias :original_compare :==
+  alias :original_equality :==
   def ==(other)
     return (self.to_date == other) if other.is_a? Date
+    original_equality other
+  end
+
+  alias :original_compare :<=>
+  def <=>(other)
+    return (self.to_date <=> other) if other.is_a? Date
     original_compare other
   end
 end

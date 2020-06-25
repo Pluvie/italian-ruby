@@ -33,9 +33,15 @@ class Date
   end
   alias         :due_anni_precedenti        :due_anni_fa
 
-  alias :original_compare :==
+  alias :original_equality :==
   def ==(other)
     return (self == other.to_date) if other.is_a? Time
+    original_equality other
+  end
+
+  alias :original_compare :<=>
+  def <=>(other)
+    return (self <=> other.to_date) if other.is_a? Time
     original_compare other
   end
 end
