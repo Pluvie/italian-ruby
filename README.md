@@ -38,11 +38,11 @@ A questo punto ci sono due strade. Prima strada, usare l'eseguibile `italian-rub
 ```ruby
 # persona.ir
 classe Persona
-  def inizializzatore(nome)
+  definisci inizializzatore(nome)
     @nome = nome
   fine
 
-  def come_ti_chiami?
+  definisci come_ti_chiami?
     stampa "Ciao, mi chiamo #{@nome}."
   fine
 fine
@@ -63,7 +63,7 @@ Oppure si può richiedere all'interno di codice sorgente Ruby standard, in modo 
 ```ruby
 # libreria_interessantissima.rb
 modulo LibreriaInteressantissima
-  def se_stesso.metodo_interessantissimo
+  definisci se_stesso.metodo_interessantissimo
     stampa "Che roba!"
   fine
 fine
@@ -93,15 +93,56 @@ GemmaImpossibile.esiste?
 >
 > \- un tizio saggio, qualche anno fa.
 
-Volete sapere la verità su Italian Ruby? Ecco come funziona. Ho preso ispirazione da questa gemma che si chiama [Bato](https://github.com/jjuliano/bato). Praticamente è la stessa cosa di Italian Ruby solo che in filippino. Bato vuole dire "Roccia" in filippino. Bato funziona usando la gemma [RubyParser](https://github.com/seattlerb/ruby_parser) che parsa codice Ruby e lo converte in espressioni sexp, e la gemma [Ruby2Ruby](https://github.com/seattlerb/ruby2ruby) che converte espressioni sexp in codice Ruby.
-In mezzo a queste due, ci infiliamo la nostra gemma, che, patchando il ruby parser, legge codice in italiano e lo converte in espressioni sexp. Il trucco sta nel file `lib/italian/ruby/ruby_parser_patches.rb` dove vengono definite nuove keywords al posto di quelle originali (es. `classe` al posti di `class`).
+Volete sapere la verità su Italian Ruby? Ecco come funziona.
 
-Bato però ha solo un binario che permette di eseguire codice filippino. Italian Ruby, invece, permette di inglobare codice italiano all'interno di progetti Ruby già esistenti. Avete un gigantesco codebase con megabyte di codice, ma volete riscrivere un solo piccolo pezzettino in italiano? Con Italian Ruby si può.
+Inizialmente, avevo preso ispirazione da questa gemma che si chiama [Bato](https://github.com/jjuliano/bato). L'idea, praticamente, è la stessa di Italian Ruby solo che in filippino. Bato vuole dire "Roccia" in filippino. Bato funziona usando la gemma [RubyParser](https://github.com/seattlerb/ruby_parser) che parsa codice Ruby e lo converte in espressioni sexp, e la gemma [Ruby2Ruby](https://github.com/seattlerb/ruby2ruby) che converte espressioni sexp in codice Ruby. In mezzo a queste due, si inserisce Bato, che, patchando il ruby parser, legge codice in filippino e lo converte in espressioni sexp.
+
+Ora, Italian Ruby ha un suo parser vero e proprio. È molto semplice, per ora, e si basta sulla lettura contestuale di ogni riga del sorgente, ma senza dividere le parole e senza cercare di ricostruire l'intero albero sintattico astratto. In questo modo si hanno vari vantaggi:
+- Non si dipende più dalle gemme `ruby_parser` e `ruby_2_ruby`. Il che significa che ogni nuova funzionalità del linguaggio è automaticamente e direttamente disponibile anche in Italian Ruby, senza aspettare che vengano aggiornate queste due gemme (es. il pattern-matching di Ruby 2.7).
+- I tempi di caricamento iniziali della gemma sono ridotti di molto.
+- La velocità di processazione e traduzione del sorgente è aumentata di molto.
+- È mantenuta l'esatta corrispondenza fra i numeri di riga fra sorgente originale e sorgente tradotto.
+
+Un'altra differenza fra Bato e Italian Ruby è che Bato ha solo un binario che permette di eseguire codice filippino. Italian Ruby, invece, permette di inglobare codice italiano all'interno di progetti Ruby già esistenti. Avete un gigantesco codebase con megabyte di codice, ma volete riscrivere un solo piccolo pezzettino in italiano? Con Italian Ruby si può. Ad esempio, prendiamo questo sorgente Italian Ruby:
+
+```ruby
+classe Libro
+
+  accessore :titolo
+
+  definisci inizializzatore(titolo)
+    @titolo = titolo
+  fine
+
+fine
+```
+
+e questo codice Ruby:
+
+```ruby
+require "italian/ruby"
+richiedi_relativo "libro"
+
+class Library
+
+  attr_accessor :books
+
+  def initialize
+    @books = []
+  end
+
+  def add(title)
+    @books << Libro.new(title)
+  end
+end
+```
+
+Questo codice risulta perfettamente valido e funzionante.
 
 Per concludere, ci sono degli avvertimenti.
-1. il namespace verrà sporcato. Ho fatto del mio meglio per essere più chirurgico possibile, ma se fate `require "italian/ruby"` sappiate che verranno su un sacco di classi e di alias nuovi (es. `Oggetto.nuovo` ecc.).
-2. il `richiedi` e `richiedi_relativo` funzionano traducendo un file sorgente in italiano nella cartella `.italian-ruby`, che viene creata in automatico nella home dell'utente. Viene ricreato l'intero percorso del file, in modo tale da preservarne l'unicità e il riferimento con il sorgente iniziale. Unaa volta tradotto, il file viene caricato in memoria con il `require` di Ruby. Non so se questo possa creare problemi. Immagino di no. Ma vi ho avvertito!
+1. Il namespace verrà sporcato. Ho fatto del mio meglio per essere più chirurgico possibile, ma se fate `require "italian/ruby"` sappiate che verranno su un sacco di classi e di alias nuovi (es. `Oggetto.nuovo` ecc.).
+2. Il `richiedi` e `richiedi_relativo` funzionano traducendo un file sorgente in italiano nella cartella `.italian-ruby`, che viene creata in automatico nella home dell'utente. Viene ricreato l'intero percorso del file, in modo tale da preservarne l'unicità e il riferimento con il sorgente iniziale. Unaa volta tradotto, il file viene caricato in memoria con il `require` di Ruby. Non so se questo possa creare problemi. Immagino di no. Ma vi ho avvertito!
 
 ## Contribuire
 
-Bug e issue qui -> https://github.com/[USERNAME]/italian-ruby.
+Bug e issue qui -> https://github.com/Pluvie/italian-ruby.
