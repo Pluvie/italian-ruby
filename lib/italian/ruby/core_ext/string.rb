@@ -25,6 +25,10 @@ class String
   alias       :spoglia                  :strip
   alias       :conteggio                :count
   alias       :conteggia                :count
+  alias       :codifica                 :encoding
+  alias       :codifica_in              :encode
+  alias       :codifica_valida?         :valid_encoding?
+  alias       :forza_codifica_a         :force_encoding
 
   def esiste?
     !nil? and self != ""
