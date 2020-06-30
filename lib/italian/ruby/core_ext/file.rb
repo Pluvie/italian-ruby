@@ -8,6 +8,7 @@ class File
     alias         :espandi                :expand_path
     alias         :nome_file              :basename
     alias         :nome_cartella          :dirname
+    alias         :estensione             :extname
     alias         :esiste?                :exists?
     alias         :scrivi                 :write
     alias         :leggi                  :read

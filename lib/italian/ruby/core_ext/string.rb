@@ -8,6 +8,7 @@ class String
   alias       :prima_maiuscola          :capitalize
   alias       :in_simbolo               :to_sym
   alias       :in_stringa               :to_s
+  alias       :in_numero                :to_i
   alias       :dividi                   :split
   alias       :maiuscola                :upcase
   alias       :maiuscolo                :upcase
