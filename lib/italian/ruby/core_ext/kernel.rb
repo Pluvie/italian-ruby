@@ -1,3 +1,5 @@
+require "fileutils"
+
 ##
 # CoreExt - Kernel
 #
