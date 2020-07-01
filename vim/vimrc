@@ -1,0 +1,13 @@
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set nu
+
+syntax on
+
+highlight italianRubyKeyword  ctermfg=171
+highlight italianRubySpecial  ctermfg=27
+highlight italianRubyMethod   ctermfg=100
+highlight italianRubySymbol   ctermfg=86
+highlight italianRubyComment  ctermfg=28
+highlight italianRubyString   ctermfg=94
