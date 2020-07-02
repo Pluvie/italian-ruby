@@ -6,9 +6,21 @@ set expandtab
 set nu
 
 ""
+" Comando per aprire nuovo tab
+command! -complete=file -nargs=1 T tabedit <args>
+
+""
 " Muoversi fra tab con H (sinistra) e L (destra)
 nnoremap H gT
 nnoremap L gt
+
+""
+" Aggiunge automaticamente indentazione su nuova riga
+set autoindent
+
+""
+" Mostra opzioni sopra la linea di comando
+set wildmenu
 
 ""
 " Evidenziazione sintassi ItalianRuby
@@ -17,10 +29,11 @@ syntax on
 highlight italianRubyKeyword              ctermfg=171
 highlight italianRubyDefinitionKeyword    ctermfg=171
 highlight italianRubySpecial              ctermfg=33
+highlight italianRubySpecialBoolean       ctermfg=33
 highlight italianRubyMethod               ctermfg=220
 highlight italianRubyMethodName           ctermfg=220
 highlight italianRubySymbol               ctermfg=33
-highlight italianRubySplatOperator        ctermfg=33
+highlight italianRubySplatOperator        ctermfg=117
 highlight italianRubyInstanceVar          ctermfg=117
 highlight italianRubyInterpolationStart   ctermfg=117
 highlight italianRubyInterpolationStop    ctermfg=117
