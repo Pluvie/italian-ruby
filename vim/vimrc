@@ -1,8 +1,17 @@
+""
+" Imposta dimensione tabulazione
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set nu
 
+""
+" Muoversi fra tab con H (sinistra) e L (destra)
+nnoremap H gT
+nnoremap L gt
+
+""
+" Evidenziazione sintassi ItalianRuby
 syntax on
 
 highlight italianRubyKeyword              ctermfg=171
@@ -13,6 +22,8 @@ highlight italianRubyMethodName           ctermfg=220
 highlight italianRubySymbol               ctermfg=33
 highlight italianRubySplatOperator        ctermfg=33
 highlight italianRubyInstanceVar          ctermfg=117
+highlight italianRubyInterpolationStart   ctermfg=117
+highlight italianRubyInterpolationStop    ctermfg=117
 highlight italianRubyConstant             ctermfg=43
 highlight italianRubyComment              ctermfg=28
 highlight italianRubyString               ctermfg=208
