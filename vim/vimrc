@@ -5,9 +5,14 @@ set nu
 
 syntax on
 
-highlight italianRubyKeyword  ctermfg=171
-highlight italianRubySpecial  ctermfg=27
-highlight italianRubyMethod   ctermfg=100
-highlight italianRubySymbol   ctermfg=86
-highlight italianRubyComment  ctermfg=28
-highlight italianRubyString   ctermfg=94
+highlight italianRubyKeyword              ctermfg=171
+highlight italianRubyDefinitionKeyword    ctermfg=171
+highlight italianRubySpecial              ctermfg=33
+highlight italianRubyMethod               ctermfg=220
+highlight italianRubyMethodName           ctermfg=220
+highlight italianRubySymbol               ctermfg=33
+highlight italianRubySplatOperator        ctermfg=33
+highlight italianRubyInstanceVar          ctermfg=117
+highlight italianRubyConstant             ctermfg=43
+highlight italianRubyComment              ctermfg=28
+highlight italianRubyString               ctermfg=208
