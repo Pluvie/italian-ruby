@@ -8,7 +8,7 @@ if exists("b:current_syntax")
 endif
 
 syn match   italianRubyKeyword              /\v(\s)*(classe|modulo|esegui|fine)(\s|$)/
-syn match   italianRubyKeyword              /\v(\s)*(se|allora|altrimenti|altrimenti_se|considera|quando|finché)(\s|$)/
+syn match   italianRubyKeyword              /\v(\s)*(se|allora|altrimenti|altrimenti_se|considera|quando|finché|in)(\s|$)/
 syn match   italianRubyKeyword              /\v(\s)*(prossimo|prossima|esci|ritorna|rilascia|blocco_dato\?)(\s|$)/
 syn match   italianRubyKeyword              /\v(\s)*(inizia|recupera|assicura|riprova)(\s|$)/
 
@@ -32,13 +32,13 @@ syn match   italianRubySpecial              /\v(\s)*(cicla|alza)(\s|$)/
 syn match   italianRubySpecial              /\v\.(nuovo|nuova)/hs=s+1
 syn match   italianRubySpecial              /\v(se_stesso|se_stessa)/
 syn match   italianRubySpecial              /\v(\*){1,2}[a-zA-Z_]/he=e-1
-syn match   italianRubySpecialBoolean       /\v(\s)*(si|no)(\s|$)/
-syn match   italianRubySpecialBoolean       /\v(\s)*(si|no)(\W)/he=e-1
+syn match   italianRubySpecialBoolean       /\v(\s)+(si|no|nullo)(\s|$)/
+syn match   italianRubySpecialBoolean       /\v(\s)+(si|no|nullo)(\W)/he=e-1
 
-syn region  italianRubyDefinition           start=/definisci/ end=/[$\n]/       contains=italianRubyDefinitionKeyword,italianRubyMethodName,italianRubySplatOperator,italianRubySymbol,italianRubySpecialBoolean
-syn match   italianRubyDefinitionKeyword    /\vdefinisci/                       contained
-syn match   italianRubyMethodName           /\v([a-z0-9_]+)\(/he=e-1            contained
-syn match   italianRubyMethodName           /\v([a-z0-9_]+)$/                   contained
+syn region  italianRubyDefinition           start=/definisci/ end=/[$\n]/       contains=italianRubySymbol,italianRubyConstant,italianRubySpecialBoolean,italianRubySplatOperator
+syn match   italianRubyDefinitionKeyword    /\vdefinisci/                       contained   containedin=italianRubyDefinition
+syn match   italianRubyMethodName           /\v([a-z0-9_=\?]+)\(/he=e-1            contained   containedin=italianRubyDefinition
+syn match   italianRubyMethodName           /\v([a-z0-9_=\?]+)$/                   contained   containedin=italianRubyDefinition
 syn match   italianRubySplatOperator        /\v(\*{1,2}[a-zA-Z0-9_])/he=e-1
 
 let b:current_syntax = "ir"
