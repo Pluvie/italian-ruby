@@ -4,6 +4,7 @@
 # Alias di metodi del namespace principale.
 
 alias     :stampa                       :puts
+alias     :scrivi                       :print
 alias     :cicla                        :loop
 alias     :definisci_metodo_singolo     :define_singleton_method
 alias     :blocco_dato?                 :block_given?
