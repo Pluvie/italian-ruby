@@ -60,7 +60,7 @@ module Kernel
     end
     raise LoadError.new("cannot load such directory -- #{dir}") unless Dir.exist? caller_location_dir
 
-    Dir["#{caller_location_dir}/**/*.ir"].each do |file|
+    Dir["#{caller_location_dir}/**/*.ir"].sort_by { |file| file.count("/") }.each do |file|
       richiedi_assoluto file
     end
   end
