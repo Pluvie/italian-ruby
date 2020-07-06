@@ -70,6 +70,8 @@ class Array
   alias         :inverti              :reverse
   alias         :lista                :entries
   alias         :affetta              :slice
+  alias         :salta_i_primi        :drop
+  alias         :salta_le_prime       :drop
 
   def esiste?
     !nil? && !empty?
