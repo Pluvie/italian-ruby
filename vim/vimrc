@@ -19,6 +19,10 @@ nnoremap L gt
 set autoindent
 
 ""
+" Evidenzia risultati ricerca
+set hlsearch
+
+""
 " Mostra opzioni sopra la linea di comando
 set wildmenu
 
@@ -33,6 +37,7 @@ highlight italianRubySpecialBoolean       ctermfg=33
 highlight italianRubyMethod               ctermfg=220
 highlight italianRubyMethodName           ctermfg=220
 highlight italianRubySymbol               ctermfg=33
+highlight italianRubyNumeric              ctermfg=148
 highlight italianRubySplatOperator        ctermfg=117
 highlight italianRubyInstanceVar          ctermfg=117
 highlight italianRubyInterpolationStart   ctermfg=117
