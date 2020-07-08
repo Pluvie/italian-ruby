@@ -31,10 +31,11 @@ syn match   italianRubyConstant             /\v[A-Z][a-zA-Z0-9àèéìòùÀÈÌ
 syn match   italianRubyComment              /\v#.*$/
 
 syn match   italianRubyNumeric              /\v(\s)+([0-9\.]+)/
-syn match   italianRubyInterpolationStart   /\v#\{/                             contained   containedin=italianRubyInterpolation
-syn match   italianRubyInterpolationStop    /\v\}/                              contained   containedin=italianRubyInterpolation
-syn region  italianRubyInterpolation        start=/\v#\{/ end=/\v\}/            contains=TOP,italianRubyComment   contained   keepend
-syn region  italianRubyString               start=/"/     end=/"/   skip=/\\"/  contains=italianRubyInterpolation
+syn match   italianRubyInterpolationStart   /\v#\{/                               contained   containedin=italianRubyInterpolation
+syn match   italianRubyInterpolationStop    /\v\}/                                contained   containedin=italianRubyInterpolation
+syn region  italianRubyInterpolation        start=/\v#\{/   end=/\v\}/            contains=TOP,italianRubyComment   contained   keepend
+syn region  italianRubyString               start=/"/       end=/"/   skip=/\\"/  contains=italianRubyInterpolation
+syn region  italianRubyString               start=/\v\%\{/  end=/\}/  skip=/\\"/  contains=italianRubyInterpolation
 
 syn match   italianRubySpecial              /\v(\s|^)(includi|estendi|preponi)(\s|$)/
 syn match   italianRubySpecial              /\v(\s|^)(pubblici|protetti|privati)(\s|$)/
@@ -45,7 +46,7 @@ syn match   italianRubySpecial              /\v\.(nuovo|nuova)(\s|\,|\()/hs=s+1,
 syn match   italianRubySpecial              /\v\.(nuovo|nuova)\)/hs=s+1,he=e-1
 syn match   italianRubySpecial              /\v\.(nuovo|nuova)$/hs=s+1
 syn match   italianRubySpecial              /\v(se_stesso|se_stessa)/
-syn match   italianRubySpecial              /\v(\s)+(si|no|nullo|nulla)(\s|$)/
-syn match   italianRubySpecial              /\v(\s)+(si|no|nullo|nulla)(\W)/he=e-1
+syn match   italianRubySpecial              /\v(\s)+(si|no|nullo|nulla)$/
+syn match   italianRubySpecial              /\v(\s)+(si|no|nullo|nulla)\W/he=e-1,me=e-1
 
 let b:current_syntax = "ir"
