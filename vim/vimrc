@@ -33,7 +33,7 @@ syntax on
 highlight italianRubyKeyword              ctermfg=171
 highlight italianRubyDefinitionKeyword    ctermfg=171
 highlight italianRubySpecial              ctermfg=33
-highlight italianRubySpecialBoolean       ctermfg=33
+highlight italianRubyClassMethodPrefix    ctermfg=33
 highlight italianRubyMethod               ctermfg=220
 highlight italianRubyMethodName           ctermfg=220
 highlight italianRubySymbol               ctermfg=33
