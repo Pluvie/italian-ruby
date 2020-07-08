@@ -10,6 +10,7 @@ class Float
   alias       :arrotonda                    :round
   alias       :arrotonda_per_eccesso        :ceil
   alias       :arrotonda_per_difetto        :floor
+  alias       :valore_assoluto              :abs
 end
 
 Decimale = Float
