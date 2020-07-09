@@ -8,9 +8,9 @@ if exists("b:current_syntax")
 endif
 
 syn match   italianRubyKeyword              /\v(\s|^)(classe|modulo|esegui)\s/me=e-1
-syn match   italianRubyKeyword              /\v(\s|^)(se|allora|altrimenti_se|a_meno_che|considera|quando|finché|in|definito\?)\s/me=e-1
+syn match   italianRubyKeyword              /\v(\s|^)(se|allora|altrimenti_se|a_meno_che|considera|quando|finché|in|definito\?|alias|super)\s/me=e-1
 syn match   italianRubyKeyword              /\v(\s|^)(prossimo|prossima|esci|ritorna|rilascia|recupera)\s/me=e-1
-syn match   italianRubyKeyword              /\v(\s|^)(se|allora|altrimenti|a_meno_che|considera|esci|ritorna|rilascia|blocco_dato\?)$/
+syn match   italianRubyKeyword              /\v(\s|^)(se|allora|altrimenti|a_meno_che|considera|esci|ritorna|rilascia|blocco_dato\?|super)$/
 syn match   italianRubyKeyword              /\v(\s|^)(inizia|recupera|assicura|riprova|esegui|fine)$/
 
 syn region  italianRubyDefinition           start=/definisci/ end=/[$\n\(]/     contains=italianRubySymbol,italianRubyConstant,italianRubyNumeric,italianRubySpecial,italianRubySplatOperator
@@ -40,8 +40,8 @@ syn region  italianRubyString               start=/\v\%\{/  end=/\}/  skip=/\\"/
 syn match   italianRubySpecial              /\v(\s|^)(includi|estendi|preponi)(\s|$)/
 syn match   italianRubySpecial              /\v(\s|^)(pubblici|protetti|privati)(\s|$)/
 syn match   italianRubySpecial              /\v(\s|^)(richiedi|richiedi_relativo|richiedi_tutti)(\s|$)/
-syn match   italianRubySpecial              /\v(\s|^)(cicla|alza)(\s|$)/
-syn match   italianRubySpecial              /\v(\s|^)(cattura|lancia)/
+syn match   italianRubySpecial              /\v(\s|^)(cicla|alza)(\s|$)/me=e-1
+syn match   italianRubySpecial              /\v(\s|^)(cattura|lancia)\s/me=e-1
 syn match   italianRubySpecial              /\v\.(nuovo|nuova)(\s|\,|\()/hs=s+1,he=e-1,me=e-1
 syn match   italianRubySpecial              /\v\.(nuovo|nuova)\)/hs=s+1,he=e-1
 syn match   italianRubySpecial              /\v\.(nuovo|nuova)$/hs=s+1
