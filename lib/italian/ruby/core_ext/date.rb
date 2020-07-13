@@ -26,6 +26,9 @@ class Date
   alias         :in_data                    :to_date
   alias         :in_tempo                   :to_time
   alias         :giorno_della_settimana     :cwday
+  alias         :settimana                  :cweek
+  alias         :mese                       :month
+  alias         :anno                       :year
   alias         :formatta                   :strftime
 
   def due_anni_fa
