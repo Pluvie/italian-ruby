@@ -138,6 +138,17 @@ class Array
     self[1]
   end
   alias   :seconda    :secondo
+
+  def tronca(n = 0)
+    self[0..(-1 - n)]
+  end
+  alias   :salta_gli_ultimi   :tronca
+  alias   :salta_le_ultime    :tronca
+
+  def salta_il_primo
+    self.drop 1
+  end
+  alias   :salta_la_prima     :salta_il_primo
 end
 
 Lista = Array
