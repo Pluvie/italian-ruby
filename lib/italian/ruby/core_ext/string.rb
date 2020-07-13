@@ -55,6 +55,34 @@ class String
     return unless defined? Date
     Date.parse self
   end
+
+  def primi(n)
+    self[0..(n - 1)]
+  end
+
+  def primo_carattere
+    self[0]
+  end
+
+  def ultimo_carattere
+    self[-1]
+  end
+
+  def salta_caratteri(n)
+    self[(n - 1)..-1]
+  end
+
+  def salta_il_primo_carattere
+    self[1..-1]
+  end
+
+  def tronca_caratteri(n)
+    self[0..(-1 - n)]
+  end
+
+  def tronca
+    self[0..-2]
+  end
 end
 
 Stringa = String
