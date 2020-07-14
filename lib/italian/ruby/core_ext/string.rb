@@ -83,6 +83,14 @@ class String
   def tronca
     self[0..-2]
   end
+
+  def adatta(l)
+    if self.length > l
+      "#{self[0..l - 3]}.."
+    else
+      self.ljust l, " "
+    end
+  end
 end
 
 Stringa = String
