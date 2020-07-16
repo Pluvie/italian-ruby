@@ -27,6 +27,8 @@ class Object
   end
   alias       :specificato?       :esiste?
   alias       :specificata?       :esiste?
+  alias       :non_è_nullo?       :esiste?
+  alias       :non_è_nulla?       :esiste?
 
   def non_esiste?
     !esiste?

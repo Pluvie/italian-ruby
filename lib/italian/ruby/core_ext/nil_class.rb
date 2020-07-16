@@ -9,4 +9,6 @@ class NilClass
   def esiste?
     !nil?
   end
+  alias               :non_è_nullo?         :esiste?
+  alias               :non_è_nulla?         :esiste?
 end
