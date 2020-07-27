@@ -56,6 +56,11 @@ class String
     Date.parse self
   end
 
+  def in_tempo
+    return unless defined? Time
+    Time.parse self
+  end
+
   def primi(n)
     self[0..(n - 1)]
   end

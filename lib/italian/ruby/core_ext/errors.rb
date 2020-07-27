@@ -8,4 +8,5 @@ class StandardError
   alias     :traccia          :backtrace
 end
 
-Errore = StandardError
+Errore            = StandardError
+MetodoInesistente = NoMethodError
