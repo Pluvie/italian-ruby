@@ -8,6 +8,9 @@ module RSpec
   def self.variabili_condivise(*args, &block)
     shared_context *args, &block
   end
+  def self.contesto_condiviso(*args, &block)
+    shared_context *args, &block
+  end
 
   ##
   # Core
@@ -25,6 +28,7 @@ module RSpec
 
       class << self
         alias     :includi_variabili  :include_context
+        alias     :includi_contesto   :include_context
       end
     end
 
@@ -135,6 +139,8 @@ end
 RSpec.configure do |config|
   RSpec::Matchers.alias_matcher :sia,               :be
   RSpec::Matchers.alias_matcher :siano,             :be
+  RSpec::Matchers.alias_matcher :sia_nullo,         :be_nil
+  RSpec::Matchers.alias_matcher :sia_nulla,         :be_nil
   RSpec::Matchers.alias_matcher :tutti,             :all
   RSpec::Matchers.alias_matcher :tutte,             :all
   RSpec::Matchers.alias_matcher :equivalga_a,       :eq
