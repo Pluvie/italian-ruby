@@ -8,7 +8,7 @@ if exists("b:current_syntax")
 endif
 
 syn match   italianRubyKeyword              /\v(\s|^)(classe|modulo|esegui)\s/me=e-1
-syn match   italianRubyKeyword              /\v(\s|^)(se|allora|altrimenti_se|a_meno_che|considera|quando|finché|in|definito\?|alias|super)\s/me=e-1
+syn match   italianRubyKeyword              /\v(\s|^)(se|allora|altrimenti_se|a_meno_che|considera|quando|finché|in|definito\?|blocco_dato\?|alias|super)\s/me=e-1
 syn match   italianRubyKeyword              /\v(\s|^)(prossimo|prossima|esci|ritorna|rilascia|recupera)\s/me=e-1
 syn match   italianRubyKeyword              /\v(\s|^)(se|allora|altrimenti|a_meno_che|considera|esci|ritorna|rilascia|blocco_dato\?|super)$/
 syn match   italianRubyKeyword              /\v(\s|^)(inizia|recupera|assicura|riprova|esegui|fine)$/
@@ -46,7 +46,7 @@ syn match   italianRubySpecial              /\v\.(nuovo|nuova)(\s|\,|\()/hs=s+1,
 syn match   italianRubySpecial              /\v\.(nuovo|nuova)\)/hs=s+1,he=e-1
 syn match   italianRubySpecial              /\v\.(nuovo|nuova)$/hs=s+1
 syn match   italianRubySpecial              /\v(se_stesso|se_stessa)/
-syn match   italianRubySpecial              /\v(\s)+(si|no|nullo|nulla)$/
-syn match   italianRubySpecial              /\v(\s)+(si|no|nullo|nulla)\W/he=e-1,me=e-1
+syn match   italianRubySpecial              /\v(\s)+(si|no|nullo|nulla|vero|falso)$/
+syn match   italianRubySpecial              /\v(\s)+(si|no|nullo|nulla|vero|falso)\W/he=e-1,me=e-1
 
 let b:current_syntax = "ir"
