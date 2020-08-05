@@ -36,6 +36,14 @@ class Date
   end
   alias         :due_anni_precedenti        :due_anni_fa
 
+  def formatta_locale(format)
+    if defined? I18n
+      I18n.l self, format: format
+    else
+      strftime format
+    end
+  end
+
   alias :original_equality :==
   def ==(other)
     return (self == other.to_date) if other.is_a? Time

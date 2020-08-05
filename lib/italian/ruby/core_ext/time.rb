@@ -13,6 +13,7 @@ class Time
   alias         :in_stringa   :to_s
   alias         :in_numero    :to_i
   alias         :formatta     :strftime
+  alias         :localizza    :localtime
 
   def in_data
     self.to_date
@@ -20,6 +21,14 @@ class Time
 
   def in_tempo
     self
+  end
+
+  def formatta_locale(format)
+    if defined? I18n
+      I18n.l self, format: format
+    else
+      strftime format
+    end
   end
 
   alias :original_equality :==
