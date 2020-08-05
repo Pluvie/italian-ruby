@@ -150,6 +150,7 @@ RSpec.configure do |config|
   RSpec::Matchers.alias_matcher :abbia_ricevuto,    :have_received
   RSpec::Matchers.alias_matcher :cambi,             :change
   RSpec::Matchers.alias_matcher :di,                :by
+  RSpec::Matchers.alias_matcher :includa,           :include
 
   config.alias_example_to :esso
   config.alias_example_to :essa
