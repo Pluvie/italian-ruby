@@ -8,7 +8,9 @@ class Integer
   alias       :in_decimale          :to_f
   alias       :in_stringa           :to_s
   alias       :in_numero            :to_i
+  alias       :in_intero            :to_i
   alias       :valore_assoluto      :abs
+  alias       :arrotonda            :round
 
   def secondi
     self

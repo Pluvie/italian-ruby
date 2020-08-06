@@ -9,7 +9,7 @@ class OpenStruct
   def in_mappa(*args)
     hash = to_h *args
     hash.in_mappa do |key, value|
-      if value.respond_to? :to_h
+      if value.is_a? OpenStruct
         [ key, value.to_h ]
       else
         [ key, value ]
