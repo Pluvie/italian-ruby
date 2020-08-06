@@ -11,7 +11,7 @@ syn match   italianRubyKeyword              /\v(\s|^)(classe|modulo|esegui)\s/me
 syn match   italianRubyKeyword              /\v(\s|^)(se|allora|altrimenti_se|a_meno_che|considera|quando|finché|in|definito\?|blocco_dato\?|alias|super)\s/me=e-1
 syn match   italianRubyKeyword              /\v(\s|^)(prossimo|prossima|esci|ritorna|rilascia|recupera)\s/me=e-1
 syn match   italianRubyKeyword              /\v(\s|^)(se|allora|altrimenti|a_meno_che|considera|esci|ritorna|rilascia|blocco_dato\?|super)$/
-syn match   italianRubyKeyword              /\v(\s|^)(inizia|recupera|assicura|riprova|esegui|fine)$/
+syn match   italianRubyKeyword              /\v(\s|^)(prossimo|prossima|inizia|recupera|assicura|riprova|esegui|fine)$/
 
 syn region  italianRubyDefinition           start=/definisci/ end=/[$\n\(]/     contains=italianRubySymbol,italianRubyConstant,italianRubyNumeric,italianRubySpecial,italianRubySplatOperator
 syn match   italianRubyMethodName           /\v([a-z0-9_=\?\!àèéìòù]+)/         contained   containedin=italianRubyDefinition
