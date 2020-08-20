@@ -14,6 +14,12 @@ class Time
   alias         :in_numero    :to_i
   alias         :formatta     :strftime
   alias         :localizza    :localtime
+  alias         :secondi      :sec
+  alias         :secondo      :sec
+  alias         :minuto       :min
+  alias         :minuti       :min
+  alias         :ore          :hour
+  alias         :ora          :hour
 
   def in_data
     self.to_date
