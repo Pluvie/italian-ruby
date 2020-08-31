@@ -133,6 +133,10 @@ module RSpec
         alias   :volta              :times
       end
     end
+
+    module ArgumentMatchers
+      alias     :mappa_che_include  :hash_including
+    end
   end
 end
 
@@ -151,6 +155,9 @@ RSpec.configure do |config|
   RSpec::Matchers.alias_matcher :cambi,             :change
   RSpec::Matchers.alias_matcher :di,                :by
   RSpec::Matchers.alias_matcher :includa,           :include
+  RSpec::Matchers.alias_matcher :includano,         :include
+  RSpec::Matchers.alias_matcher :corrisponda_a,     :match
+  RSpec::Matchers.alias_matcher :corrispondano_a,   :match
 
   config.alias_example_to :esso
   config.alias_example_to :essa

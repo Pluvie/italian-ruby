@@ -1,5 +1,6 @@
 RSpec.descrivi Italian::Ruby::Traduttore esegui
   sia(:variabile)     { "cacca" }
+  sia(:mappa)         { Mappa(prova: si, test: no) }
   sia(:traduttore)    { imita_classe classe_descritta }
 
   prima esegui
@@ -9,6 +10,7 @@ RSpec.descrivi Italian::Ruby::Traduttore esegui
   contesto "in generale" esegui
     esso "termina con successo" esegui
       consenti(traduttore).che riceva(:traduci).con("stringa").esattamente(1).volta.e_ritorni(:valore_a_caso)
+      verifica(mappa).che corrisponda_a mappa_che_include(prova: si)
       verifica([1, 1, 1]).che tutti siano 1
       verifica(si).che sia vero
     fine
