@@ -76,7 +76,7 @@ LibreriaInteressantissima.metodo_interessantissimo
 # Che roba!
 ```
 
-È possibile anche utilizzare il `richiedi`, che funziona come il `require` di Ruby, nel remoto caso in cui _qualcuno_ faccia una gemma in Italian Ruby, la pubblichi su rubygems.org e _qualcun'altro_ la scarichi e la installi. Se mai succedesse, funzionerebbe così:
+È possibile anche utilizzare il `richiedi`, che funziona come il `require` di Ruby, nel remoto caso in cui _qualcuno_ faccia una gemma in Italian Ruby, la pubblichi su rubygems.org e _qualcun altro_ la scarichi e la installi. Se mai succedesse, funzionerebbe così:
 
 ```ruby
 # tuo_file_ruby.rb
