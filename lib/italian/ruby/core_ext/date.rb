@@ -29,6 +29,7 @@ class Date
   alias         :settimana                  :cweek
   alias         :mese                       :month
   alias         :anno                       :year
+  alias         :fra?                       :between?
   alias         :formatta                   :strftime
 
   def due_anni_fa
