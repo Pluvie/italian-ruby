@@ -48,6 +48,22 @@ class Time
     return (self.to_date <=> other) if other.is_a? Date
     original_compare other
   end
+
+  def inizio_ora
+    Time.new(self.year, self.month, self.day, self.hour)
+  end
+
+  def fine_ora
+    Time.new(self.year, self.month, self.day, self.hour, 59, 59)
+  end
+
+  def inizio_minuto
+    Time.new(self.year, self.month, self.day, self.hour, self.min)
+  end
+
+  def fine_minuto
+    Time.new(self.year, self.month, self.day, self.hour, self.min, 59)
+  end
 end
 
 Tempo = Time
