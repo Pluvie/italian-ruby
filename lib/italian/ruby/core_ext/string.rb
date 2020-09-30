@@ -5,6 +5,7 @@
 
 class String
   alias       :congela                  :freeze
+  alias       :caratteri                :chars
   alias       :prima_maiuscola          :capitalize
   alias       :in_simbolo               :to_sym
   alias       :in_stringa               :to_s
@@ -16,6 +17,7 @@ class String
   alias       :maiuscolo                :upcase
   alias       :minuscola                :downcase
   alias       :minuscolo                :downcase
+  alias       :indice                   :index
   alias       :combacia?                :match?
   alias       :inizia_con?              :start_with?
   alias       :finisce_con?             :end_with?
