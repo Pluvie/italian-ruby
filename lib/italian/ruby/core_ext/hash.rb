@@ -76,6 +76,10 @@ class Hash
     end
     copy
   end
+
+  def esponi(*keys)
+    self.select { |key, value| key.in? keys }
+  end
 end
 
 Mappa = Hash

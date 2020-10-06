@@ -9,15 +9,41 @@ module Hanami
     alias               :errore!            :error!
     alias               :errore             :error
 
+    def termina!
+      throw :stop
+    end
+
     module LegacyInterface
       def chiama
         _call { super }
+      end
+
+      def _call
+        catch :fail do
+          catch :stop do
+            validate!
+            yield
+          end
+        end
+
+        _prepare!
       end
     end
     module Interface
       def chiama(*args)
         @__result = ::Hanami::Interactor::Result.new
         _call(*args) { super }
+      end
+
+      def _call(*args)
+        catch :fail do
+          catch :stop do
+            validate!(*args)
+            yield
+          end
+        end
+
+        _prepare!
       end
     end
 
