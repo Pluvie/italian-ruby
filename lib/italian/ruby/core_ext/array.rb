@@ -43,6 +43,8 @@ class Array
   alias         :almeno_una?          :any?
   alias         :nessuno?             :none?
   alias         :nessuna?             :none?
+  alias         :uno?                 :one?
+  alias         :una?                 :one?
   alias         :congela              :freeze
   alias         :seleziona            :select
   alias         :seleziona!           :select!

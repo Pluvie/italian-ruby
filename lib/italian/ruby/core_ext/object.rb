@@ -22,6 +22,10 @@ class Object
   alias               :esegui_in_istanza    :instance_exec
   alias               :clona                :clone
 
+  def assegna(method, value)
+    self.send "#{method}=", value
+  end
+
   def esiste?
     !nil?
   end

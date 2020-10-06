@@ -63,6 +63,10 @@ class String
     Time.parse self
   end
 
+  def in_classe
+    Object.const_get self
+  end
+
   def primi(n)
     self[0..(n - 1)]
   end
