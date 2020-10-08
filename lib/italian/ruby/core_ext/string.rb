@@ -27,6 +27,7 @@ class String
   alias       :giustifica_a_sinistra    :ljust
   alias       :giustifica_a_destra      :rjust
   alias       :rimpiazza                :gsub
+  alias       :rimpiazza!               :gsub!
   alias       :spoglia                  :strip
   alias       :conteggio                :count
   alias       :conteggia                :count

@@ -1,3 +1,5 @@
+require "date"
+
 ##
 # Core Ext - StandardError
 #
@@ -10,3 +12,5 @@ end
 
 Errore            = StandardError
 MetodoInesistente = NoMethodError
+ChiaveNonTrovata  = KeyError
+DataNonValida     = Date::Error
