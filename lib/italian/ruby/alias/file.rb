@@ -11,6 +11,7 @@ class File
     alias         :scrivi                 :write
     alias         :leggi                  :read
     alias         :apri                   :open
+    alias         :cancella               :unlink
   end
 
   alias           :scrivi                 :write

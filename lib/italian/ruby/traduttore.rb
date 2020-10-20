@@ -101,6 +101,8 @@ module Italian
         # Traduce un blocco di codice da ItalianRuby a Ruby.
         def self.traduci_blocco(&blocco)
           blocco.call
+        rescue StandardError => errore
+          Italian::Ruby::Errori.recupera errore, __FILE__
         end
 
     end
