@@ -1,4 +1,3 @@
-require "rspec/mocks"
 require "italian/ruby/metodi/rspec"
 require "italian/ruby/alias/rspec"
 
