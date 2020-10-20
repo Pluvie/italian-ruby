@@ -36,8 +36,9 @@ module Italian
       ##
       # Punto d'ingresso del traduttore. Questo metodo accetta un archivio 
       # come argomento principale, oppure un blocco di codice. 
-      def self.traduci(archivio = nil, &block)
+      def self.traduci(archivio = nil, sorgente = nil, &block)
         return traduci_archivio   archivio  if archivio != nil
+        return traduci_sorgente   sorgente  if sorgente != nil
         return traduci_blocco     &blocco   if block_given?
       end
 
@@ -71,6 +72,29 @@ module Italian
 
           File.write archivio_tradotto, linee_tradotte
           archivio_tradotto
+        end
+
+        ##
+        # Traduce un pezzo di sorgente da ItalianRuby a Ruby.
+        def self.traduci_sorgente(sorgente)
+          puts "Traduzione sorgente."                         if STAMPA_DETTAGLI_TRADUZIONE
+
+          linee_sorgente  = sorgente.split "\n"
+          linee_tradotte  = linee_sorgente.map.with_index do |linea, numero_linea|
+            linea_da_tradurre = Italian::Ruby::Traduttore::Linea.new linea, numero_linea, nil
+            linea_tradotta = linea_da_tradurre.traduci
+
+            puts "\t[#{numero_linea}] <- #{linea}"            if STAMPA_DETTAGLI_TRADUZIONE
+            puts "\t[#{numero_linea}] -> #{linea_tradotta}"   if STAMPA_DETTAGLI_TRADUZIONE
+
+            linea_tradotta.chomp
+          end
+
+          puts "Traduzione terminata."                        if STAMPA_DETTAGLI_TRADUZIONE
+          puts                                                if STAMPA_DETTAGLI_TRADUZIONE
+
+          sorgente_tradotto = linee_tradotte.join("\n").freeze
+          sorgente_tradotto
         end
 
         ##
