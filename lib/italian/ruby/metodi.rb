@@ -1,0 +1,16 @@
+# frozen_string_literal: true
+
+require_relative "metodi/array"
+require_relative "metodi/date"
+require_relative "metodi/hash"
+require_relative "metodi/integer"
+require_relative "metodi/json"
+require_relative "metodi/kernel"
+require_relative "metodi/main"
+require_relative "metodi/module"
+require_relative "metodi/nil_class"
+require_relative "metodi/object"
+require_relative "metodi/open_struct"
+require_relative "metodi/range"
+require_relative "metodi/string"
+require_relative "metodi/time"

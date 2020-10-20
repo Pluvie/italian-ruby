@@ -8,6 +8,7 @@
 /tmp/
 
 .italian-ruby
+*.swp
 
 # rspec failure tracking
 .rspec_status

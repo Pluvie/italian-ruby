@@ -1,8 +1,8 @@
-require_relative 'lib/italian/ruby/version'
+require_relative "lib/italian/ruby/versione"
 
 Gem::Specification.new do |spec|
   spec.name          = "italian-ruby"
-  spec.version       = Italian::Ruby::VERSION
+  spec.version       = Italian::Ruby::VERSIONE
   spec.authors       = ["Francesco Ballardin"]
   spec.email         = ["francesco.ballardin@gmail.com"]
   spec.licenses      = ["MIT"]
@@ -10,13 +10,14 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Program in Ruby writing in Italian.}
   spec.description   = %q{Program in Ruby writing in Italian. Yay!}
   spec.homepage      = "https://github.com/Pluvie/italian-ruby"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
+
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.7.0")
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/Pluvie/italian-ruby"
-  spec.metadata["changelog_uri"] = "https://github.com/Pluvie/italian-ruby/CHANGELOG.md"
+  spec.metadata["homepage_uri"]     = spec.homepage
+  spec.metadata["source_code_uri"]  = "https://github.com/Pluvie/italian-ruby"
+  spec.metadata["changelog_uri"]    = "https://github.com/Pluvie/italian-ruby/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
