@@ -1,8 +1,7 @@
 PATH
   remote: .
   specs:
-    italian-ruby (0.1.0)
-      ruby2ruby (~> 2.4)
+    italian-ruby (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -22,12 +21,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.2)
-    ruby2ruby (2.4.4)
-      ruby_parser (~> 3.1)
-      sexp_processor (~> 4.6)
-    ruby_parser (3.14.2)
-      sexp_processor (~> 4.9)
-    sexp_processor (4.14.1)
 
 PLATFORMS
   ruby
@@ -39,4 +32,4 @@ DEPENDENCIES
   rspec (~> 3.9)
 
 BUNDLED WITH
-   2.1.2
+   2.1.4

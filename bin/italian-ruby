@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# require "italian/ruby"
-require_relative "../lib/italian/ruby"
+require "italian/ruby"
 
 if ARGV[0].nil?
   puts <<~EOC

@@ -4,28 +4,19 @@
 require "rspec"
 require "italian/ruby"
 
-def translate_spec(spec_file)
-  translated_spec_file = ".italian-ruby/#{File.dirname spec_file}/#{File.basename(spec_file, ".ir")}.rb"
-  translated_spec_dir = File.dirname translated_spec_file
-  FileUtils.mkdir_p translated_spec_dir unless Dir.exists? translated_spec_dir
-  File.write translated_spec_file, Italian::Ruby::Traduttore.traduci(spec_file)
-  translated_spec_file
-end
-
-def destroy_spec(translated_spec_file)
-  File.delete translated_spec_file if File.exist? translated_spec_file
-end
-
 if ARGV[0].nil?
-  spec_files = Dir["spec/**/*_spec.ir"]
-  if spec_files.empty?
+  archivi_con_spec = Dir["spec/**/*_spec.ir"]
+
+  if archivi_con_spec.none?
     "Nessun file *_spec.ir trovato."
     return
   end
 else
-  spec_files = ARGV
+  archivi_con_spec = ARGV
 end
 
-translated_spec_files = spec_files.map { |file| translate_spec file }
-RSpec::Core::Runner.run(translated_spec_files, STDIN, STDOUT)
-# translated_spec_files.each { |file| destroy_spec file }
+archivi_tradotti = archivi_con_spec.map do |archivio|
+  Italian::Ruby::Traduttore.traduci archivio
+end
+
+RSpec::Core::Runner.run archivi_tradotti, STDIN, STDOUT
