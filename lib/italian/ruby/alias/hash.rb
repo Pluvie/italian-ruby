@@ -2,6 +2,7 @@
 
 class Hash
 
+  alias         :ispeziona            :inspect
   alias         :per_ogni             :each
   alias         :per_ognuno           :each
   alias         :per_ognuna           :each

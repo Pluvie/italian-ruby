@@ -8,6 +8,10 @@ module Italian
     module Errori
 
       ##
+      # Errore stringa non terminata.
+      class StringaNonTerminata < StandardError; end
+
+      ##
       # Nomi classi errori tradotti.
       TRADUZIONI_NOMI_CLASSI_ERRORI = Hash[
         "SyntaxError"   => "ErroreSintassi",

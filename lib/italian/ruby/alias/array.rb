@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Array
+
+  alias         :ispeziona            :inspect
   alias         :per_ogni             :each
   alias         :per_ognuno           :each
   alias         :per_ognuna           :each
@@ -78,6 +80,8 @@ class Array
   alias         :salta_gli_ultimi     :tronca
   alias         :salta_le_ultime      :tronca
   alias         :salta_la_prima       :salta_il_primo
+  alias         :tranne_la_prima      :salta_il_primo
+  alias         :tranne_il_primo      :salta_il_primo
 end
 
 Lista = Array

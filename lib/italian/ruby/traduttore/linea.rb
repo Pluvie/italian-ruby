@@ -84,10 +84,13 @@ module Italian
             tipo_stringa_corrente     = nil
             posizione_inizio_stringa  = @contenuto.index /['"]|%\{/, posizione_partenza
             return nil if posizione_inizio_stringa.nil?
+            return nil if @posizione_primo_commento != nil && @posizione_primo_commento < posizione_inizio_stringa
 
             stringa_da_chiudere = Italian::Ruby::Traduttore::Stringa.new @contenuto, posizione_inizio_stringa
             stringa_da_chiudere.ricerca_chiusura
             stringa_da_chiudere
+          rescue Italian::Ruby::Errori::StringaNonTerminata => errore
+            Italian::Ruby::Errori.recupera errore, @nome_archivio, @indice + 1
           end
 
           ##

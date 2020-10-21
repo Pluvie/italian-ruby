@@ -14,6 +14,7 @@ class UNIXSocket
 
   alias   :scrivi       :write
   alias   :leggi        :read
+  alias   :ricevi       :recv
   alias   :leggi_linea  :readline
   alias   :chiudi       :close
   

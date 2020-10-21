@@ -38,3 +38,11 @@ class String
 end
 
 Stringa = String
+
+class StringIO
+
+  alias       :in_stringa               :to_s
+
+end
+
+StringaIU = StringIO

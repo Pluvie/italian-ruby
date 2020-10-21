@@ -34,7 +34,8 @@ module Italian
             @posizione_finale = @contenuto.index /\}/,  posizione_ultima_interpolazione
           end
 
-          raise "la stringa iniziata alla posizione #{@posizione_iniziale} non è terminata" if
+          raise Italian::Ruby::Errori::StringaNonTerminata,
+            "la stringa iniziata alla posizione #{@posizione_iniziale} non è terminata" if
             @posizione_finale.nil?
         end
 

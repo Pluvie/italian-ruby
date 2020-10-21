@@ -72,6 +72,8 @@ module Italian
 
           File.write archivio_tradotto, linee_tradotte
           archivio_tradotto
+        rescue SyntaxError => errore
+          Italian::Ruby::Errori.recupera errore, archivio
         end
 
         ##
