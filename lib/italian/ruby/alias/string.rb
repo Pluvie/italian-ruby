@@ -28,6 +28,7 @@ class String
   alias       :spoglia                  :strip
   alias       :conteggio                :count
   alias       :conteggia                :count
+  alias       :dimensione_in_byte       :bytesize
   alias       :codifica                 :encoding
   alias       :codifica_in              :encode
   alias       :codifica_valida?         :valid_encoding?

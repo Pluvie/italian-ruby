@@ -37,6 +37,10 @@ class String
       colorize(36)
     end
 
+    def arancione
+      colorize("38;5;214")
+    end
+
   ##
   # Determina se la stringa esiste e non è vuota.
   def esiste?
