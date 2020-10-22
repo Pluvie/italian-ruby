@@ -9,6 +9,10 @@ class String
     "\e[#{color_code}m#{self}\e[0m"
   end
 
+    def bianco
+      self
+    end
+
     def rosso
       colorize(31)
     end
