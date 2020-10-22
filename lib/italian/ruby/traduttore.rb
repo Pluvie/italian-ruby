@@ -36,7 +36,7 @@ module Italian
       ##
       # Punto d'ingresso del traduttore. Questo metodo accetta un archivio 
       # come argomento principale, oppure un blocco di codice. 
-      def self.traduci(archivio = nil, sorgente = nil, &block)
+      def self.traduci(archivio = nil, sorgente = nil, &blocco)
         return traduci_archivio   archivio  if archivio != nil
         return traduci_sorgente   sorgente  if sorgente != nil
         return traduci_blocco     &blocco   if block_given?
@@ -103,8 +103,10 @@ module Italian
         # Traduce un blocco di codice da ItalianRuby a Ruby.
         def self.traduci_blocco(&blocco)
           blocco.call
+        rescue SyntaxError => errore
+          Italian::Ruby::Errori.recupera errore
         rescue StandardError => errore
-          Italian::Ruby::Errori.recupera errore, __FILE__
+          Italian::Ruby::Errori.recupera errore
         end
 
     end
