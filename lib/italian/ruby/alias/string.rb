@@ -26,6 +26,7 @@ class String
   alias       :rimpiazza                :gsub
   alias       :rimpiazza!               :gsub!
   alias       :spoglia                  :strip
+  alias       :mastica                  :chomp
   alias       :conteggio                :count
   alias       :conteggia                :count
   alias       :dimensione_in_byte       :bytesize
@@ -39,11 +40,3 @@ class String
 end
 
 Stringa = String
-
-class StringIO
-
-  alias       :in_stringa               :to_s
-
-end
-
-StringaIU = StringIO
