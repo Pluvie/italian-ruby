@@ -38,5 +38,11 @@ module Italian
       percorso_archivio.partition(cartella_traduzioni).last.gsub(/\.rb$/, ".ir")
     end
 
+    ##
+    # Aggiunge il percorso indicato ai percorsi di caricamento in memoria.
+    def self.aggiungi_percorso_caricamento_in_memoria(percorso_cartella)
+      $: << percorso_cartella
+    end
+
   end
 end
