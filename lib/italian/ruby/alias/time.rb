@@ -18,8 +18,6 @@ class Time
   alias         :minuti               :min
   alias         :ore                  :hour
   alias         :ora                  :hour
-  alias         :original_equality    :==
-  alias         :original_compare     :<=>
 
   alias         :formatta             :formatta_locale
 

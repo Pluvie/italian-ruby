@@ -25,20 +25,6 @@ class Time
   end
 
   ##
-  # Determina se il tempo è uguale altro oggetto.
-  def ==(other)
-    return (self.to_date == other) if other.is_a? Date
-    original_equality other
-  end
-
-  ##
-  # Compara il tempo con un altro oggetto.
-  def <=>(other)
-    return (self.to_date <=> other) if other.is_a? Date
-    original_compare other
-  end
-
-  ##
   # Ritorna il tempo all'inizio dell'ora.
   def inizio_ora
     Time.new(self.year, self.month, self.day, self.hour)

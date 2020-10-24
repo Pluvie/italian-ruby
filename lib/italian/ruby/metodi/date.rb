@@ -34,18 +34,4 @@ class Date
     end
   end
 
-  ##
-  # Ridefinisce l'uguaglianza per i confronti con classi temporali.
-  def ==(other)
-    return (self == other.to_date) if other.is_a? Time
-    original_equality other
-  end
-
-  ##
-  # Ridefinisce la comparazione per i confronti con classi temporali.
-  def <=>(other)
-    return (self <=> other.to_date) if other.is_a? Time
-    original_compare other
-  end
-
 end

@@ -20,8 +20,6 @@ class Date
   alias         :anno                       :year
   alias         :fra?                       :between?
   alias         :formatta                   :strftime
-  alias         :original_equality          :==
-  alias         :original_compare           :<=>
 
   alias         :due_anni_precedenti        :due_anni_fa
   alias         :formatta                   :formatta_locale

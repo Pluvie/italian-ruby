@@ -50,6 +50,7 @@ class Hash
   ##
   # Espone le chiavi passate in una nuova mappa.
   def esponi(*keys)
+    return self if keys.none?
     self.select { |key, value| key.in? keys }
   end
 
