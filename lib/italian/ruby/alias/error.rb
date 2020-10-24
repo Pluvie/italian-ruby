@@ -10,6 +10,7 @@ end
 
 Errore            = StandardError
 ErroreCaricamento = LoadError
+ErroreDiTipo      = TypeError
 MetodoInesistente = NoMethodError
 ChiaveNonTrovata  = KeyError
 DataNonValida     = Date::Error
