@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative "metodi/array"
-require_relative "metodi/boolean"
 require_relative "metodi/date"
 require_relative "metodi/hash"
 require_relative "metodi/integer"
