@@ -6,6 +6,8 @@ class Hash
   alias         :per_ogni             :each
   alias         :per_ognuno           :each
   alias         :per_ognuna           :each
+  alias         :conteggio            :count
+  alias         :dimensione           :size
   alias         :chiavi               :keys
   alias         :valori               :values
   alias         :mappa                :map

@@ -19,7 +19,6 @@ class Date
   alias         :mese                       :month
   alias         :anno                       :year
   alias         :fra?                       :between?
-  alias         :formatta                   :strftime
 
   alias         :due_anni_precedenti        :due_anni_fa
   alias         :formatta                   :formatta_locale
