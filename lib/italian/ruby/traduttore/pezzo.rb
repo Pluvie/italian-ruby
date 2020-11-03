@@ -95,7 +95,7 @@ module Italian
             contenuto_tradotto.gsub! /(\b)finché(\b)/,                 "\\1until\\2"
             contenuto_tradotto.gsub! /(\b)quando(\b)/,                 "\\1when\\2"
             contenuto_tradotto.gsub! /(\b)mentre(\b)/,                 "\\1while\\2"
-            contenuto_tradotto.gsub! /(\b)rilascia(\b)/,               "\\1yield\\2"
+            contenuto_tradotto.gsub! /(\b)rilascia(\s|$)/,             "\\1yield\\2"
 
             contenuto_tradotto
           end
