@@ -25,6 +25,7 @@ class String
   alias       :giustifica_a_destra      :rjust
   alias       :rimpiazza                :gsub
   alias       :rimpiazza!               :gsub!
+  alias       :scansiona                :scan
   alias       :spoglia                  :strip
   alias       :mastica                  :chomp
   alias       :conteggio                :count

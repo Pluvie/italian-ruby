@@ -3,6 +3,18 @@
 class String
 
   ##
+  # Codici colori.
+  CODICI_COLORI = Hash[
+    rosso:      "31",
+    verde:      "32",
+    giallo:     "33",
+    blu:        "34",
+    magenta:    "35",
+    azzurro:    "36",
+    arancione:  "38;5;214"
+  ].freeze
+
+  ##
   # Metodi per la colorizzazione delle stringhe,
   # quando stampate a terminale.
   def colorize(color_code)
@@ -14,31 +26,45 @@ class String
     end
 
     def rosso
-      colorize(31)
+      colorize CODICI_COLORI[:rosso]
     end
 
     def verde
-      colorize(32)
+      colorize CODICI_COLORI[:verde]
     end
 
     def giallo
-      colorize(33)
+      colorize CODICI_COLORI[:giallo]
     end
 
     def blu
-      colorize(34)
+      colorize CODICI_COLORI[:blu]
     end
 
     def magenta
-      colorize(35)
+      colorize CODICI_COLORI[:magenta]
     end
 
     def azzurro
-      colorize(36)
+      colorize CODICI_COLORI[:azzurro]
     end
 
     def arancione
-      colorize("38;5;214")
+      colorize CODICI_COLORI[:arancione]
+    end
+
+    def decolorizza
+      self.gsub /(\u001b\[3\dm|\u001b\[3\d;\d;\d\d\dm|\u001b\[0m)/, ""
+    end
+
+    def disaccoppia_colore
+      indice_inizio_colore    = self.index "m"
+      codice_colore           = self[2..indice_inizio_colore - 1]
+
+      porzione_decolorizzata  = self[indice_inizio_colore + 1..-5]
+      colore                  = CODICI_COLORI.invert.fetch codice_colore
+
+      [ colore, porzione_decolorizzata ]
     end
 
   ##

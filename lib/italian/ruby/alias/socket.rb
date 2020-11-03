@@ -13,14 +13,32 @@ end
 class UNIXSocket
 
   alias   :scrivi       :write
+  alias   :prendi_byte  :getbyte
   alias   :leggi        :read
   alias   :ricevi       :recv
   alias   :leggi_linea  :readline
   alias   :chiudi       :close
-  
+
 end
 
 class UNIXServer
+
+  alias   :accetta      :accept
+
+end
+
+class TCPSocket
+
+  alias   :scrivi       :write
+  alias   :prendi_byte  :getbyte
+  alias   :leggi        :read
+  alias   :ricevi       :recv
+  alias   :leggi_linea  :readline
+  alias   :chiudi       :close
+
+end
+
+class TCPServer
 
   alias   :accetta      :accept
 
