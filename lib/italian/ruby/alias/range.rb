@@ -9,6 +9,8 @@ class Range
   alias         :in_lista             :to_a
   alias         :conteggio            :count
   alias         :lunghezza            :count
+  alias         :inizio               :first
+  alias         :termine              :last
 
 end
 

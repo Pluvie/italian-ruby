@@ -165,4 +165,10 @@ class String
     end
   end
 
+  ##
+  # Restituisce l'ultimo indice della stringa.
+  def ultimo_indice
+    self.length - 1
+  end
+
 end
