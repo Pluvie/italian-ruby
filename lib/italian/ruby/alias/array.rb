@@ -8,6 +8,7 @@ class Array
   alias         :per_ognuna           :each
   alias         :in_fette_da          :each_slice
   alias         :mappa                :map
+  alias         :mappa!               :map!
   alias         :vuoto?               :empty?
   alias         :vuota?               :empty?
   alias         :primo                :first
@@ -77,6 +78,8 @@ class Array
 
   alias         :specificato?         :esiste?
   alias         :specificata?         :esiste?
+  alias         :specificati?         :esiste?
+  alias         :specificate?         :esiste?
   alias         :seconda              :secondo
   alias         :salta_gli_ultimi     :tronca
   alias         :salta_le_ultime      :tronca
