@@ -37,6 +37,7 @@ class Hash
   alias         :almeno_una?          :any?
   alias         :nessuno?             :none?
   alias         :nessuna?             :none?
+  alias         :in_stringa           :to_json
   alias         :in_mappa             :to_h
   alias         :in_lista             :to_a
   alias         :inverti              :invert
