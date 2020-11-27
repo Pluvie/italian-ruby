@@ -53,6 +53,12 @@ class Object
     to_json
   end
 
+  ##
+  # Rappresentazione per stampa.
+  def _stampa(*args)
+    inspect
+  end
+
   private
 
     ##

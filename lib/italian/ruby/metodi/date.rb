@@ -43,4 +43,10 @@ class Date
       .gsub(/December/i,    "Dicembre")
   end
 
+  ##
+  # Rappresentazione per stampa.
+  def _stampa(*args)
+    formatta("%d %B %Y").arancione
+  end
+
 end

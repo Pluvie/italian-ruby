@@ -48,4 +48,10 @@ class Time
     Time.new(self.year, self.month, self.day, self.hour, self.min, 59)
   end
 
+  ##
+  # Rappresentazione per stampa.
+  def _stampa(*args)
+    "#{in_data.formatta "%d %B %Y"} #{strftime "%H:%M:%S %z"}".arancione
+  end
+
 end

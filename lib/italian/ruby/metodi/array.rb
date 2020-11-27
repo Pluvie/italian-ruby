@@ -102,4 +102,18 @@ class Array
     self.drop 1
   end
 
+  ##
+  # Rappresentazione per stampa.
+  def _stampa(i = 0)
+    return "[]" if empty?
+    spazi = i.times.map { " " }.join
+    spazi_valori = (i + 2).times.map { " " }.join
+    [ "[",
+      *self.map do |e|
+        "#{spazi_valori}#{e._stampa(i + 2)},"
+      end,
+      "#{spazi}]"
+    ].join("\r\n")
+  end
+
 end

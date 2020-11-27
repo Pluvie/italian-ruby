@@ -8,4 +8,10 @@ class NilClass
     !nil?
   end
 
+  ##
+  # Rappresentazione per stampa.
+  def _stampa(*args)
+    "nullo".azzurro
+  end
+
 end

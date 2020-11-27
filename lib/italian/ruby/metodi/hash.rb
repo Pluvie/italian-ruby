@@ -54,4 +54,24 @@ class Hash
     self.select { |key, value| key.in? keys }
   end
 
+  ##
+  # Rappresentazione per stampa.
+  def _stampa(i = 0)
+    return "{}" if empty?
+    spazi = i.times.map { " " }.join
+    spazi_chiavi = (i + 2).times.map { " " }.join
+    [ "{",
+      *self.map do |k, v|
+        if k.is_a? Symbol
+          "#{spazi_chiavi}#{k}: #{v._stampa(i + 2)},"
+        elsif k.is_a? String
+          "#{spazi_chiavi}\"#{k}\" => #{v._stampa(i + 2)},"
+        else
+          "#{spazi_chiavi}#{k._stampa(i + 2)} => #{v._stampa(i + 2)},"
+        end
+      end,
+      "#{spazi}}"
+    ].join("\r\n")
+  end
+
 end

@@ -5,13 +5,14 @@ class String
   ##
   # Codici colori.
   CODICI_COLORI = Hash[
-    rosso:      "31",
-    verde:      "32",
-    giallo:     "33",
-    blu:        "34",
-    magenta:    "35",
-    azzurro:    "36",
-    arancione:  "38;5;214"
+    rosso:            "31",
+    verde:            "32",
+    giallo:           "33",
+    blu:              "34",
+    magenta:          "35",
+    azzurro:          "36",
+    arancione:        "38;5;214",
+    verde_pallido:    "38;5;157"
   ].freeze
 
   ##
@@ -51,6 +52,10 @@ class String
 
     def arancione
       colorize CODICI_COLORI[:arancione]
+    end
+
+    def verde_pallido
+      colorize CODICI_COLORI[:verde_pallido]
     end
 
     def decolorizza
@@ -169,6 +174,12 @@ class String
   # Restituisce l'ultimo indice della stringa.
   def ultimo_indice
     self.length - 1
+  end
+
+  ##
+  # Rappresentazione per stampa.
+  def _stampa(*args)
+    %{"#{self}"}.giallo
   end
 
 end
