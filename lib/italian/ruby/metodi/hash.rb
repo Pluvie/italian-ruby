@@ -55,6 +55,34 @@ class Hash
   end
 
   ##
+  # Ritorna una rappresentazione a singolo livello, con notazione ".".
+  def puntifica(*prefissi)
+    mappa_puntificata = {}
+
+    self.each do |chiave, valore|
+      case valore
+      when Hash
+        valore.puntifica *prefissi, chiave do |chiave_prefissa, valore_finale|
+          if block_given?
+            yield chiave_prefissa, valore_finale
+          else
+            mappa_puntificata.store chiave_prefissa, valore_finale
+          end
+        end
+      else
+        prefisso = [ *prefissi, chiave ].unisci "."
+        if block_given?
+          yield prefisso, valore
+        else
+          mappa_puntificata.store prefisso, valore
+        end
+      end
+    end
+
+    mappa_puntificata
+  end
+
+  ##
   # Rappresentazione per stampa.
   def _stampa(i = 0)
     return "{}" if empty?
