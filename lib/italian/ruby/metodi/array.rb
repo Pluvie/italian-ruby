@@ -15,6 +15,22 @@ class Array
   end
 
   ##
+  # Esegue i metodi specificati per ogni elemento della lista.
+  def campiona(*method_names)
+    self.map do |element|
+      method_names.map do |method_name|
+        if element.respond_to? method_name
+          element.send method_name
+        elsif element.is_a? Hash
+          element[method_name]
+        else
+          raise ArgumentError, "Array elements do not respond to #{method_name}."
+        end
+      end
+    end
+  end
+
+  ##
   # Esegue il metodo specificato con gli argomenti specificati
   # per ogni elemento della lista.
   def pizzica(method_name, *method_args)

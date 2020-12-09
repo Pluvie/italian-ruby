@@ -63,6 +63,8 @@ class String
     end
 
     def disaccoppia_colore
+      return [ nil, self ]    if self.decolorizza == self
+
       indice_inizio_colore    = self.index "m"
       codice_colore           = self[2..indice_inizio_colore - 1]
 
