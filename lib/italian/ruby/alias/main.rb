@@ -10,4 +10,6 @@ alias     :blocco_dato?                 :block_given?
 alias     :cattura                      :catch
 alias     :lancia                       :throw
 alias     :carica                       :load
+alias     :nuovo_processo               :fork
+alias     :biforca                      :fork
 alias     :Mappa                        :Hash
