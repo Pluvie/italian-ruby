@@ -64,14 +64,11 @@ class String
 
     def disaccoppia_colore
       return [ nil, self ]    if self.decolorizza == self
-
-      indice_inizio_colore    = self.index "m"
-      codice_colore           = self[2..indice_inizio_colore - 1]
-
-      porzione_decolorizzata  = self[indice_inizio_colore + 1..-5]
+      parte_colore            = self.scansiona /\u001b\[3[\d;]+m/
+      codice_colore           = parte_colore.prima[2..-2]
       colore                  = CODICI_COLORI.invert.fetch codice_colore
 
-      [ colore, porzione_decolorizzata ]
+      [ colore, self.decolorizza ]
     end
 
   ##
