@@ -12,4 +12,5 @@ alias     :lancia                       :throw
 alias     :carica                       :load
 alias     :nuovo_processo               :fork
 alias     :biforca                      :fork
+alias     :blocco                       :proc
 alias     :Mappa                        :Hash

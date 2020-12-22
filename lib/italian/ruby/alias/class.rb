@@ -16,6 +16,7 @@ class Class
   alias       :scrittore              :attr_writer
   alias       :definisci_metodo       :define_method
   alias       :apri_classe            :class_eval
+  alias       :valuta_in_classe       :class_eval
   alias       :moduli_inclusi         :included_modules
 
 end

@@ -29,3 +29,9 @@ end
 def fallisci(*args)
   fail *args
 end
+
+##
+# Definisce un metodo mancante.
+def metodo_mancante(nome, *args, &block)
+  method_missing nome, *args, &block
+end

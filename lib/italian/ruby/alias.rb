@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "alias/array"
+require_relative "alias/binding"
 require_relative "alias/class"
 require_relative "alias/date"
 require_relative "alias/enumerator"
