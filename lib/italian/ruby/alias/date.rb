@@ -25,5 +25,5 @@ class Date
 
 end
 
-Object.send :remove_const, :Data
+Object.send :remove_const, :Data rescue nil
 Data = Date
