@@ -108,7 +108,7 @@ class Array
 
   ##
   # Restituisce la lista togliendo gli ultimi n elementi.
-  def tronca(n = 0)
+  def tronca(n = 1)
     self[0..(-1 - n)]
   end
 

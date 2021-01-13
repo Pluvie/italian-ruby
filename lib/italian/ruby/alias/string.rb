@@ -26,6 +26,8 @@ class String
   alias       :rimpiazza                :gsub
   alias       :rimpiazza!               :gsub!
   alias       :scansiona                :scan
+  alias       :vuota?                   :empty?
+  alias       :vuoto?                   :empty?
   alias       :spoglia                  :strip
   alias       :mastica                  :chomp
   alias       :conteggio                :count
