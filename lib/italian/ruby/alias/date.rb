@@ -6,6 +6,8 @@ class Date
   class << self
     alias       :oggi                       :today
     alias       :converti                   :parse
+    alias       :da_stringa                 :strptime
+    alias       :deformatta                 :strptime
   end
 
   alias         :anno_prossimo              :next_year
