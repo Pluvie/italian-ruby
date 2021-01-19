@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require "stringio"
 
 class String
   alias       :congela                  :freeze
@@ -42,4 +43,5 @@ class String
   alias       :specificata?             :esiste?
 end
 
-Stringa = String
+Stringa   = String
+StringaIO = StringIO
