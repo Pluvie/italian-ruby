@@ -9,7 +9,9 @@ class File
     alias         :estensione             :extname
     alias         :esiste?                :exists?
     alias         :scrivi                 :write
+    alias         :scrivi_binario         :binwrite
     alias         :leggi                  :read
+    alias         :leggi_binario          :binread
     alias         :apri                   :open
     alias         :cancella               :unlink
   end

@@ -16,6 +16,7 @@ class Date
   alias         :in_stringa                 :to_s
   alias         :in_data                    :to_date
   alias         :in_tempo                   :to_time
+  alias         :giorno                     :day
   alias         :giorno_della_settimana     :cwday
   alias         :settimana                  :cweek
   alias         :mese                       :month
