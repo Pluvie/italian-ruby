@@ -73,6 +73,17 @@ class Array
   end
 
   ##
+  # Congela in profondità la lista.
+  def congela_in_profondità
+    self.each do |element|
+      next unless element.respond_to? :congela_in_profondità
+      element.congela_in_profondità
+    end
+    self.freeze
+    self
+  end
+
+  ##
   # Mappa e rimuove duplicati in un unico metodo.
   def mappa_e_rimuovi_duplicati(&block)
     self.map.with_index(&block).uniq

@@ -48,6 +48,17 @@ class Hash
   end
 
   ##
+  # Congela in profondità la mappa.
+  def congela_in_profondità
+    self.each do |key, value|
+      next unless value.respond_to? :congela_in_profondità
+      value.congela_in_profondità
+    end
+    self.freeze
+    self
+  end
+
+  ##
   # Espone le chiavi passate in una nuova mappa.
   def esponi(*keys)
     return self if keys.none?

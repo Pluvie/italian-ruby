@@ -3,6 +3,7 @@ require "stringio"
 
 class String
   alias       :congela                  :freeze
+  alias       :congela_in_profondità    :freeze
   alias       :caratteri                :chars
   alias       :prima_maiuscola          :capitalize
   alias       :in_simbolo               :to_sym
