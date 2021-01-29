@@ -35,3 +35,9 @@ end
 def metodo_mancante(nome, *args, &block)
   method_missing nome, *args, &block
 end
+
+##
+# Avvia un blocco di codice in parallelo.
+def in_parallelo(*argomenti, &blocco)
+  Ractor.new *argomenti, &blocco
+end
