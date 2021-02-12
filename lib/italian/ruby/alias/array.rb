@@ -7,6 +7,7 @@ class Array
   alias         :per_ognuno           :each
   alias         :per_ognuna           :each
   alias         :in_fette_da          :each_slice
+  alias         :in_gruppi_da         :each_slice
   alias         :mappa                :map
   alias         :mappa!               :map!
   alias         :vuoto?               :empty?
