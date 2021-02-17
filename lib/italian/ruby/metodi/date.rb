@@ -25,6 +25,18 @@ class Date
   end
 
   ##
+  # Restituisce la data di inizio anno.
+  def inizio_anno
+    Date.new self.year, 1, 1
+  end
+
+  ##
+  # Restituisce la data di fine anno.
+  def fine_anno
+    Date.new self.year, 12, 31
+  end
+
+  
   # Formatta la data secondo la rappresentazione passata.
   def formatta_locale(format)
     formattazione = strftime format
