@@ -67,8 +67,9 @@ module Kernel
     archivi_in_memoria = $:.map do |cartella|
       Dir["#{cartella}/**/#{archivio}.ir"]
     end
-    archivio_in_italiano_da_richiedere = archivi_in_memoria.flatten.compact.first
-    archivio_da_richiedere = Italian::Ruby.percorso_archivio_tradotto archivio_in_italiano_da_richiedere
+    archivio_da_tradurre    = archivi_in_memoria.flatten.compact.first
+    archivio_da_richiedere  = Italian::Ruby.percorso_archivio_tradotto archivio_in_italiano_da_tradurre
+    traduci archivio_da_tradurre
     Object.autoload costante, archivio_da_richiedere
   end
 
@@ -76,8 +77,9 @@ module Kernel
   # Come il rimanda, ma usando un percorso relativo.
   def rimanda_relativo(costante, percorso_archivio)
     sorgente_chiamante, linea_chiamante = ottieni_sorgente_e_linea_chiamante caller_locations
-    archivio_da_richiedere = archivio_relativo sorgente_chiamante, percorso_archivio
-    archivio_da_richiedere = Italian::Ruby.percorso_archivio_tradotto archivio_da_richiedere
+    archivio_da_tradurre    = archivio_relativo sorgente_chiamante, percorso_archivio
+    archivio_da_richiedere  = Italian::Ruby.percorso_archivio_tradotto archivio_da_tradurre
+    traduci archivio_da_tradurre
     Object.autoload costante, archivio_da_richiedere
   end
 
