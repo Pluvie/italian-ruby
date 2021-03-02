@@ -14,4 +14,11 @@ class Set
     self
   end
 
+  ##
+  # Converte l'insieme in una mappa.
+  def in_mappa(&block)
+    return self.map(&block).to_h if block_given?
+    raise ArgumentError, "must pass a block in order to convert a Set into a Hash"
+  end
+
 end
