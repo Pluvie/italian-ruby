@@ -25,6 +25,24 @@ class Time
   end
 
   ##
+  # Sposta il tempo alle ore specificate.
+  def alle(ore, minuti = 0, secondi = 0)
+    Time.new(self.year, self.month, self.day, ore, minuti, secondi)
+  end
+
+  ##
+  # Ritorna il tempo all'inizio del giorno.
+  def inizio_giorno
+    Time.new(self.year, self.month, self.day)
+  end
+
+  ##
+  # Ritorna il tempo alla fine del giorno.
+  def fine_giorno
+    Time.new(self.year, self.month, self.day, 23, 59, 59)
+  end
+
+  ##
   # Ritorna il tempo all'inizio dell'ora.
   def inizio_ora
     Time.new(self.year, self.month, self.day, self.hour)

@@ -36,6 +36,11 @@ class Date
     Date.new self.year, 12, 31
   end
 
+  ##
+  # Restituisce il tempo all'ora specificata.
+  def alle(ore, minuti = 0, secondi = 0)
+    self.in_tempo.alle ore, minuti, secondi
+  end
   
   # Formatta la data secondo la rappresentazione passata.
   def formatta_locale(format)
