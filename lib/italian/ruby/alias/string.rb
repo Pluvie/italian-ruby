@@ -31,6 +31,8 @@ class String
   alias       :vuota?                   :empty?
   alias       :vuoto?                   :empty?
   alias       :spoglia                  :strip
+  alias       :spoglia_a_sinistra       :lstrip
+  alias       :spoglia_a_destra         :rstrip
   alias       :mastica                  :chomp
   alias       :conteggio                :count
   alias       :conteggia                :count
