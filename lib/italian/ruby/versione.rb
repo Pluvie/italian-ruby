@@ -1,5 +1,5 @@
 module Italian
   module Ruby
-    VERSIONE = "1.3.4"
+    VERSIONE = "1.3.5"
   end
 end
