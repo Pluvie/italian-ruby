@@ -66,6 +66,20 @@ class Hash
   end
 
   ##
+  # Somma due mappe.
+  def +(altra_mappa)
+    altra_mappa.each do |chiave, valore|
+      if self.has_key? chiave
+        valore_sommato = valore + self[chiave]
+        self.store chiave, valore_sommato
+      else
+        self.store chiave, valore
+      end
+    end
+    self
+  end
+
+  ##
   # Ritorna una rappresentazione a singolo livello, con notazione ".".
   def puntifica(*prefissi)
     mappa_puntificata = {}
