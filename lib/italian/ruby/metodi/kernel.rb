@@ -68,7 +68,7 @@ module Kernel
       Dir["#{cartella}/**/#{archivio}.ir"]
     end
     archivio_da_tradurre    = archivi_in_memoria.flatten.compact.first
-    archivio_da_richiedere  = Italian::Ruby.percorso_archivio_tradotto archivio_in_italiano_da_tradurre
+    archivio_da_richiedere  = Italian::Ruby.percorso_archivio_tradotto archivio_da_tradurre
     traduci archivio_da_tradurre
     Object.autoload costante, archivio_da_richiedere
   end
