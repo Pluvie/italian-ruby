@@ -27,6 +27,7 @@ class Hash
   alias         :seleziona!           :select!
   alias         :scarta               :reject
   alias         :scarta!              :reject!
+  alias         :eccetto              :except
   alias         :rimuovi              :delete
   alias         :congela              :freeze
   alias         :tutti?               :all?
