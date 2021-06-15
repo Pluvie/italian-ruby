@@ -42,6 +42,7 @@ class Hash
   alias         :in_mappa             :to_h
   alias         :in_lista             :to_a
   alias         :inverti              :invert
+  alias         :ordina               :sort
 
   alias         :specificato?         :esiste?
   alias         :specificata?         :esiste?
