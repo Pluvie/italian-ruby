@@ -19,6 +19,12 @@ class File
   alias           :scrivi                 :write
   alias           :stampa                 :puts
 
+  ##
+  # Determina se un archivio non esiste.
+  def self.non_esiste?(archivio)
+    !exists? archivio
+  end
+
 end
 
 Archivio = File
