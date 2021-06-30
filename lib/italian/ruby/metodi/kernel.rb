@@ -20,7 +20,7 @@ module Kernel
       Dir["#{cartella}/**/#{archivio}.ir"]
     end
     archivio_in_italiano_da_richiedere = archivi_in_memoria.flatten.compact.first
-    return traduci_e_carica archivio_in_italiano_da_richiedere if archivio_in_italiano_da_richiedere != nil
+    return traduci_e_richiedi archivio_in_italiano_da_richiedere if archivio_in_italiano_da_richiedere != nil
 
     # Non è stato trovato nessun archivio in italiano corrispondente al nome
     # passato. Viene ora tentato il caricamento di un file Ruby originale con
