@@ -76,6 +76,8 @@ class Array
   alias         :affetta              :slice
   alias         :salta_i_primi        :drop
   alias         :salta_le_prime       :drop
+  alias         :dimensioni           :size
+  alias         :dimensione           :size
 
   alias         :specificato?         :esiste?
   alias         :specificata?         :esiste?
