@@ -116,8 +116,9 @@ module Kernel
     # Ottiene il percorso archivio relativo del sorgente chiamante.
     def archivio_relativo(sorgente_chiamante, percorso_archivio)
       cartella_chiamante      = File.dirname sorgente_chiamante
-      archivio_da_richiedere  = File.expand_path File.join(cartella_chiamante, percorso_archivio)
-      archivio_da_richiedere  = Dir["#{archivio_da_richiedere}.{ir,rb}"].compact.first
+      percorso_da_richiedere  = File.expand_path File.join(cartella_chiamante, percorso_archivio)
+      archivio_da_richiedere  = Dir["#{percorso_da_richiedere}.{ir,rb}"].compact.first
+      raise LoadError, "no such file: #{percorso_da_richiedere}.{ir,rb}" if archivio_da_richiedere.nil?
       archivio_da_richiedere
     end
 
