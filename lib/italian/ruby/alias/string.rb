@@ -46,5 +46,9 @@ class String
   alias       :specificata?             :esiste?
 end
 
+class StringIO
+  alias       :congela                  :freeze
+end
+
 Stringa   = String
 StringaIO = StringIO
