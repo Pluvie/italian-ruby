@@ -9,7 +9,6 @@ class Hash
   alias         :conteggio            :count
   alias         :dimensione           :size
   alias         :chiavi               :keys
-  alias         :valori               :values
   alias         :mappa                :map
   alias         :vuoto?               :empty?
   alias         :vuota?               :empty?

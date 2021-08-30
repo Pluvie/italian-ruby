@@ -66,6 +66,12 @@ class Hash
   end
 
   ##
+  # Espone i valori.
+  def valori *chiavi
+    self.esponi(*chiavi).values
+  end
+
+  ##
   # Somma due mappe.
   def +(altra_mappa)
     altra_mappa.each do |chiave, valore|
