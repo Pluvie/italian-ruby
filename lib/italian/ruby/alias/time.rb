@@ -10,6 +10,8 @@ class Time
 
   alias         :in_stringa           :to_s
   alias         :in_numero            :to_i
+  alias         :in_intero            :to_i
+  alias         :in_decimale          :to_f
   alias         :formatta             :strftime
   alias         :localizza            :localtime
   alias         :secondi              :sec

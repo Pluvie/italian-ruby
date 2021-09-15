@@ -10,6 +10,7 @@ class StandardError
 end
 
 Errore                    = StandardError
+ErroreSintassi            = SyntaxError
 ErroreCaricamento         = LoadError
 ErroreDiTipo              = TypeError
 ErroreDiArgomento         = ArgumentError

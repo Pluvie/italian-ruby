@@ -67,8 +67,11 @@ class Hash
 
   ##
   # Espone i valori.
-  def valori *chiavi
-    self.esponi(*chiavi).values
+  def valori(*keys)
+    return values if keys.none?
+    keys.map do |key|
+      self[key]
+    end
   end
 
   ##
