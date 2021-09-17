@@ -6,6 +6,8 @@ module Process
     alias :attendi          :wait
     alias :attendi_tutti    :waitall
     alias :segnala          :kill
+    alias :imposta_nome     :setproctitle
+    alias :distacca         :detach
   end
 
 end

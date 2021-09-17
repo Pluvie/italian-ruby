@@ -48,6 +48,7 @@ end
 
 class StringIO
   alias       :congela                  :freeze
+  alias       :leggi                    :read
 end
 
 Stringa   = String
