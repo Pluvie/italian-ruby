@@ -9,4 +9,13 @@ module Kernel
   alias         :imposta_variabile_istanza      :instance_variable_set
   alias         :rimuovi_variabile_istanza      :remove_instance_variable
 
+  class << self
+
+    alias       :chiamante                      :caller
+    alias         :traccia_chiamante              :caller_locations
+
+  end
+
 end
+
+Nucleo = Kernel

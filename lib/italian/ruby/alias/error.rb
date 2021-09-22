@@ -9,7 +9,7 @@ class StandardError
 
 end
 
-Errore                    = StandardError
+ErroreGenerico            = StandardError
 ErroreSintassi            = SyntaxError
 ErroreCaricamento         = LoadError
 ErroreDiTipo              = TypeError
