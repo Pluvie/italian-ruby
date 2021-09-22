@@ -12,7 +12,7 @@ module Kernel
   class << self
 
     alias       :chiamante                      :caller
-    alias         :traccia_chiamante              :caller_locations
+    alias       :traccia_chiamante              :caller_locations
 
   end
 
