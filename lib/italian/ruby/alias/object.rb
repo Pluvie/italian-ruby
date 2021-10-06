@@ -27,6 +27,8 @@ class Object
   alias               :non_è_nulla?                   :esiste?
   alias               :non_specificato?               :non_esiste?
   alias               :non_specificata?               :non_esiste?
+  alias               :non_specificati?               :non_esiste?
+  alias               :non_specificate?               :non_esiste?
   alias               :non_è_una?                     :non_è_un?
 
   private
