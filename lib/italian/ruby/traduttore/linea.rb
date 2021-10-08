@@ -25,6 +25,7 @@ module Italian
 
         def initialize(contenuto, indice, nome_archivio)
           @contenuto      = contenuto
+          @contenuto      = "#{contenuto}\n" if nome_archivio.nil?
           @indice         = indice
           @nome_archivio  = nome_archivio
 
