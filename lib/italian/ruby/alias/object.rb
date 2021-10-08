@@ -23,6 +23,8 @@ class Object
 
   alias               :specificato?                   :esiste?
   alias               :specificata?                   :esiste?
+  alias               :specificati?                   :esiste?
+  alias               :specificate?                   :esiste?
   alias               :non_è_nullo?                   :esiste?
   alias               :non_è_nulla?                   :esiste?
   alias               :non_specificato?               :non_esiste?
