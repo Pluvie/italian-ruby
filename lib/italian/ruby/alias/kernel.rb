@@ -3,6 +3,7 @@
 module Kernel
 
   alias         :classe                         :class
+  alias         :metodo                         :method
   alias         :contesto                       :binding
   alias         :traccia_chiamante              :caller_locations
   alias         :variabili_istanza              :instance_variables

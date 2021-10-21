@@ -18,5 +18,6 @@ class Class
   alias       :apri_classe            :class_eval
   alias       :valuta_in_classe       :class_eval
   alias       :moduli_inclusi         :included_modules
+  alias       :metodo_istanza         :instance_method
 
 end
