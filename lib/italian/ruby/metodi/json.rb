@@ -14,4 +14,14 @@ module JSON
     self.dump(*args)
   end
 
+  ##
+  # Genera un JSON ben formattato per l'oggetto.
+  def self.formatta(*args)
+    self.pretty_generate(*args)
+  end
+
+  class << self
+    alias :elabora  :processa
+  end
+
 end
