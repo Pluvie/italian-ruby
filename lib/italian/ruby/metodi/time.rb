@@ -20,7 +20,20 @@ class Time
     if defined? I18n
       I18n.l self, format: format
     else
-      strftime format
+      formattazione = strftime format
+      formattazione
+        .gsub(/January/i,     "Gennaio")
+        .gsub(/February/i,    "Febbraio")
+        .gsub(/March/i,       "Marzo")
+        .gsub(/April/i,       "Aprile")
+        .gsub(/May/i,         "Maggio")
+        .gsub(/June/i,        "Giugno")
+        .gsub(/July/i,        "Luglio")
+        .gsub(/August/i,      "Agosto")
+        .gsub(/September/i,   "Settembre")
+        .gsub(/October/i,     "Ottobre")
+        .gsub(/November/i,    "Novembre")
+        .gsub(/December/i,    "Dicembre")
     end
   end
 
