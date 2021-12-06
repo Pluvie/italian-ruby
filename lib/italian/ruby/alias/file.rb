@@ -4,7 +4,7 @@ class File
 
   class << self
     alias         :espandi                :expand_path
-    alias         :nome_file              :basename
+    alias         :nome_base              :basename
     alias         :nome_cartella          :dirname
     alias         :estensione             :extname
     alias         :esiste?                :exists?
