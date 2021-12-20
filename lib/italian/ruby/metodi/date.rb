@@ -46,6 +46,13 @@ class Date
   def formatta_locale(format)
     formattazione = strftime format
     formattazione
+      .gsub(/Monday/i,      "Lunedì")
+      .gsub(/Tuesday/i,     "Martedì")
+      .gsub(/Wednesday/i,   "Mercoledì")
+      .gsub(/Thursday/i,    "Giovedì")
+      .gsub(/Friday/i,      "Venerdì")
+      .gsub(/Saturday/i,    "Sabato")
+      .gsub(/Sunday/i,      "Domenica")
       .gsub(/January/i,     "Gennaio")
       .gsub(/February/i,    "Febbraio")
       .gsub(/March/i,       "Marzo")
