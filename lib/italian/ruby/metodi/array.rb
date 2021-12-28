@@ -15,6 +15,41 @@ class Array
   end
 
   ##
+  # Divide la lista in 100 pacchetti in modo che ogni pacchetto abbia
+  # lo stesso numero di elementi.
+  def in_pacchetti_percentuali
+    conteggio = self.count
+
+    if conteggio < 100
+      avanzamento = 100.0 / conteggio
+      indice = 0
+
+      self.each.with_index do |elemento, indice_elemento|
+        pacchetto = [ elemento ]
+        indice += avanzamento
+        indice = 100 if indice_elemento == conteggio - 1
+        yield pacchetto, indice.round, 100 if block_given?
+      end
+    else
+      avanzamento = conteggio / 100.0
+      elementi_presi = 0
+      percentile = 0
+      indice = 0
+
+      while percentile < 100
+        elementi_da_prendere = (indice + avanzamento).round - 1
+        pacchetto = self[elementi_presi..elementi_da_prendere]
+        elementi_presi = elementi_da_prendere + 1
+        indice += avanzamento
+        percentile += 1
+        yield pacchetto, percentile, 100 if block_given?
+      end
+    end
+
+    self
+  end
+
+  ##
   # Esegue i metodi specificati per ogni elemento della lista.
   def campiona(*method_names)
     self.map do |element|
