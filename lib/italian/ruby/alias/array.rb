@@ -7,9 +7,15 @@ class Array
   alias         :per_ognuno           :each
   alias         :per_ognuna           :each
   alias         :in_fette_da          :each_slice
+  alias         :a_fette_da           :each_slice
   alias         :in_gruppi_da         :each_slice
-  alias         :mappa                :map
-  alias         :mappa!               :map!
+  alias         :a_gruppi_da          :each_slice
+  alias         :in_pacchetti_da      :each_slice
+  alias         :a_pacchetti_da       :each_slice
+  alias         :trasforma            :map
+  alias         :trasforma!           :map!
+  alias         :restituisci          :map!
+  alias         :restituisci!         :map!
   alias         :vuoto?               :empty?
   alias         :vuota?               :empty?
   alias         :primo                :first

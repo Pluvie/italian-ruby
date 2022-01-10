@@ -2,7 +2,7 @@
 
 class Enumerator
 
-  alias       :mappa          :map
+  alias       :restituisci    :map
   alias       :per_ognuno     :each
   alias       :per_ognuna     :each
   alias       :lista          :to_a
