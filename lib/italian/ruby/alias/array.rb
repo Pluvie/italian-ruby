@@ -14,7 +14,7 @@ class Array
   alias         :a_pacchetti_da       :each_slice
   alias         :trasforma            :map
   alias         :trasforma!           :map!
-  alias         :restituisci          :map!
+  alias         :restituisci          :map
   alias         :restituisci!         :map!
   alias         :vuoto?               :empty?
   alias         :vuota?               :empty?
