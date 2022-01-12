@@ -7,7 +7,8 @@ class Set
   alias         :per_ogni             :each
   alias         :per_ognuno           :each
   alias         :per_ognuna           :each
-  alias         :mappa                :map
+  alias         :trasforma            :map
+  alias         :restituisci          :map
   alias         :vuoto?               :empty?
   alias         :vuota?               :empty?
   alias         :primo                :first
