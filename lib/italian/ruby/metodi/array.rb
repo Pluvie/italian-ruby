@@ -28,7 +28,7 @@ class Array
         pacchetto = [ elemento ]
         indice += avanzamento
         indice = da if indice_elemento == conteggio - 1
-        yield pacchetto, indice_elemento, conteggio if block_given?
+        yield pacchetto, indice_elemento + 1, conteggio if block_given?
       end
     else
       avanzamento = conteggio / da.in_decimale
