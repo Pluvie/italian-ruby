@@ -1,3 +1,6 @@
+require "fileutils"
+FileUtils.mkdir_p "pkg"
+
 require_relative "lib/italian/ruby/versione"
 versione = Italian::Ruby::VERSIONE
 
