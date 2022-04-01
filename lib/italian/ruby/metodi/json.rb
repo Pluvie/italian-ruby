@@ -9,6 +9,12 @@ module JSON
   end
 
   ##
+  # Processa la stringa come JSON, simbolizzando il risultato.
+  def self.simbolizza(*args)
+    self.parse(*args).simbolizza
+  end
+
+  ##
   # Converte l'oggetto in una stringa JSON.
   def self.in_stringa(*args)
     self.dump(*args)
