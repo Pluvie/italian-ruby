@@ -23,6 +23,7 @@ class Hash
   alias         :trasforma_chiavi!    :transform_keys!
   alias         :trasforma_valori     :transform_values
   alias         :trasforma_valori!    :transform_values!
+  alias         :trova                :find
   alias         :seleziona            :select
   alias         :seleziona!           :select!
   alias         :scarta               :reject
