@@ -75,6 +75,8 @@ class Array
   alias         :riduci                   :inject
   alias         :inietta                  :inject
   alias         :alla_posizione           :at
+  alias         :inserisci                :insert
+  alias         :inserisci_alla_posizione :insert
   alias         :cancella_alla_posizione  :delete_at
   alias         :somma                    :sum
   alias         :rovescia                 :reverse
