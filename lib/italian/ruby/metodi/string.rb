@@ -100,6 +100,22 @@ class String
   def in_data
     return unless defined? Date
     Date.parse self
+      .gsub(/gennaio/i,   "JAN")
+      .gsub(/maggio/i,    "MAY")
+      .gsub(/giugno/i,    "JUN")
+      .gsub(/luglio/i,    "JUL")
+      .gsub(/agosto/i,    "AUG")
+      .gsub(/settembre/i, "SEP")
+      .gsub(/ottobre/i,   "OCT")
+      .gsub(/dicembre/i,  "DEC")
+      .gsub(/GEN/i,       "JAN")
+      .gsub(/MAG/i,       "MAY")
+      .gsub(/GIU/i,       "JUN")
+      .gsub(/LUG/i,       "JUL")
+      .gsub(/AGO/i,       "AUG")
+      .gsub(/SET/i,       "SEP")
+      .gsub(/OTT/i,       "OCT")
+      .gsub(/DIC/i,       "DEC")
   end
 
   ##
@@ -107,6 +123,22 @@ class String
   def in_tempo
     return unless defined? Time
     Time.parse self
+      .gsub(/gennaio/i,   "JAN")
+      .gsub(/maggio/i,    "MAY")
+      .gsub(/giugno/i,    "JUN")
+      .gsub(/luglio/i,    "JUL")
+      .gsub(/agosto/i,    "AUG")
+      .gsub(/settembre/i, "SEP")
+      .gsub(/ottobre/i,   "OCT")
+      .gsub(/dicembre/i,  "DEC")
+      .gsub(/GEN/i,       "JAN")
+      .gsub(/MAG/i,       "MAY")
+      .gsub(/GIU/i,       "JUN")
+      .gsub(/LUG/i,       "JUL")
+      .gsub(/AGO/i,       "AUG")
+      .gsub(/SET/i,       "SEP")
+      .gsub(/OTT/i,       "OCT")
+      .gsub(/DIC/i,       "DEC")
   end
 
   ##
