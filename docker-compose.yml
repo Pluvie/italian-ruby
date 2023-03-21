@@ -1,0 +1,11 @@
+version: "3.9"
+name: "italian-ruby"
+services:
+  dev:
+    build:
+      context: "."
+      dockerfile: "./Dockerfile"
+    volumes:
+      - ".:/italian-ruby"
+      - "~/.ssh:/root/.ssh-keys:ro"
+    command: "sleep infinity"

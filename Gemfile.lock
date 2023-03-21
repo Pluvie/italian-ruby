@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    italian-ruby (1.0.0)
+    italian-ruby (1.5.14)
 
 GEM
   remote: https://rubygems.org/
@@ -32,4 +32,4 @@ DEPENDENCIES
   rspec (~> 3.9)
 
 BUNDLED WITH
-   2.1.4
+   2.2.33
