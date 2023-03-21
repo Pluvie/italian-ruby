@@ -6,6 +6,7 @@ class Object
     alias             :nuovo                          :new
     alias             :nuova                          :new
     alias             :ottieni_costante               :const_get
+    alias             :costanti                       :constants
     alias             :in_stringa                     :to_s
   end
 
