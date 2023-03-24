@@ -8,8 +8,11 @@ class Class
 
   end
 
+  alias       :privato                :private
   alias       :privati                :private
+  alias       :protetto               :protected
   alias       :protetti               :protected
+  alias       :pubblico               :public
   alias       :pubblici               :public
   alias       :accessore              :attr_accessor
   alias       :lettore                :attr_reader

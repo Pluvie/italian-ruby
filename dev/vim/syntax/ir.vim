@@ -55,7 +55,7 @@ syn match   italianRubyRegexpSpecial        "\v\\w|\\W|\\b|\\B"                 
 
 syn match   italianRubyInvocation           /\vinvoca /me=e-1
 syn match   italianRubySpecial              /\v(\s|^)(includi|estendi|preponi)(\s|$)/
-syn match   italianRubySpecial              /\v(\s|^)(pubblici|protetti|privati)(\s|$)/
+syn match   italianRubySpecial              /\v(\s|^)(pubblici|pubblico|protetti|protetto|privati|privato)(\s|$)/
 syn match   italianRubySpecial              /\v(\s|^)(richiedi|richiedi_relativo|richiedi_tutti|rimanda|rimanda_relativo)(\s|$)/
 syn match   italianRubySpecial              /\v(\s|^)(cicla|alza)(\s|$)/me=e-1
 syn match   italianRubySpecial              /\v(\s|^)(cattura|lancia)\s/me=e-1
