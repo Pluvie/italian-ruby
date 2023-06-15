@@ -13,7 +13,8 @@
             "icon": {
                 "light": "icons/italianruby.svg",
                 "dark": "icons/italianruby.svg"
-            }
+            },
+            "configuration": "./language-configuration.json"
         }],
         "grammars": [{
             "language": "italianruby",
