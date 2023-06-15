@@ -9,7 +9,11 @@
         "languages": [{
             "id": "italianruby",
             "aliases": ["ItalianRuby", "italianruby"],
-            "extensions": [".ir"]
+            "extensions": [".ir"],
+            "icon": {
+                "light": "icons/italianruby.svg",
+                "dark": "icons/italianruby.svg"
+            }
         }],
         "grammars": [{
             "language": "italianruby",
