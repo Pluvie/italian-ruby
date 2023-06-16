@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="168"
+   height="168"
+   data-name="Layer 1"
+   version="1.1"
+   id="svg100"
+   sodipodi:docname="italianruby.svg"
+   inkscape:version="1.2.2 (b0a8486, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs104" />
+  <sodipodi:namedview
+     id="namedview102"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="4.4337186"
+     inkscape:cx="33.606102"
+     inkscape:cy="79.955458"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg100" />
+  <g
+     id="Layer_1"
+     transform="matrix(7.443578,0,0,7.443578,-1.2399512,-227.72429)">
+    <title
+       id="title82">Layer 1</title>
+    <g
+       id="g89">
+      <metadata
+         id="svg_6">image/svg+xml</metadata>
+      <g
+         id="svg_2">
+        <g
+           id="svg_3">
+          <path
+             stroke-width="1px"
+             fill-rule="evenodd"
+             fill="#e74c3c"
+             d="M 4.63283,30.59339 H 18.0316 l 4.67401,4.7779 -11.32145,11.0099 -11.21758,-11.3216 z"
+             id="svg_5" />
+          <path
+             stroke-width="1px"
+             fill-rule="evenodd"
+             fill="#c0392b"
+             d="m 11.3717,33.49229 v 9.7681 l -8.44614,-8.2992 1.83612,-1.6892 z"
+             id="svg_4" />
+        </g>
+      </g>
+    </g>
+    <g
+       stroke="null"
+       id="g97">
+      <rect
+         stroke="null"
+         x="5.4489498"
+         y="32.359131"
+         fill="#009246"
+         height="6.7435699"
+         width="11.71792"
+         id="rect91" />
+      <rect
+         stroke="null"
+         y="32.359131"
+         fill="#ffffff"
+         x="9.3549204"
+         height="6.7435699"
+         width="7.8119502"
+         id="rect93" />
+      <rect
+         stroke="null"
+         y="32.359131"
+         fill="#ce2b37"
+         x="13.26089"
+         height="6.7435699"
+         width="3.9059701"
+         id="rect95" />
+    </g>
+  </g>
+</svg>

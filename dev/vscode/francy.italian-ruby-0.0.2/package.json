@@ -1,6 +1,6 @@
 {
-    "name": "Italian Ruby",
-    "version": "0.0.1",
+    "name": "italian-ruby",
+    "version": "0.0.2",
     "engines": {
         "vscode": ">=0.9.0-pre.1"
     },
@@ -9,7 +9,12 @@
         "languages": [{
             "id": "italianruby",
             "aliases": ["ItalianRuby", "italianruby"],
-            "extensions": [".ir"]
+            "extensions": [".ir"],
+            "icon": {
+                "light": "icons/italianruby.svg",
+                "dark": "icons/italianruby.svg"
+            },
+            "configuration": "./language-configuration.json"
         }],
         "grammars": [{
             "language": "italianruby",
