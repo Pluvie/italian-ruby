@@ -91,7 +91,7 @@ class Array
   # la lista originale.
   def simbolizza!
     self.map! do |element|
-      if element.is_a? Hash
+      if element.is_a? Hash or element.is_a? Array
         element.simbolizza!
       else
         element
