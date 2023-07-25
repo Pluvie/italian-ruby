@@ -105,7 +105,7 @@ class Array
   # una nuova lista.
   def simbolizza
     self.map do |element|
-      if element.is_a? Hash
+      if element.is_a? Hash or element.is_a? Array
         element.simbolizza
       else
         element
