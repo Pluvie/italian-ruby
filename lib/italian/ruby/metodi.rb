@@ -2,6 +2,7 @@
 
 require_relative "metodi/array"
 require_relative "metodi/date"
+require_relative "metodi/date_time"
 require_relative "metodi/false_class"
 require_relative "metodi/hash"
 require_relative "metodi/integer"

@@ -42,4 +42,21 @@ class Integer
     Time.now + self
   end
 
+  ##
+  # Restituisce la rappresentazione in byte (unsigned char) del numero intero.
+  def u8
+    raise RangeError, "#{self} out of u8 range" if (self >= 256)
+    self.chr
+  end
+
+  ##
+  # Restituisce la rappresentazione in byte (unsigned short) del numero intero.
+  def u16
+    raise RangeError, "#{self} out of u16 range" if (self >= 65536)
+    return "#{self.u8}#{0.u8}" if self < 256
+    first_byte = self & 0b000000011111111
+    second_byte = self >> 8
+    "#{first_byte.u8}#{second_byte.u8}"
+  end
+
 end
